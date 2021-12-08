@@ -2,10 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mmmiachennn.github.io/categories/</loc>
+    <loc>https://mmmiachennn.github.io/posts/first_post/</loc>
+    <lastmod>2021-12-08T20:27:27+08:00</lastmod>
   </url><url>
     <loc>https://mmmiachennn.github.io/</loc>
+    <lastmod>2021-12-08T20:27:27+08:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/posts/</loc>
+    <lastmod>2021-12-08T20:27:27+08:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/categories/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/tags/git/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/tags/github/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/tags/gitlab/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/tags/jupyter-lab/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/tags/jupyter-notebook/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mmmiachennn.github.io/tags/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/posts/blog_learn_git/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/posts/jupyter_lab/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/posts/miafirst/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mmmiachennn.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/</loc>
+    <lastmod>2021-04-12T00:00:00+00:00</lastmod>
   </url>
 </urlset>
