@@ -8,28 +8,37 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>什麼是 Git?</title>
-      <link>https://mmmiachennn.github.io/posts/blog_learn_git/</link>
-      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mmmiachennn.github.io/posts/blog_learn_git/</guid>
-      <description>Git 官網：https://git-scm.com/ 初學者 Git 指令查詢：https://backlog.com/git-tutorial/tw/intro/intro1_1.html  Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。 另外，還有大家熟知的 GitHub、GitLab 這邊都會稍微提到，也會比較他們的差異。
- GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
-參考來源：https://codertw.com/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7/27757/
-GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
-參考來源：https://blog.csdn.net/ThinkWon/article/details/101470086
-Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。  參考來源：https://blog.csdn.net/ThinkWon/article/details/101470086</description>
-    </item>
-    
-    <item>
       <title>什麼是 Jupyter Lab?</title>
       <link>https://mmmiachennn.github.io/posts/jupyter_lab/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://mmmiachennn.github.io/posts/jupyter_lab/</guid>
-      <description>Jupyter Notebook vs Jupyter Lab ? 我認為 Jupyter Lab 是 Jupyter Notebook 的好兄弟， 一開始我是用 Jupyter Notebook，被 Jupyter Lab 有很多附加功能吸引， 進而用 Jupyter Lab，大概除了一些小操作（可拖拉 kernel 的位置，等細到不能再細的東西）不同之外， 所有操作都大同小異，轉換零成本，只有更多優點。很推薦所有還在使用 Jupyter Notebook 的人趕快換 Jupyter Lab。
- Jupyter Lab 推薦功能 主題更換 白色對常在 Coding 的人來說太刺眼了。Jupyter Lab 就有提供兩種最常見的主題顏色(黑/白)， 但是他的黑色主題配色本人實在不喜歡，所以我又搜尋了如何轉換字的顏色的方法。
- 尋找該路徑下的 index.css 的檔案。  ~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css 主要 code 顏色從 line 322 開始，色碼使用為 hex color。 可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色， 或是直接點選喜歡的顏色會跳出色碼。   /* Code mirror specific styles */--jp-mirror-editor-keyword-color: var(--md-green-500);--jp-mirror-editor-atom-color: var(--md-blue-300);--jp-mirror-editor-number-color: var(--md-green-400);--jp-mirror-editor-def-color: var(--md-blue-600);--jp-mirror-editor-variable-color: var(--md-grey-300);--jp-mirror-editor-variable-2-color: var(--md-blue-400);--jp-mirror-editor-variable-3-color: var(--md-green-600);--jp-mirror-editor-punctuation-color: var(--md-blue-400);--jp-mirror-editor-property-color: var(--md-blue-400);--jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色--jp-mirror-editor-comment-color: #408080;--jp-mirror-editor-string-color: #ba2121; # String 的顏色--jp-mirror-editor-string-2-color: var(--md-purple-300);--jp-mirror-editor-meta-color: #aa22ff;--jp-mirror-editor-qualifier-color: #555;--jp-mirror-editor-builtin-color: var(--md-green-600);--jp-mirror-editor-bracket-color: #997;--jp-mirror-editor-tag-color: var(--md-green-700);--jp-mirror-editor-attribute-color: var(--md-blue-700);--jp-mirror-editor-header-color: var(--md-blue-500);--jp-mirror-editor-quote-color: var(--md-green-300);--jp-mirror-editor-link-color: var(--md-blue-700);--jp-mirror-editor-error-color: #f00;--jp-mirror-editor-hr-color: #999;參考資料：https://github.</description>
+      <description>Jupyter Notebook vs Jupyter Lab ? 身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去， Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得）， Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案&amp;hellip;等， 非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。
+ Jupyter Lab 更換 code 文字顏色顏色 對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。 Jupyter Lab 就有提供兩種最常見的主題顏色(黑/白)， 但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。
+ 首先是尋找該路徑下的 index.css 的檔案。  ~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css 主要 code 顏色從 line 322 開始，色碼使用為 hex color。 可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色， 或是直接點選喜歡的顏色會跳出色碼。   /* Code mirror specific styles */--jp-mirror-editor-keyword-color: var(--md-green-500);--jp-mirror-editor-atom-color: var(--md-blue-300);--jp-mirror-editor-number-color: var(--md-green-400);--jp-mirror-editor-def-color: var(--md-blue-600);--jp-mirror-editor-variable-color: var(--md-grey-300);--jp-mirror-editor-variable-2-color: var(--md-blue-400);--jp-mirror-editor-variable-3-color: var(--md-green-600);--jp-mirror-editor-punctuation-color: var(--md-blue-400);--jp-mirror-editor-property-color: var(--md-blue-400);--jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色--jp-mirror-editor-comment-color: #408080;--jp-mirror-editor-string-color: #ba2121; # String 的顏色--jp-mirror-editor-string-2-color: var(--md-purple-300);--jp-mirror-editor-meta-color: #aa22ff;--jp-mirror-editor-qualifier-color: #555;--jp-mirror-editor-builtin-color: var(--md-green-600);--jp-mirror-editor-bracket-color: #997;--jp-mirror-editor-tag-color: var(--md-green-700);--jp-mirror-editor-attribute-color: var(--md-blue-700);--jp-mirror-editor-header-color: var(--md-blue-500);--jp-mirror-editor-quote-color: var(--md-green-300);--jp-mirror-editor-link-color: var(--md-blue-700);--jp-mirror-editor-error-color: #f00;--jp-mirror-editor-hr-color: #999;參考資料：https://github.</description>
+    </item>
+    
+    <item>
+      <title>初學者 Git 學習</title>
+      <link>https://mmmiachennn.github.io/posts/blog_learn_git/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/posts/blog_learn_git/</guid>
+      <description>Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。 這個網站連猴子都能懂的 Git 入門指南 被我當作字典一樣瘋狂翻閱，大推推到爆。 以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+ Git Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+ GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
+Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。   題外話 本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。 現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛， 在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。 同事也有推薦幾個好用的輔助工具，Git Bush （提供Git terminal 以及 GUI 操作介面）和 Fork（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）</description>
+    </item>
+    
+    <item>
+      <title>如何建立部落格</title>
+      <link>https://mmmiachennn.github.io/posts/miafirst/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/posts/miafirst/</guid>
+      <description>這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&amp;hellip;等。當初選擇使用 Hugo 有幾個原因： 同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到 blog搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。  因此以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。 此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。
+ Windows 怎麼建立 Hugo？ 雖然我沒有使用過 mac，但聽同事講起來 hugo 在 windows 上的安裝比較麻煩一點，要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。（有關 Chocolately，目前還沒有深入研究，也許之後文章更新？）安裝 Chocolately 的方法參考此網站 。安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。  怎麼用 Hugo Theme？ to be contiune。。。。</description>
     </item>
     
   </channel>

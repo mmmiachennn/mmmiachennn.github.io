@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>作者相關 on Mia Blog</title>
+    <link>https://mmmiachennn.github.io/categories/%E4%BD%9C%E8%80%85%E7%9B%B8%E9%97%9C/</link>
+    <description>Recent content in 作者相關 on Mia Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/categories/%E4%BD%9C%E8%80%85%E7%9B%B8%E9%97%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>關於作者</title>
+      <link>https://mmmiachennn.github.io/posts/resume/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/posts/resume/</guid>
+      <description>基本資料 Mia - Data Engineer
+ E-mail: ca1231ndy@gmail.com 履歷 Blog  Skills  Python R SQL Git Spark Linux  個人特質  細心 富有好奇心 善於團隊溝通   學經歷 學習計劃 2021/10 ~ 現在 建立虛擬貨幣 Dash Board，借由此 Project 學習資料庫建制、如何處理大資料、建立 ETL pipeline、建立 web。實作：
+ 撈取虛擬貨幣交易資訊 使用 python dash package 呈現網頁內容包含交易資訊視覺化（ data table 、 line plot 、不同時間區間的轉換）、貨幣背景。 加入模型做預測並呈現結果。   華碩電腦 - 演算法工程師 2021/3 ~ 2021/10 備料專案預測 爲華碩客服預測電腦零件的維修量並提供買料數量以供客服參考。 嘗試使用 LSTM 與 MLP 方法做預測，最後專案使用 MLP 模型，搭配手動條件。優 化整體開發流程，改善程式碼的可讀性、調整 Log 的記錄與處理、整理專案開發流程 PPT 檔 。</description>
+    </item>
+    
+  </channel>
+</rss>

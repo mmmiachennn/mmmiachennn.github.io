@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Mia Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>resume</title>
+      <link>https://mmmiachennn.github.io/tags/resume/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/tags/resume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chocolately</title>
+      <link>https://mmmiachennn.github.io/tags/chocolately/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/tags/chocolately/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Git</title>
       <link>https://mmmiachennn.github.io/tags/git/</link>
@@ -31,6 +49,15 @@
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://mmmiachennn.github.io/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://mmmiachennn.github.io/tags/hugo/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
