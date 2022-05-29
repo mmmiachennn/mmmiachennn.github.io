@@ -18,7 +18,7 @@
 安裝 pysaprk https://www.datacamp.com/community/tutorials/installation-of-pyspark
 Linux截圖 https://yanwei-liu.medium.com/如何使用ubnutu截圖-cbacb6f3d435
 在 windows 電腦安裝 Ubuntu 18.04 之前有嘗試過使用 WSL 的方式安裝 Linux，失敗很多次，最後雖然有成功，但後來也沒有再繼續使用。 直到這次想要轉職，發現這個職位的工作技能需要有使用 Linux 的經驗，因此這次決定使用雙系統的方式來安裝 Linux。 由於沒有即時記錄參考的網站，只依稀記得當初的步驟，還是決定現將它記錄下來。
- download Ubuntu 18.04 檔案 切割磁碟（決定 Ubuntu 可以使用的檔案空間） 使用 USB Live 作開機安裝 Ubuntu 重新開機，在開機時叫出 BIOS（我的電腦是 MSI，按F11） 選擇 USB 開機按鈕 安裝 Ubuntu 每次開機都要切換到 Ubuntu，否則就會直接開機 Windows  P.S. 不知到是本來電腦就有點不穩定還是怎樣（電池有問題），安裝雙系統之後常常會有當機或是關機的問題， 甚至還有整個驅動程式壞掉的狀況，Ubuntu 還有 Windows 都有發生這個問題，後來又自己好了，我還是不懂電腦， 但我希望未來可以一步一步的瞭解它。</description>
+ download Ubuntu 18.04 檔案 切割磁碟（決定 Ubuntu 可以使用的檔案空間） 使用 USB Live 作開機安裝 Ubuntu 重新開機，在開機時叫出 BIOS（我的電腦是 MSI，按F11） 選擇 USB 開機按鈕 安裝 Ubuntu 每次開機都要切換到 Ubuntu，否則就會直接開機 Windows 步驟 7 修改 bios 的開機順序即可。  </description>
     </item>
     
   </channel>

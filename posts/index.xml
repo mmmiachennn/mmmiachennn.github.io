@@ -6,7 +6,31 @@
     <description>Recent content in Posts on Mia Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初入 Linux</title>
+      <link>https://mmmiachennn.github.io/posts/about_airflow/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/posts/about_airflow/</guid>
+      <description>Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
+本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
+airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
+airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&amp;hellip; 等功能，真的非常的好用且上手。
+案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。</description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>https://mmmiachennn.github.io/posts/about_spark/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mmmiachennn.github.io/posts/about_spark/</guid>
+      <description>Spark 簡介 使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。 與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。
+ Spark Streaming 流數據處理 Spark Mlib 機器學習  由於目前工作所需的是 python，所以使用 pyspark 來協助我開發。 在這邊推薦這個網站對我來說要上手一個工具最快的方法就是從 example 中學習，這樣也比較會有記憶點， 邊做邊學也許會有不同的發想。當初接到的第一個任務就是針對 Spark 效能做調整。
+Spark 效能調較 Spark 有很多參數可以調較，而且也能夠針對機器的規格以及使用情境做不同的調整。舉例來說，如果同時有多個使用者要一起用 spark， 每一個 task 所開放的最大 cpu cores 或是 memory 就不能設定到幾乎跟原始設備一樣的規格，就會有人需要排隊等待， 反之，若是使用人數不多而且每一次 task 跑的數據量較大的話，就需要將設定規格開高一點。 由於 Spark 底層是由 Java 所實現的，因此有很多參數是對 JVM 進行調整，但是對一個剛開始碰 Spark 且只用過 python 的人來說（我）還是先從基礎的功能開始。 Spark 的資料夾中有，spark config 的檔案，不同的 spark mode (ex: Standalone, Cluster, Client)，要設定 config 檔案也不同。</description>
+    </item>
+    
     <item>
       <title>初入 Linux</title>
       <link>https://mmmiachennn.github.io/posts/about_linux/</link>
@@ -18,7 +42,7 @@
 安裝 pysaprk https://www.datacamp.com/community/tutorials/installation-of-pyspark
 Linux截圖 https://yanwei-liu.medium.com/如何使用ubnutu截圖-cbacb6f3d435
 在 windows 電腦安裝 Ubuntu 18.04 之前有嘗試過使用 WSL 的方式安裝 Linux，失敗很多次，最後雖然有成功，但後來也沒有再繼續使用。 直到這次想要轉職，發現這個職位的工作技能需要有使用 Linux 的經驗，因此這次決定使用雙系統的方式來安裝 Linux。 由於沒有即時記錄參考的網站，只依稀記得當初的步驟，還是決定現將它記錄下來。
- download Ubuntu 18.04 檔案 切割磁碟（決定 Ubuntu 可以使用的檔案空間） 使用 USB Live 作開機安裝 Ubuntu 重新開機，在開機時叫出 BIOS（我的電腦是 MSI，按F11） 選擇 USB 開機按鈕 安裝 Ubuntu 每次開機都要切換到 Ubuntu，否則就會直接開機 Windows  P.S. 不知到是本來電腦就有點不穩定還是怎樣（電池有問題），安裝雙系統之後常常會有當機或是關機的問題， 甚至還有整個驅動程式壞掉的狀況，Ubuntu 還有 Windows 都有發生這個問題，後來又自己好了，我還是不懂電腦， 但我希望未來可以一步一步的瞭解它。</description>
+ download Ubuntu 18.04 檔案 切割磁碟（決定 Ubuntu 可以使用的檔案空間） 使用 USB Live 作開機安裝 Ubuntu 重新開機，在開機時叫出 BIOS（我的電腦是 MSI，按F11） 選擇 USB 開機按鈕 安裝 Ubuntu 每次開機都要切換到 Ubuntu，否則就會直接開機 Windows 步驟 7 修改 bios 的開機順序即可。  </description>
     </item>
     
     <item>
