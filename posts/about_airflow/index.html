@@ -1,58 +1,137 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.82.0" />
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>初入 Linux | Mia Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
+本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
+airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
+airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。
+案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。">
+    <meta name="generator" content="Hugo 0.82.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
 
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="初入 Linux" />
+<meta property="og:description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
+本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
+airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
+airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。
+案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmmiachennn.github.io/posts/about_airflow/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-18T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-05-18T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="初入 Linux">
+<meta itemprop="description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
+本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
+airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
+airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。
+案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。"><meta itemprop="datePublished" content="2022-05-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-05-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="92">
+<meta itemprop="keywords" content="Airflow,ETL,Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初入 Linux"/>
+<meta name="twitter:description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
+本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
+airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
+airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。
+案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>初入 Linux &middot; Mia Blog</title>
-  <meta name="description" content="" />
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Mia Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
+      
+      
+<div class="ananke-socials">
   
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/hyde.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+</div>
 
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-
-  
-  
-</head>
-
-  <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="https://mmmiachennn.github.io/"><h1>Mia Blog</h1></a>
-      <p class="lead">
-      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
-      </p>
     </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="https://mmmiachennn.github.io/">Home</a> </li>
-        
-      </ul>
-    </nav>
-
-    <p>&copy; 2022. All rights reserved. </p>
   </div>
-</aside>
+</nav>
 
-    <main class="content container">
-    <div class="post">
-  <h1>初入 Linux</h1>
-  <time datetime=2022-05-18T00:00:00Z class="post-date">Wed, May 18, 2022</time>
-  <h1 id="airflow-介紹">Airflow 介紹</h1>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">初入 Linux</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-05-18T00:00:00Z">May 18, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="airflow-介紹">Airflow 介紹</h1>
 <p>是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以</p>
 <p>本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container</p>
 <p>airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了，
@@ -71,14 +150,49 @@ ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&
 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握，
 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量，
 logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/airflow" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Airflow</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/etl" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ETL</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/python" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
 
-</div>
+    <aside class="w-30-l mt6-l">
 
+
+
+
+</aside>
+
+  </article>
 
     </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://mmmiachennn.github.io/" >
+    &copy;  Mia Blog 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
 
-    
-      
-    
   </body>
 </html>

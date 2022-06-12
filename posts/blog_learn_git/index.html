@@ -1,58 +1,137 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.82.0" />
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>初學者 Git 學習 | Mia Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。 這個網站連猴子都能懂的 Git 入門指南 被我當作字典一樣瘋狂翻閱，大推推到爆。 以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+ Git Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+基本觀念  Local（本地）和 Remote（遠端） working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）    GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
+Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。   題外話 本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。 現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛， 在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。 同事也有推薦幾個好用的輔助工具，Git Bush （提供Git terminal 以及 GUI 操作介面）和 Fork（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）">
+    <meta name="generator" content="Hugo 0.82.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
 
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="初學者 Git 學習" />
+<meta property="og:description" content="Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。 這個網站連猴子都能懂的 Git 入門指南 被我當作字典一樣瘋狂翻閱，大推推到爆。 以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+ Git Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+基本觀念  Local（本地）和 Remote（遠端） working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）    GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
+Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。   題外話 本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。 現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛， 在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。 同事也有推薦幾個好用的輔助工具，Git Bush （提供Git terminal 以及 GUI 操作介面）和 Fork（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmmiachennn.github.io/posts/blog_learn_git/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-12T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-12T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="初學者 Git 學習">
+<meta itemprop="description" content="Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。 這個網站連猴子都能懂的 Git 入門指南 被我當作字典一樣瘋狂翻閱，大推推到爆。 以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+ Git Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+基本觀念  Local（本地）和 Remote（遠端） working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）    GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
+Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。   題外話 本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。 現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛， 在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。 同事也有推薦幾個好用的輔助工具，Git Bush （提供Git terminal 以及 GUI 操作介面）和 Fork（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）"><meta itemprop="datePublished" content="2021-04-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="100">
+<meta itemprop="keywords" content="Git,GitHub,GitLab," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初學者 Git 學習"/>
+<meta name="twitter:description" content="Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。 這個網站連猴子都能懂的 Git 入門指南 被我當作字典一樣瘋狂翻閱，大推推到爆。 以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+ Git Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+基本觀念  Local（本地）和 Remote（遠端） working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）    GitLab 和 GitHub 的差異 GitHub GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+GitLab GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具， 並在此基礎上搭建起來的 Web 服務。
+Git, GitHub, GitLab  Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。 GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。 GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。 GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。   題外話 本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。 現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛， 在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。 同事也有推薦幾個好用的輔助工具，Git Bush （提供Git terminal 以及 GUI 操作介面）和 Fork（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>初學者 Git 學習 &middot; Mia Blog</title>
-  <meta name="description" content="" />
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Mia Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
+      
+      
+<div class="ananke-socials">
   
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://mmmiachennn.github.io/css/hyde.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+</div>
 
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-
-  
-  
-</head>
-
-  <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="https://mmmiachennn.github.io/"><h1>Mia Blog</h1></a>
-      <p class="lead">
-      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
-      </p>
     </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="https://mmmiachennn.github.io/">Home</a> </li>
-        
-      </ul>
-    </nav>
-
-    <p>&copy; 2022. All rights reserved. </p>
   </div>
-</aside>
+</nav>
 
-    <main class="content container">
-    <div class="post">
-  <h1>初學者 Git 學習</h1>
-  <time datetime=2021-04-12T00:00:00Z class="post-date">Mon, Apr 12, 2021</time>
-  <p>Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">初學者 Git 學習</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-04-12T00:00:00Z">April 12, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。
 這個網站<a href="https://backlog.com/git-tutorial/tw/intro/intro1_1.html"><em>連猴子都能懂的 Git 入門指南</em></a>
 被我當作字典一樣瘋狂翻閱，大推推到爆。 <!-- raw HTML omitted --></p>
 <p>以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。</p>
@@ -92,14 +171,49 @@
 <li><a href="https://codertw.com/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7/27757/">https://codertw.com/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7/27757/</a></li>
 <li><a href="https://blog.csdn.net/ThinkWon/article/details/101470086">https://blog.csdn.net/ThinkWon/article/details/101470086</a></li>
 </ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/git" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Git</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/github" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">GitHub</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/gitlab" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">GitLab</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
 
-</div>
+    <aside class="w-30-l mt6-l">
 
+
+
+
+</aside>
+
+  </article>
 
     </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://mmmiachennn.github.io/" >
+    &copy;  Mia Blog 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
 
-    
-      
-    
   </body>
 </html>
