@@ -13,10 +13,9 @@
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://mmmiachennn.github.io/posts/about_airflow/</guid>
-      <description>Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以
-本篇文章主要使用 Airflow 的環境為 puckel/airflow image 建立的 container
-airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 package 的時候要再建一個新的 image， 不然 restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。
-airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&amp;hellip; 等功能，真的非常的好用且上手。
+      <description>Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程， 並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI， GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&amp;hellip; 等功能，真的非常的好用且上手。 本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。
+Airflow 的建立 Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image， 否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。 本篇 Airflow 使用環境為 puckel/airflow image。
+Airflow 建立參考文章 1 2
 案例分享 我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式， 資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。 過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化， 再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。 其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。 最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握， 由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量， logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。</description>
     </item>
     
@@ -52,7 +51,7 @@ Linux截圖 https://yanwei-liu.medium.com/如何使用ubnutu截圖-cbacb6f3d435
       
       <guid>https://mmmiachennn.github.io/posts/resume/</guid>
       <description>基本資料 Mia - Data Engineer
- E-mail: ca1231ndy@gmail.com 履歷 Blog  Skills  Python R SQL Git Spark Linux  個人特質  細心 富有好奇心 善於團隊溝通   學經歷 學習計劃 2021/10 ~ 現在 建立虛擬貨幣 Dash Board，借由此 Project 學習資料庫建制、如何處理大資料、建立 ETL pipeline、建立 web。實作：
+ E-mail: ca1231ndy@gmail.com 履歷 Blog  Skills  Python R MSSQL Git Airflow MongoDB Linux Docker  個人特質  細心 富有好奇心 善於團隊溝通   學經歷 學習計劃 2021/10 ~ 現在 建立虛擬貨幣 Dash Board，借由此 Project 學習資料庫建制、如何處理大資料、建立 ETL pipeline、建立 web。實作：
  撈取虛擬貨幣交易資訊 使用 python dash package 呈現網頁內容包含交易資訊視覺化（ data table 、 line plot 、不同時間區間的轉換）、貨幣背景。 加入模型做預測並呈現結果。   華碩電腦 - 演算法工程師 2021/3 ~ 2021/10 備料專案預測 爲華碩客服預測電腦零件的維修量並提供買料數量以供客服參考。 嘗試使用 LSTM 與 MLP 方法做預測，最後專案使用 MLP 模型，搭配手動條件。優 化整體開發流程，改善程式碼的可讀性、調整 Log 的記錄與處理、整理專案開發流程 PPT 檔 。</description>
     </item>
     
