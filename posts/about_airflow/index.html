@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>初入 Linux | Mia Blog</title>
+    <title>Airflow | Mia Blog</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程， 並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI， GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。 本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。
 Airflow 的建立 Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image， 否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。 本篇 Airflow 使用環境為 puckel/airflow image。
@@ -32,7 +32,7 @@ Airflow 建立參考文章 1 2
 
     
     
-    <meta property="og:title" content="初入 Linux" />
+    <meta property="og:title" content="Airflow" />
 <meta property="og:description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程， 並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI， GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。 本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。
 Airflow 的建立 Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image， 否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。 本篇 Airflow 使用環境為 puckel/airflow image。
 Airflow 建立參考文章 1 2
@@ -42,7 +42,7 @@ Airflow 建立參考文章 1 2
 <meta property="article:published_time" content="2022-05-18T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-05-18T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="初入 Linux">
+<meta itemprop="name" content="Airflow">
 <meta itemprop="description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程， 並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI， GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。 本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。
 Airflow 的建立 Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image， 否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。 本篇 Airflow 使用環境為 puckel/airflow image。
 Airflow 建立參考文章 1 2
@@ -50,7 +50,7 @@ Airflow 建立參考文章 1 2
 <meta itemprop="dateModified" content="2022-05-18T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="107">
 <meta itemprop="keywords" content="Airflow,ETL,Python," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="初入 Linux"/>
+<meta name="twitter:title" content="Airflow"/>
 <meta name="twitter:description" content="Airflow 介紹 是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程， 並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI， GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、 ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態&hellip; 等功能，真的非常的好用且上手。 本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。
 Airflow 的建立 Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了， 當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了， 不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image， 否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務， 這部份還沒研究，後面文章再補出來。 本篇 Airflow 使用環境為 puckel/airflow image。
 Airflow 建立參考文章 1 2
@@ -117,7 +117,7 @@ Airflow 建立參考文章 1 2
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">初入 Linux</h1>
+      <h1 class="f1 athelas mt3 mb1">Airflow</h1>
       
       
       
