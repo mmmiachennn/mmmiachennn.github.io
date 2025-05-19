@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/01/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Jupyter Lab 換文字顏色</title>
+    <url>/2021/04/12/jupyter_lab/</url>
+    <content><![CDATA[<h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
+<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
+<ul>
+<li>首先是尋找該路徑下的 index.css 的檔案。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line"> --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line"> --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line"> --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line"> --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line"> --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line"> --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色</span><br><span class="line"> --jp-mirror-editor-comment-color: #408080;</span><br><span class="line"> --jp-mirror-editor-string-color: #ba2121; # String 的顏色</span><br><span class="line"> --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line"> --jp-mirror-editor-meta-color: #aa22ff;</span><br><span class="line"> --jp-mirror-editor-qualifier-color: #555;</span><br><span class="line"> --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-bracket-color: #997;</span><br><span class="line"> --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line"> --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line"> --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line"> --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-error-color: #f00;</span><br><span class="line"> --jp-mirror-editor-hr-color: #999;</span><br></pre></td></tr></table></figure>
+
+<p>參考資料：<a href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Jupyter Lab</tag>
+        <tag>Jupyter Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github Actions Deploy To VM</title>
+    <url>/2025/02/24/github_actions_deploy_to_vm/</url>
+    <content><![CDATA[<h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><p>git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM</p>
+<h2 id="VM-的準備"><a href="#VM-的準備" class="headerlink" title="VM 的準備"></a>VM 的準備</h2><ul>
+<li><p>安裝 gcloud SDK</p>
+</li>
+<li><p>安裝 gcsfuse CLI <a href="https://cloud.google.com/storage/docs/cloud-storage-fuse/cli-options">官方文件</a></p>
+</li>
+<li><p>設定 gcs mount vm 特定資料夾</p>
+</li>
+<li><p>設定 service_account 給 Github actions 使用</p>
+</li>
+</ul>
+<h2 id="Github-actions-準備"><a href="#Github-actions-準備" class="headerlink" title="Github actions 準備"></a>Github actions 準備</h2><ul>
+<li><p>設定 github actions workflow script trigger 的條件</p>
+</li>
+<li><p>儲存 service_account 在 github 的 setting &gt; secrets and variables</p>
+</li>
+<li><p>CD workflow</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Code</span> <span class="string">To</span> <span class="string">GCS</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;feature/**&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job_id:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">auth</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/auth@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">credentials_json:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SERVICE_ACCOUNT</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Google</span> <span class="string">Cloud</span> <span class="string">SDK</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/setup-gcloud@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">&gt;=</span> <span class="number">363.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">code</span> <span class="string">to</span> <span class="string">GCS</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">gsutil</span> <span class="string">-m</span> <span class="string">rsync</span> <span class="string">-d</span> <span class="string">-r</span> <span class="string">action/path</span> <span class="string">gs://bucket-name/path</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>這個流程是針對當時的公司所能做的最基本的 CD 腳本，做一個簡單 CD 的參考。原本公司的開發、上線流程是全手動的，但是一直遇到很多不必要的問題，實在是受不了，就寫去研究 Github Actions，才有了現在這個簡易 CD 流程。</p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol>
+<li><p>gsutil “cannot open path of the current working directory: Permission denied”.</p>
+<ul>
+<li>解決方法：調整 –file-mode 或 –dir-mode 的設定，查詢 linux fuse 相關設定。</li>
+</ul>
+</li>
+<li><p>gsutil 做的變動，不會被 VM 的資料夾同步。</p>
+<ul>
+<li>解決方法：加入 gcsfuse 指令加入 –implicit-dirs 參數。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>deploy</category>
+      </categories>
+      <tags>
+        <tag>Github Actions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初學者 Git 學習</title>
+    <url>/2021/04/12/learn_git_beginer/</url>
+    <content><![CDATA[<h2 id="初學者必讀-Git-學習"><a href="#初學者必讀-Git-學習" class="headerlink" title="初學者必讀 Git 學習"></a>初學者必讀 Git 學習</h2><p><a href="https://backlog.com/git-tutorial/tw/intro/intro1_1.html"><em>連猴子都能懂的 Git 入門指南</em></a></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li><p>Git 有跟 Local（本機）和 Remote（遠端、Origin）</p>
+</li>
+<li><p>working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）</p>
+</li>
+</ul>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 切分支</span><br><span class="line">git checkot branch_name</span><br><span class="line"></span><br><span class="line"># 切新的分支</span><br><span class="line">git checkout -b branch_name</span><br><span class="line"></span><br><span class="line"># 查看分支狀況</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 刪除 branch</span><br><span class="line">git brand -d branch_name</span><br><span class="line"></span><br><span class="line"># 合併 main branch 至當前分支</span><br><span class="line">git merge main</span><br><span class="line"></span><br><span class="line"># 暫存異動</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 暫存異動列表</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"># 讀取暫存異動</span><br><span class="line">git stash pop</span><br><span class="line">git stash pop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 刪除暫存異動</span><br><span class="line">git stash drop</span><br><span class="line">git stash drop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 將 remote 的 branch 拉至 local</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"># 將 local 的 branch 推至 remote</span><br><span class="line">git push</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-深入閱讀"><a href="#Git-深入閱讀" class="headerlink" title="Git 深入閱讀"></a>Git 深入閱讀</h2><p><a href="https://git-scm.com/book/zh/v2">https://git-scm.com/book/zh/v2</a></p>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>我的學歷並非 CS 出生的，對電腦和程式一竅不通，一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。現在回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛，也很感謝當時的同事都願意教我。<br>在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。同事也有推薦幾個好用的輔助工具，<em>Git Bash</em> (Windows 友善的命令行工具) 和<br><em>Fork</em>（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）</p>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>離線安裝 pyenv</title>
+    <url>/2025/04/12/pyenv_offline_install/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+</search>

@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mmmiachennn.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"mmmiachennn.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Data Engineer: python,pyspark,sql,airflow,gcp">
+  <meta name="description" content="關於我我是 Mia，目前擔任 Data Engineer。剛出社會的時候一心只想當 Data Scientist，工作幾年之後發現洞察能力實在不行、反應慢、不太會說話等等。在經過一番波折之下決定專注在資料工程裡，也因為有這些波折，讓我更了解我自己的成就感來源、擅長的事情、我的優勢跟劣勢是什麼，才有今天的我。 這個部落格主要紀錄我彙整學習到的資訊，包含 Python、Pyspark、Datapipe">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about Mia">
 <meta property="og:url" content="https://mmmiachennn.github.io/about/index.html">
 <meta property="og:site_name" content="Mia BBBlog">
-<meta property="og:description" content="Data Engineer: python,pyspark,sql,airflow,gcp">
+<meta property="og:description" content="關於我我是 Mia，目前擔任 Data Engineer。剛出社會的時候一心只想當 Data Scientist，工作幾年之後發現洞察能力實在不行、反應慢、不太會說話等等。在經過一番波折之下決定專注在資料工程裡，也因為有這些波折，讓我更了解我自己的成就感來源、擅長的事情、我的優勢跟劣勢是什麼，才有今天的我。 這個部落格主要紀錄我彙整學習到的資訊，包含 Python、Pyspark、Datapipe">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-17T14:03:55.000Z">
-<meta property="article:modified_time" content="2025-02-17T14:05:21.809Z">
+<meta property="article:modified_time" content="2025-05-19T13:20:12.801Z">
 <meta property="article:author" content="Mia">
 <meta property="article:tag" content="Python,Spark,Data">
 <meta name="twitter:card" content="summary">
@@ -105,6 +105,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -119,16 +120,48 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -170,7 +203,9 @@
       
       
       <div class="post-body">
-          <p>Data Engineer: python,pyspark,sql,airflow,gcp</p>
+          <h2 id="關於我"><a href="#關於我" class="headerlink" title="關於我"></a>關於我</h2><p>我是 Mia，目前擔任 Data Engineer。剛出社會的時候一心只想當 Data Scientist，工作幾年之後發現洞察能力實在不行、反應慢、不太會說話等等。<br>在經過一番波折之下決定專注在資料工程裡，也因為有這些波折，讓我更了解我自己的成就感來源、擅長的事情、我的優勢跟劣勢是什麼，才有今天的我。</p>
+<p>這個部落格主要紀錄我彙整學習到的資訊，包含 Python、Pyspark、Datapipeline 的處理、GCP 雲端架構的限制與規劃。<br>以及一些我覺得很有趣但可能沒什麼用的小工具XD。<br>希望這個小小的部落格可以為這個世界有所幫助～</p>
+<p>感謝你來到這裡，祝你閱讀愉快！</p>
 
       </div>
       
@@ -232,6 +267,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%9C%E6%96%BC%E6%88%91"><span class="nav-number">1.</span> <span class="nav-text">關於我</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -245,16 +281,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
@@ -287,7 +323,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Mia</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>
 
         
@@ -309,7 +345,7 @@
 <script src="/js/utils.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -320,6 +356,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"mmmiachennn.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Jupyter Notebook vs Jupyter Lab ?身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案">
+  <meta name="description" content="主要流程git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM VM 的準備 安裝 gcloud SDK  安裝 gcsfuse CLI 官方文件  設定 gcs mount vm 特定資料夾  設定 service_account 給 Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jupyter Lab 換文字顏色">
-<meta property="og:url" content="https://mmmiachennn.github.io/2021/04/12/jupyter_lab/index.html">
+<meta property="og:title" content="Github Actions Deploy To VM">
+<meta property="og:url" content="https://mmmiachennn.github.io/2025/02/24/github_actions_deploy_to_vm/index.html">
 <meta property="og:site_name" content="Mia BBBlog">
-<meta property="og:description" content="Jupyter Notebook vs Jupyter Lab ?身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案">
+<meta property="og:description" content="主要流程git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM VM 的準備 安裝 gcloud SDK  安裝 gcsfuse CLI 官方文件  設定 gcs mount vm 特定資料夾  設定 service_account 給 Github">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-04-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-19T12:40:04.259Z">
+<meta property="article:published_time" content="2025-02-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-19T13:40:20.018Z">
 <meta property="article:author" content="Mia">
-<meta property="article:tag" content="Jupyter Lab">
-<meta property="article:tag" content="Jupyter Notebook">
+<meta property="article:tag" content="Github Actions">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mmmiachennn.github.io/2021/04/12/jupyter_lab/">
+<link rel="canonical" href="https://mmmiachennn.github.io/2025/02/24/github_actions_deploy_to_vm/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>Jupyter Lab 換文字顏色 | Mia BBBlog</title>
+  <title>Github Actions Deploy To VM | Mia BBBlog</title>
   
 
 
@@ -185,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2021/04/12/jupyter_lab/">
+    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2025/02/24/github_actions_deploy_to_vm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Jupyter Lab 換文字顏色
+          Github Actions Deploy To VM
         </h1>
 
         <div class="post-meta">
@@ -208,14 +207,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-12T00:00:00+08:00">2021-04-12</time>
+              <time title="創建時間：2025-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2025-02-24T00:00:00+08:00">2025-02-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-05-19 20:40:04" itemprop="dateModified" datetime="2025-05-19T20:40:04+08:00">2025-05-19</time>
+                <time title="修改時間：2025-05-19 21:40:20" itemprop="dateModified" datetime="2025-05-19T21:40:20+08:00">2025-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +222,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/deploy/" itemprop="url" rel="index"><span itemprop="name">deploy</span></a>
                 </span>
             </span>
 
@@ -238,19 +237,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
-<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
-<ul>
-<li>首先是尋找該路徑下的 index.css 的檔案。</li>
+        <h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><p>git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM</p>
+<h2 id="VM-的準備"><a href="#VM-的準備" class="headerlink" title="VM 的準備"></a>VM 的準備</h2><ul>
+<li><p>安裝 gcloud SDK</p>
+</li>
+<li><p>安裝 gcsfuse CLI <a target="_blank" rel="noopener" href="https://cloud.google.com/storage/docs/cloud-storage-fuse/cli-options">官方文件</a></p>
+</li>
+<li><p>設定 gcs mount vm 特定資料夾</p>
+</li>
+<li><p>設定 service_account 給 Github actions 使用</p>
+</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</li>
+<h2 id="Github-actions-準備"><a href="#Github-actions-準備" class="headerlink" title="Github actions 準備"></a>Github actions 準備</h2><ul>
+<li><p>設定 github actions workflow script trigger 的條件</p>
+</li>
+<li><p>儲存 service_account 在 github 的 setting &gt; secrets and variables</p>
+</li>
+<li><p>CD workflow</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Code</span> <span class="string">To</span> <span class="string">GCS</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;feature/**&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job_id:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">auth</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/auth@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">credentials_json:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SERVICE_ACCOUNT</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Google</span> <span class="string">Cloud</span> <span class="string">SDK</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/setup-gcloud@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">&gt;=</span> <span class="number">363.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">code</span> <span class="string">to</span> <span class="string">GCS</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">gsutil</span> <span class="string">-m</span> <span class="string">rsync</span> <span class="string">-d</span> <span class="string">-r</span> <span class="string">action/path</span> <span class="string">gs://bucket-name/path</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line"> --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line"> --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line"> --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line"> --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line"> --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line"> --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色</span><br><span class="line"> --jp-mirror-editor-comment-color: #408080;</span><br><span class="line"> --jp-mirror-editor-string-color: #ba2121; # String 的顏色</span><br><span class="line"> --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line"> --jp-mirror-editor-meta-color: #aa22ff;</span><br><span class="line"> --jp-mirror-editor-qualifier-color: #555;</span><br><span class="line"> --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-bracket-color: #997;</span><br><span class="line"> --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line"> --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line"> --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line"> --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-error-color: #f00;</span><br><span class="line"> --jp-mirror-editor-hr-color: #999;</span><br></pre></td></tr></table></figure>
-
-<p>參考資料：<a target="_blank" rel="noopener" href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>這個流程是針對當時的公司所能做的最基本的 CD 腳本，做一個簡單 CD 的參考。原本公司的開發、上線流程是全手動的，但是一直遇到很多不必要的問題，實在是受不了，就寫去研究 Github Actions，才有了現在這個簡易 CD 流程。</p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol>
+<li><p>gsutil “cannot open path of the current working directory: Permission denied”.</p>
+<ul>
+<li>解決方法：調整 –file-mode 或 –dir-mode 的設定，查詢 linux fuse 相關設定。</li>
+</ul>
+</li>
+<li><p>gsutil 做的變動，不會被 VM 的資料夾同步。</p>
+<ul>
+<li>解決方法：加入 gcsfuse 指令加入 –implicit-dirs 參數。</li>
+</ul>
+</li>
+</ol>
 
     </div>
 
@@ -260,8 +278,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Jupyter-Lab/" rel="tag"># Jupyter Lab</a>
-              <a href="/tags/Jupyter-Notebook/" rel="tag"># Jupyter Notebook</a>
+              <a href="/tags/Github-Actions/" rel="tag"># Github Actions</a>
           </div>
 
         
@@ -270,12 +287,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/12/learn_git_beginer/" rel="prev" title="初學者 Git 學習">
-      <i class="fa fa-chevron-left"></i> 初學者 Git 學習
+    <a href="/2025/01/21/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/01/21/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/2025/04/12/pyenv_offline_install/" rel="next" title="離線安裝 pyenv">
+      離線安裝 pyenv <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -335,7 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook-vs-Jupyter-Lab"><span class="nav-number">1.</span> <span class="nav-text">Jupyter Notebook vs Jupyter Lab ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Lab-%E6%9B%B4%E6%8F%9B-code-%E6%96%87%E5%AD%97%E9%A1%8F%E8%89%B2%E9%A1%8F%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">Jupyter Lab 更換 code 文字顏色顏色</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">主要流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VM-%E7%9A%84%E6%BA%96%E5%82%99"><span class="nav-number">2.</span> <span class="nav-text">VM 的準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-actions-%E6%BA%96%E5%82%99"><span class="nav-number">3.</span> <span class="nav-text">Github actions 準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E5%A4%96%E8%A9%B1"><span class="nav-number">4.</span> <span class="nav-text">題外話</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">5.</span> <span class="nav-text">Problem</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
