@@ -1,761 +1,396 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<!--Description-->
+
+
+
+    <meta name="description" content="筆記與學習"/>
+
+
+<!--Author-->
+
+    <meta name="author" content="Mia"/>
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="Mia 的學習筆記"/>
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="筆記與學習"/>
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Mia 的學習筆記"/>
+
+<!--Type page-->
+
+    <meta property="og:type" content="website"/>
+
+
+<!--Page Cover-->
+
+
+    <meta property="og:image" content="https://mmmiachennn.github.io/img/home-bg.jpg"/>
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+
+
+
+    <meta name="twitter:image" content="https://mmmiachennn.github.io/img/home-bg.jpg"/>
+
+
+<!-- Title -->
+
+<title>Mia 的學習筆記</title>
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
+<link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
+<link href="//fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mmmiachennn.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
-  <meta name="description" content="筆記與學習">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mia BBBlog">
-<meta property="og:url" content="https://mmmiachennn.github.io/index.html">
-<meta property="og:site_name" content="Mia BBBlog">
-<meta property="og:description" content="筆記與學習">
-<meta property="og:locale" content="zh_TW">
-<meta property="article:author" content="Mia">
-<meta property="article:tag" content="Python,Spark,Data">
-<meta name="twitter:card" content="summary">
+<!-- Gallery -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/featherlight@1.4.0/src/featherlight.css" integrity="sha256-30DV/STftlyQ6v8yaOWlabammvCYtRJERLj/m0b3zno=" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/lightgallery@1.6.11/dist/css/lightgallery.min.css">
 
-<link rel="canonical" href="https://mmmiachennn.github.io/">
+<!-- favicon -->
 
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-TW'
-  };
-</script>
-
-  <title>Mia BBBlog</title>
-  
+<link rel="icon" href="/img/favicon.png"/>
 
 
 
+    <!-- Google Analytics -->
+    
 
 
+<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- Head tag -->
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+<body>
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top bg-transparent position-absolute w-100 p-0" id="nav">
+    <div class="container pl-0 pr-0">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand text-white p-1 pl-3" href="/">Mia 的學習筆記</a>
+        </div>
+        <div class="navbar-nav float-right">
+            <button class="btn btn-link search-btn navbar-item" data-toggle="modal" data-target="#searchModal">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
     </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Mia BBBlog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
-        </a>
-      </li>
-  </ul>
+    <!-- /.container -->
 </nav>
 
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜尋..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-md-2 col-md-10 offset-md-1">
+                <div class="site-heading text-center text-white">
+                    <h1>Mia 的學習筆記</h1>
+                    <hr class="small">
+                    <span class="subheading d-block"></span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</header>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
+<!-- Main Content -->
+<div class="container page-index">
+    <div class="row">
+        <div class="col-lg-8 offset-md-2 col-md-10 offset-md-1">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2025/04/12/pyenv_offline_install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mia">
-      <meta itemprop="description" content="筆記與學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mia BBBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/12/pyenv_offline_install/" class="post-title-link" itemprop="url">離線安裝 pyenv</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2025-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-12T00:00:00+08:00">2025-04-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-05-19 21:53:15" itemprop="dateModified" datetime="2025-05-19T21:53:15+08:00">2025-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">開發相關</span></a>
-                </span>
-            </span>
-
-          
-
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2025/02/24/github_actions_deploy_to_vm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mia">
-      <meta itemprop="description" content="筆記與學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mia BBBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/02/24/github_actions_deploy_to_vm/" class="post-title-link" itemprop="url">Github Actions Deploy To VM</a>
+        <div class="col-lg-8 offset-md-2 col-md-10 offset-md-1 post-all">    
+            
+                
+                    <div class="post-preview post-preview-index">
+    <a href="/2025/04/12/pyenv_offline_install/">
+        <h2 class="post-title">
+            離線安裝 pyenv
         </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2025-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2025-02-24T00:00:00+08:00">2025-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-05-19 21:40:20" itemprop="dateModified" datetime="2025-05-19T21:40:20+08:00">2025-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/deploy/" itemprop="url" rel="index"><span itemprop="name">deploy</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><p>git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM</p>
-<h2 id="VM-的準備"><a href="#VM-的準備" class="headerlink" title="VM 的準備"></a>VM 的準備</h2><ul>
-<li><p>安裝 gcloud SDK</p>
-</li>
-<li><p>安裝 gcsfuse CLI <a target="_blank" rel="noopener" href="https://cloud.google.com/storage/docs/cloud-storage-fuse/cli-options">官方文件</a></p>
-</li>
-<li><p>設定 gcs mount vm 特定資料夾</p>
-</li>
-<li><p>設定 service_account 給 Github actions 使用</p>
-</li>
-</ul>
-<h2 id="Github-actions-準備"><a href="#Github-actions-準備" class="headerlink" title="Github actions 準備"></a>Github actions 準備</h2><ul>
-<li><p>設定 github actions workflow script trigger 的條件</p>
-</li>
-<li><p>儲存 service_account 在 github 的 setting &gt; secrets and variables</p>
-</li>
-<li><p>CD workflow</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Code</span> <span class="string">To</span> <span class="string">GCS</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;feature/**&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job_id:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">auth</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/auth@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">credentials_json:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SERVICE_ACCOUNT</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Google</span> <span class="string">Cloud</span> <span class="string">SDK</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/setup-gcloud@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">&gt;=</span> <span class="number">363.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">code</span> <span class="string">to</span> <span class="string">GCS</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">gsutil</span> <span class="string">-m</span> <span class="string">rsync</span> <span class="string">-d</span> <span class="string">-r</span> <span class="string">action/path</span> <span class="string">gs://bucket-name/path</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>這個流程是針對當時的公司所能做的最基本的 CD 腳本，做一個簡單 CD 的參考。原本公司的開發、上線流程是全手動的，但是一直遇到很多不必要的問題，實在是受不了，就寫去研究 Github Actions，才有了現在這個簡易 CD 流程。</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol>
-<li><p>gsutil “cannot open path of the current working directory: Permission denied”.</p>
-<ul>
-<li>解決方法：調整 –file-mode 或 –dir-mode 的設定，查詢 linux fuse 相關設定。</li>
-</ul>
-</li>
-<li><p>gsutil 做的變動，不會被 VM 的資料夾同步。</p>
-<ul>
-<li>解決方法：加入 gcsfuse 指令加入 –implicit-dirs 參數。</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2025/01/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mia">
-      <meta itemprop="description" content="筆記與學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mia BBBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/01/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2025-04-12
+    </p>
+</div>
+<hr>
+                
+            
+                
+                    <div class="post-preview post-preview-index">
+    <a href="/2025/02/24/github_actions_deploy_to_vm/">
+        <h2 class="post-title">
+            Github Actions Deploy To VM
         </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2025-01-21 22:06:36" itemprop="dateCreated datePublished" datetime="2025-01-21T22:06:36+08:00">2025-01-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2021/04/12/jupyter_lab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mia">
-      <meta itemprop="description" content="筆記與學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mia BBBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/12/jupyter_lab/" class="post-title-link" itemprop="url">Jupyter Lab 換文字顏色</a>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2025-02-24
+    </p>
+</div>
+<hr>
+                
+            
+                
+                    <div class="post-preview post-preview-index">
+    <a href="/2025/01/21/hello-world/">
+        <h2 class="post-title">
+            Hello World
         </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-12T00:00:00+08:00">2021-04-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-05-19 20:40:04" itemprop="dateModified" datetime="2025-05-19T20:40:04+08:00">2025-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
-<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
-<ul>
-<li>首先是尋找該路徑下的 index.css 的檔案。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line"> --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line"> --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line"> --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line"> --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line"> --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line"> --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色</span><br><span class="line"> --jp-mirror-editor-comment-color: #408080;</span><br><span class="line"> --jp-mirror-editor-string-color: #ba2121; # String 的顏色</span><br><span class="line"> --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line"> --jp-mirror-editor-meta-color: #aa22ff;</span><br><span class="line"> --jp-mirror-editor-qualifier-color: #555;</span><br><span class="line"> --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-bracket-color: #997;</span><br><span class="line"> --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line"> --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line"> --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line"> --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-error-color: #f00;</span><br><span class="line"> --jp-mirror-editor-hr-color: #999;</span><br></pre></td></tr></table></figure>
-
-<p>參考資料：<a target="_blank" rel="noopener" href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mmmiachennn.github.io/2021/04/12/learn_git_beginer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mia">
-      <meta itemprop="description" content="筆記與學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mia BBBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/12/learn_git_beginer/" class="post-title-link" itemprop="url">初學者 Git 學習</a>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2025-01-21
+    </p>
+</div>
+<hr>
+                
+            
+                
+                    <div class="post-preview post-preview-index">
+    <a href="/2021/04/12/jupyter_lab/">
+        <h2 class="post-title">
+            Jupyter Lab 換文字顏色
         </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-12T00:00:00+08:00">2021-04-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-05-19 21:43:02" itemprop="dateModified" datetime="2025-05-19T21:43:02+08:00">2025-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">開發相關</span></a>
-                </span>
-            </span>
-
-          
-
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2021-04-12
+    </p>
+</div>
+<hr>
+                
+            
+                
+                    <div class="post-preview post-preview-index">
+    <a href="/2021/04/12/learn_git_beginer/">
+        <h2 class="post-title">
+            初學者 Git 學習
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2021-04-12
+    </p>
+</div>
+<hr>
+                
+            
         </div>
-      </header>
-
+        <div class="col-lg-8 offset-md-2 col-md-10 offset-md-1 post-all">    
+            <ul class="pagination d-block text-center">
     
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="初學者必讀-Git-學習"><a href="#初學者必讀-Git-學習" class="headerlink" title="初學者必讀 Git 學習"></a>初學者必讀 Git 學習</h2><p><a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/tw/intro/intro1_1.html"><em>連猴子都能懂的 Git 入門指南</em></a></p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li><p>Git 有跟 Local（本機）和 Remote（遠端、Origin）</p>
-</li>
-<li><p>working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）</p>
-</li>
 </ul>
-<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># 切分支</span><br><span class="line">git checkot branch_name</span><br><span class="line"></span><br><span class="line"># 切新的分支</span><br><span class="line">git checkout -b branch_name</span><br><span class="line"></span><br><span class="line"># 查看分支狀況</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 刪除 branch</span><br><span class="line">git brand -d branch_name</span><br><span class="line"></span><br><span class="line"># 合併 main branch 至當前分支</span><br><span class="line">git merge main</span><br><span class="line"></span><br><span class="line"># 暫存異動</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 暫存異動列表</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"># 讀取暫存異動</span><br><span class="line">git stash pop</span><br><span class="line">git stash pop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 刪除暫存異動</span><br><span class="line">git stash drop</span><br><span class="line">git stash drop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 將 remote 的 branch 拉至 local</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"># 將 local 的 branch 推至 remote</span><br><span class="line">git push</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Git-深入閱讀"><a href="#Git-深入閱讀" class="headerlink" title="Git 深入閱讀"></a>Git 深入閱讀</h2><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">https://git-scm.com/book/zh/v2</a></p>
-<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>我的學歷並非 CS 出生的，對電腦和程式一竅不通，一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。現在回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛，也很感謝當時的同事都願意教我。<br>在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。同事也有推薦幾個好用的輔助工具，<em>Git Bash</em> (Windows 友善的命令行工具) 和<br><em>Fork</em>（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）</p>
-
-      
+        </div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
+</div>
 
 
 
-          </div>
-          
+    <!-- Footer -->
+    <hr />
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-center">
+                <ul class="list-inline">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <ul class="copyright footer-menu list-inline">
+                    
+                    
+                        <li class="list-inline-item">
+                            
+                            
+                            <a href="/">
+                                
+                                    Home
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/archives">
+                                
+                                    Archives
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/tags">
+                                
+                                    Tags
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/categories">
+                                
+                                    Categories
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/about">
+                                
+                                    About
+                                
+                            </a>
+                        </li>
+                    
+                </ul>
+                <p class="copyright footer-author">
+                    &copy; -2025 
+                    <a rel="external" class="copyright-link" href="" target="_blank">Mia</a><br/>
+                    Powered by <a rel="external" class="copyright-link" href="https://hexo.io/" target="_blank">Hexo</a>  
+                    <span class="copyright-split">&nbsp;|&nbsp;&nbsp;</span>
+                    Theme <a rel="external" class="copyright-link" href="https://github.com/luswdev/hexo-theme-clean.git" target="_blank">Clean</a>
+                    
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    <!-- jQuery -->
+<script src="//cdn.jsdelivr.net/npm/jquery@2.1.4/dist/jquery.min.js"></script>
+
+<!-- For drop down -->
+<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<!-- Gallery -->
+<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.11/dist/js/lightgallery-all.min.js"></script>
+<!-- Busuanzi -->
+
+
+<!-- Search script -->
+
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        searchFunc( '/search.xml' , 'searchInput', 'searchResult');
     });
-  }
 </script>
 
+
+
+<script src="/js/main.js"></script>
+
+
+
+    <!-- Search Modal -->
+    <!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content overflow-auto">
+            <div class="modal-header">
+                <input type="text" class="form-control" placeholder="搜尋關鍵字..." id="searchInput">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="searchResult">
+                    <div class="search-empty text-center text-muted p-5">
+                        <i class="far fa-meh"></i>
+                    </div>
+                </div>
+            </div> 
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目錄
-        </li>
-        <li class="sidebar-nav-overview">
-          本站概要
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Mia</p>
-  <div class="site-description" itemprop="description">筆記與學習</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分類</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">標籤</span>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Mia</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
-  </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
