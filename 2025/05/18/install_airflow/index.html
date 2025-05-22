@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="Jupyter Lab 換文字顏色"/>
+    <meta property="og:title" content="Install Airflow"/>
 
 
 <!--Open Graph Description-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>Jupyter Lab 換文字顏色 | Mia 的學習筆記</title>
+<title>Install Airflow | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <div class="post-heading text-white">
-                    <h1>Jupyter Lab 換文字顏色</h1>
+                    <h1>Install Airflow</h1>
                     
                 </div>
             </div>
@@ -140,7 +140,7 @@
         <i class="far fa-bookmark fa-fw"></i>
         
 
-<a href="/categories/%E6%B2%92%E4%BB%80%E9%BA%BC%E7%89%B9%E5%88%A5%E7%9A%84/">沒什麼特別的</a>
+<a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/">開發相關</a>
 
     
     
@@ -148,7 +148,7 @@
     
         <span class="post-meta-split">&nbsp;|&nbsp;</span>
         <i class="far fa-calendar-check fa-fw"></i>
-        2021-04-12
+        2025-05-18
     
     <!-- word count and read count -->
     
@@ -158,16 +158,29 @@
     
 </span>  
                 
-                <h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
-<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
-<ul>
-<li><p>首先是尋找該路徑下的 index.css 的檔案。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
+                <h2 id="離線安裝"><a href="#離線安裝" class="headerlink" title="離線安裝"></a>離線安裝</h2><ol>
+<li><p>在可以連到外網的機器上 download airflow 相關套件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download apache-airflow to airflow-offline folder</span></span><br><span class="line">pip download apache-airflow==2.9.1 -d airflow-offline</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line">  --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line">  --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line">  --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line">  --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line">  --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line">  --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-operator-color: <span class="comment">#aa22ff; # 運算符號的顏色</span></span><br><span class="line">  --jp-mirror-editor-comment-color: <span class="comment">#408080;</span></span><br><span class="line">  --jp-mirror-editor-string-color: <span class="comment">#ba2121; # String 的顏色</span></span><br><span class="line">  --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line">  --jp-mirror-editor-meta-color: <span class="comment">#aa22ff;</span></span><br><span class="line">  --jp-mirror-editor-qualifier-color: <span class="comment">#555;</span></span><br><span class="line">  --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-bracket-color: <span class="comment">#997;</span></span><br><span class="line">  --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line">  --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line">  --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line">  --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-error-color: <span class="comment">#f00;</span></span><br><span class="line">  --jp-mirror-editor-hr-color: <span class="comment">#999;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>將剛剛下載的套件傳送到要離線安裝的機器上</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># offline install packages,</span></span><br><span class="line"><span class="comment"># --find-links 跟 pip 說套件資源從 airflow-offline folder 來 </span></span><br><span class="line">pip install --no-index --find-links=airflow-offline apache-airflow</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>檢查 airflow 是否有安裝順利</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立使用者</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">airflow <span class="built_in">users</span> create --username admin --password your_password --firstname your_first_name --lastname your_last_name --role Admin --email your_email@some.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢查是否有建立成功</span></span><br><span class="line">airflow <span class="built_in">users</span> list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手動起 airflow</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># background 起 webserver</span></span><br><span class="line">airflow webserver -D</span><br><span class="line"></span><br><span class="line"><span class="comment"># background 起 scheduler</span></span><br><span class="line">airflow scheduler -D</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="airflow-dag-參數設定"><a href="#airflow-dag-參數設定" class="headerlink" title="airflow dag 參數設定"></a>airflow dag 參數設定</h2><ul>
+<li><p>catchup: 是否需要重複回填資料，假設 schedule 開始日是 2022-01-01 每天做一次，但任務是 2022-02-01才開始，如果 catchup &#x3D; True 排程就會從 2022-01-01 開始把這中間漏掉的日子都做完。</p>
+</li>
+<li><p>max_active_runs: 這個 dag 最多可以有多少個排程同時執行。</p>
+</li>
 </ul>
-<p>參考資料：<a target="_blank" rel="noopener" href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
+<h2 id="airflow-常用指令"><a href="#airflow-常用指令" class="headerlink" title="airflow 常用指令"></a>airflow 常用指令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># backfill ，補跑這個區間的排程，時間要看 airflow config 定義的時區</span></span><br><span class="line">airflow dags backfill -s “2024-12-02T03” -e “2024-12-03T12” dag_id</span><br><span class="line"></span><br><span class="line"><span class="comment"># clear tasks，清除在這個區間的排程</span></span><br><span class="line">airflow tasks clear -s “2024-12-02T03” -e “2024-12-03T12” dag_id</span><br></pre></td></tr></table></figure>
 
             </div>
 
@@ -180,7 +193,7 @@
             
             
         
-            <a href="/tags/Other/">#Other</a>
+            <a href="/tags/Airflow/">#Airflow</a>
         
     </div>
 
@@ -188,10 +201,10 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
         <ul class="pagination d-block text-center">
             
-                <li class="previous page-item d-inline"><a href="/2021/12/20/about_spark/" class="page-link float-left">&larr;  下一頁</a></li>
+                <li class="previous page-item d-inline"><a href="/2025/05/20/how_to_use_hexo/" class="page-link float-left">&larr;  下一頁</a></li>
             
             
-                <li class="next page-item d-inline"><a href="/2021/04/12/learn_git_beginer/" class="page-link float-right">上一頁  &rarr;</a></li>
+                <li class="next page-item d-inline"><a href="/2025/04/12/pyenv_offline_install/" class="page-link float-right">上一頁  &rarr;</a></li>
             
         </ul>
     </div>

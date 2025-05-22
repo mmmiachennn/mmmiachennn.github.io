@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="Mia 的學習筆記"/>
+    <meta property="og:title" content="Airflow 介紹"/>
 
 
 <!--Open Graph Description-->
@@ -32,7 +32,7 @@
 
 <!--Type page-->
 
-    <meta property="og:type" content="website"/>
+    <meta property="og:type" content="article"/>
 
 
 <!--Page Cover-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>Virtualenv | Mia 的學習筆記</title>
+<title>Airflow 介紹 | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -112,109 +112,142 @@
 </nav>
 
     <!-- Main Content -->
-    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="site-heading text-center text-white">
-                    <h1>標籤：Virtualenv</h1>
+            <div class="col-lg-12 col-md-12 text-center">
+                <div class="post-heading text-white">
+                    <h1>Airflow 介紹</h1>
+                    
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container page-tags">
-    <div class="row">
-        <div class="col-lg-10 offset-lg-1 text-center">
-            
-                
-    <a href="/tags/Jupyter-Lab/" class="btn btn-light m-2">
-        Jupyter Lab
-    </a>
-
-
-            
-                
-    <a href="/tags/Jupyter-Notebook/" class="btn btn-light m-2">
-        Jupyter Notebook
-    </a>
-
-
-            
-                
-    <a href="/tags/Github-Actions/" class="btn btn-light m-2">
-        Github Actions
-    </a>
-
-
-            
-                
-    <a href="/tags/Git/" class="btn btn-light m-2">
-        Git
-    </a>
-
-
-            
-                
-    <a href="/tags/GitHub/" class="btn btn-light m-2">
-        GitHub
-    </a>
-
-
-            
-                
-    <a href="/tags/GitLab/" class="btn btn-light m-2">
-        GitLab
-    </a>
-
-
-            
-                
-    <a href="/tags/Python/" class="btn btn-light m-2">
-        Python
-    </a>
-
-
-            
-                
-    <a href="/tags/Virtualenv/" class="btn btn-info m-2">
-        Virtualenv
-        <span class="badge badge-light">1</span>
-    </a>
-
-
-            
-        </div>
-        
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <hr class="tag-preview-hr">
                 
-                    <div class="post-preview post-preview-archive-tag">
-    <a href="/2025/04/12/pyenv_offline_install/">
-        <h1 class="post-title">
-            離線安裝 pyenv
-        </h1>
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
+                    <span class="meta d-inline-block">
+    
+        <i class="far fa-bookmark fa-fw"></i>
         
-        2025-04-12
-    </p>
-</div>
+
+<a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/">開發相關</a>
+
+    
+    
+    <!-- Date -->
+    
+        <span class="post-meta-split">&nbsp;|&nbsp;</span>
+        <i class="far fa-calendar-check fa-fw"></i>
+        2022-05-18
+    
+    <!-- word count and read count -->
+    
+
+    
+
+    
+</span>  
                 
-                <div class="archive-before-pagination"></div>
-                <ul class="pagination d-block text-center">
-    
-    
-</ul>
+                <h2 id="Airflow-介紹"><a href="#Airflow-介紹" class="headerlink" title="Airflow 介紹"></a>Airflow 介紹</h2><p>是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程，並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態… 等功能，真的非常的好用且上手。本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。</p>
+<h2 id="Airflow-的建立"><a href="#Airflow-的建立" class="headerlink" title="Airflow 的建立"></a>Airflow 的建立</h2><p>Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了，當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了，不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image，否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務，這部份還沒研究，後面文章再補出來。本篇 Airflow 使用環境為 puckel&#x2F;airflow image。</p>
+<p>Airflow 建立參考文章<br><a target="_blank" rel="noopener" href="https://towardsdatascience.com/getting-started-with-airflow-using-docker-cd8b44dbff98">1</a><br><a target="_blank" rel="noopener" href="https://github.com/dalvimanasi/Data-Pipe-lining-Tools/blob/master/Airflow/AirflowDemo/Helloworld.py">2</a></p>
+<h2 id="案例分享"><a href="#案例分享" class="headerlink" title="案例分享"></a>案例分享</h2><p>我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式，<br>資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化，再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。<br>其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。<br>最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握，<br>由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量，<br>logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。</p>
+<h3 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h3><p>Airflow 還有許多功能我尚未使用到，隱藏帳號密碼資訊、建立不同的使用者，有機會研究完再來分享。</p>
+
             </div>
+
+            <!-- Post information -->
+            
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 post-tags">
+        
+            <i class="fas fa-tag" style="vertical-align: middle;font-size: .8rem;"></i>
+            tags:&nbsp;
+            
+            
+        
+            <a href="/tags/Airflow/">#Airflow</a>
         
     </div>
-</div>
+
+            
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+        <ul class="pagination d-block text-center">
+            
+                <li class="previous page-item d-inline"><a href="/2023/09/12/about_github_actions/" class="page-link float-left">&larr;  下一頁</a></li>
+            
+            
+                <li class="next page-item d-inline"><a href="/2021/12/20/about_spark/" class="page-link float-right">上一頁  &rarr;</a></li>
+            
+        </ul>
+    </div>
 
 
+            
+                <!-- Comments -->
+                
+
+                
+
+            
+
+        </div>
+    </div>
+</article> 
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <style>
+        #toc-content .toc-link::before {
+            background-color: transparent;
+            max-height: 25px;
+        }
+
+        #toc-content .toc-link.is-active-link::before {
+            background-color: #404040;
+        }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <div class="ui-toc dropup scrollspy-body pull-right" style="right: 3%;">
+        <button type="button" class="toc-btn btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+            <i class="fas fa-list"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right p-2"  aria-labelledby="tocLabel">
+            <div class="toc-widget">
+                <div id="toc-content" class="text-truncate">
+                </div>
+            </div>
+            <div class="toc-menu pt-3 pl-4">
+                <a class="expand-toggle d-block py-1" href="#"><span class="expand-text">全部展開</span><span class="close-text" style="display: none;">全部收起</span></a>
+                <a class="back-to-top d-block py-1" href="#">回到頂部</a>
+                <a class="go-to-bottom d-block py-1" href="#">移至底部</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '#toc-content',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: 'article',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    </script>
+
+
+    
 
 
     <!-- Footer -->

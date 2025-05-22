@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="Jupyter Lab 換文字顏色"/>
+    <meta property="og:title" content="Spark"/>
 
 
 <!--Open Graph Description-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>Jupyter Lab 換文字顏色 | Mia 的學習筆記</title>
+<title>Spark | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <div class="post-heading text-white">
-                    <h1>Jupyter Lab 換文字顏色</h1>
+                    <h1>Spark</h1>
                     
                 </div>
             </div>
@@ -140,7 +140,7 @@
         <i class="far fa-bookmark fa-fw"></i>
         
 
-<a href="/categories/%E6%B2%92%E4%BB%80%E9%BA%BC%E7%89%B9%E5%88%A5%E7%9A%84/">沒什麼特別的</a>
+<a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/">開發相關</a>
 
     
     
@@ -148,7 +148,7 @@
     
         <span class="post-meta-split">&nbsp;|&nbsp;</span>
         <i class="far fa-calendar-check fa-fw"></i>
-        2021-04-12
+        2021-12-20
     
     <!-- word count and read count -->
     
@@ -158,16 +158,48 @@
     
 </span>  
                 
-                <h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
-<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
+                <h2 id="Spark-簡介"><a href="#Spark-簡介" class="headerlink" title="Spark 簡介"></a>Spark 簡介</h2><p>使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。<br>與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。</p>
+<p>另外還有：</p>
 <ul>
-<li><p>首先是尋找該路徑下的 index.css 的檔案。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line">  --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line">  --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line">  --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line">  --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line">  --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line">  --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-operator-color: <span class="comment">#aa22ff; # 運算符號的顏色</span></span><br><span class="line">  --jp-mirror-editor-comment-color: <span class="comment">#408080;</span></span><br><span class="line">  --jp-mirror-editor-string-color: <span class="comment">#ba2121; # String 的顏色</span></span><br><span class="line">  --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line">  --jp-mirror-editor-meta-color: <span class="comment">#aa22ff;</span></span><br><span class="line">  --jp-mirror-editor-qualifier-color: <span class="comment">#555;</span></span><br><span class="line">  --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-bracket-color: <span class="comment">#997;</span></span><br><span class="line">  --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line">  --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line">  --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line">  --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-error-color: <span class="comment">#f00;</span></span><br><span class="line">  --jp-mirror-editor-hr-color: <span class="comment">#999;</span></span><br></pre></td></tr></table></figure></li>
+<li>Spark SQL</li>
+<li>Spark Streaming</li>
+<li>Spark Mlib</li>
 </ul>
-<p>參考資料：<a target="_blank" rel="noopener" href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
+<p>由於目前工作所需的是 python，所以使用 pyspark 來協助我開發。<br>在這邊推薦這個網站<div class="img-item" data-src="https://sparkbyexamples.com/" data-sub-html=".caption"><img src="https://sparkbyexamples.com/" alt="Apache Spark Tutorial with Example"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">Apache Spark Tutorial with Example</span></div></div><br>對我來說要上手一個工具最快的方法就是從 example 中學習，這樣也比較會有記憶點，<br>邊做邊學也許會有不同的發想。當初接到的第一個任務就是針對 Spark 效能做調整。</p>
+<h2 id="spark-config-的設定方法"><a href="#spark-config-的設定方法" class="headerlink" title="spark config 的設定方法"></a>spark config 的設定方法</h2><ol>
+<li><p>全域設定，在 $SPARK_HOME&#x2F;conf&#x2F;spark-defaults.conf 設定</p>
+</li>
+<li><p>在 spark session create 的時候設定</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spark = SparkSession.builder \</span><br><span class="line">    .config(<span class="string">&quot;spark.sql.sources.partitionOverwriteMode&quot;</span>, <span class="string">&quot;dynamic&quot;</span>) \</span><br><span class="line">    .getOrCreate()</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在 spark submit 的時候設定</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --spark.driver.memory 4G \</span><br><span class="line">  --spark.executor.memory 20G</span><br><span class="line"></span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --conf spark.driver.memory=4G \</span><br><span class="line">  --conf spark.executor.memory=20G</span><br></pre></td></tr></table></figure>
+
+<h2 id="Spark-效能調較"><a href="#Spark-效能調較" class="headerlink" title="Spark 效能調較"></a>Spark 效能調較</h2><p>Spark 有很多參數可以調較，而且也能夠針對機器的規格以及使用情境做不同的調整。舉例來說，如果同時有多個使用者要一起用 spark，<br>每一個 task 所開放的最大 cpu cores 或是 memory 就不能設定到幾乎跟原始設備一樣的規格，就會有人需要排隊等待，<br>反之，若是使用人數不多而且每一次 task 跑的數據量較大的話，就需要將設定規格開高一點。<br>由於 Spark 底層是由 Java 所實現的，因此有很多參數是對 JVM 進行調整，但是對一個剛開始碰 Spark 且只用過 python 的人來說（我）還是先從基礎的功能開始。<br>Spark 的資料夾中有，spark config 的檔案，不同的 spark mode (ex: Standalone, Cluster, Client)，要設定 config 檔案也不同。</p>
+<p>此次分享在 Spark Mesos 的模式下所做的調整，主要是對一個 task 在進行的時候所能使用的最大資源。</p>
+<ul>
+<li>spark.cores.max：給定 spark 可用的核心數量</li>
+<li>spark.driver.cores：driver 啟動時，可使用的核心數量</li>
+<li>spark.driver.memory：driver 啟動時，可使用的記憶體大小（m, g）</li>
+<li>spark.executor.cores： 一個 executor 可使用的核心數量</li>
+<li>spark.executor.memory：一個 executor 可使用的記憶體大小（m, g）</li>
+<li>spark.rpc.message.maxSize：node 與 node 之間能傳輸的最大資料量（m）</li>
+</ul>
+<p>在機器規格固定之下，我只調整以上的 6 個參數，可將原本需要 13 分鐘的演算時間，變成只要 5 分鐘即可跑完。</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>從 13 分鐘變成 5 分鐘這件事情，我後來發現其實之前遇到的問題是因為那個程式都把 spark data frame 轉成 pandas data frame 去操作，沒有使用到分散式資源，全部集中在 driver memeory 中，因此其實只要把與 driver 相關的資源調大就好 XDD。</p>
+<h2 id="Spark-MongoDB"><a href="#Spark-MongoDB" class="headerlink" title="Spark + MongoDB"></a>Spark + MongoDB</h2><p>to be contiune。。。。</p>
+<!-- 
+https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
+
+
+<p>參考資料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kknews.cc/zh-tw/tech/99xy258.html">https://kknews.cc/zh-tw/tech/99xy258.html</a></li>
+</ul>
 
             </div>
 
@@ -180,7 +212,7 @@
             
             
         
-            <a href="/tags/Other/">#Other</a>
+            <a href="/tags/Python/">#Python</a> <a href="/tags/Spark/">#Spark</a>
         
     </div>
 
@@ -188,10 +220,10 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
         <ul class="pagination d-block text-center">
             
-                <li class="previous page-item d-inline"><a href="/2021/12/20/about_spark/" class="page-link float-left">&larr;  下一頁</a></li>
+                <li class="previous page-item d-inline"><a href="/2022/05/18/about_airflow/" class="page-link float-left">&larr;  下一頁</a></li>
             
             
-                <li class="next page-item d-inline"><a href="/2021/04/12/learn_git_beginer/" class="page-link float-right">上一頁  &rarr;</a></li>
+                <li class="next page-item d-inline"><a href="/2021/04/12/jupyter_lab/" class="page-link float-right">上一頁  &rarr;</a></li>
             
         </ul>
     </div>

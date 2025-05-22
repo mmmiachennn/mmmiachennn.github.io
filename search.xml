@@ -1,46 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/01/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Jupyter Lab 換文字顏色</title>
     <url>/2021/04/12/jupyter_lab/</url>
     <content><![CDATA[<h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
 <h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
 <ul>
-<li>首先是尋找該路徑下的 index.css 的檔案。</li>
+<li><p>首先是尋找該路徑下的 index.css 的檔案。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line">  --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line">  --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line">  --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line">  --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line">  --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line">  --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-operator-color: <span class="comment">#aa22ff; # 運算符號的顏色</span></span><br><span class="line">  --jp-mirror-editor-comment-color: <span class="comment">#408080;</span></span><br><span class="line">  --jp-mirror-editor-string-color: <span class="comment">#ba2121; # String 的顏色</span></span><br><span class="line">  --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line">  --jp-mirror-editor-meta-color: <span class="comment">#aa22ff;</span></span><br><span class="line">  --jp-mirror-editor-qualifier-color: <span class="comment">#555;</span></span><br><span class="line">  --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-bracket-color: <span class="comment">#997;</span></span><br><span class="line">  --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line">  --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line">  --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line">  --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-error-color: <span class="comment">#f00;</span></span><br><span class="line">  --jp-mirror-editor-hr-color: <span class="comment">#999;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line"> --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line"> --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line"> --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line"> --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line"> --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line"> --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line"> --jp-mirror-editor-operator-color: #aa22ff; # 運算符號的顏色</span><br><span class="line"> --jp-mirror-editor-comment-color: #408080;</span><br><span class="line"> --jp-mirror-editor-string-color: #ba2121; # String 的顏色</span><br><span class="line"> --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line"> --jp-mirror-editor-meta-color: #aa22ff;</span><br><span class="line"> --jp-mirror-editor-qualifier-color: #555;</span><br><span class="line"> --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line"> --jp-mirror-editor-bracket-color: #997;</span><br><span class="line"> --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line"> --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line"> --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line"> --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line"> --jp-mirror-editor-error-color: #f00;</span><br><span class="line"> --jp-mirror-editor-hr-color: #999;</span><br></pre></td></tr></table></figure>
-
 <p>參考資料：<a href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>沒什麼特別的</category>
       </categories>
       <tags>
-        <tag>Jupyter Lab</tag>
-        <tag>Jupyter Notebook</tag>
+        <tag>Other</tag>
       </tags>
   </entry>
   <entry>
@@ -65,7 +43,6 @@
 <li><p>CD workflow</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Code</span> <span class="string">To</span> <span class="string">GCS</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;feature/**&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job_id:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">auth</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/auth@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">credentials_json:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SERVICE_ACCOUNT</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Google</span> <span class="string">Cloud</span> <span class="string">SDK</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">google-github-actions/setup-gcloud@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">&gt;=</span> <span class="number">363.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">code</span> <span class="string">to</span> <span class="string">GCS</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">gsutil</span> <span class="string">-m</span> <span class="string">rsync</span> <span class="string">-d</span> <span class="string">-r</span> <span class="string">action/path</span> <span class="string">gs://bucket-name/path</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>這個流程是針對當時的公司所能做的最基本的 CD 腳本，做一個簡單 CD 的參考。原本公司的開發、上線流程是全手動的，但是一直遇到很多不必要的問題，實在是受不了，就寫去研究 Github Actions，才有了現在這個簡易 CD 流程。</p>
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol>
 <li><p>gsutil “cannot open path of the current working directory: Permission denied”.</p>
 <ul>
@@ -78,12 +55,13 @@
 </ul>
 </li>
 </ol>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>這個流程是針對當時的公司所能做的最基本的 CD 腳本，做一個簡單 CD 的參考。原本公司的開發、上線流程是全手動的，但是一直遇到很多不必要的問題，實在是受不了，就寫去研究 Github Actions，才有了現在這個簡易 CD 流程。</p>
 ]]></content>
       <categories>
-        <category>deploy</category>
+        <category>開發相關</category>
       </categories>
       <tags>
-        <tag>Github Actions</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -99,15 +77,13 @@
 <h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 切分支</span><br><span class="line">git checkot branch_name</span><br><span class="line"></span><br><span class="line"># 切新的分支</span><br><span class="line">git checkout -b branch_name</span><br><span class="line"></span><br><span class="line"># 查看分支狀況</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 刪除 branch</span><br><span class="line">git brand -d branch_name</span><br><span class="line"></span><br><span class="line"># 合併 main branch 至當前分支</span><br><span class="line">git merge main</span><br><span class="line"></span><br><span class="line"># 暫存異動</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 暫存異動列表</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"># 讀取暫存異動</span><br><span class="line">git stash pop</span><br><span class="line">git stash pop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 刪除暫存異動</span><br><span class="line">git stash drop</span><br><span class="line">git stash drop stash@&#123;number&#125; </span><br><span class="line"></span><br><span class="line"># 將 remote 的 branch 拉至 local</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"># 將 local 的 branch 推至 remote</span><br><span class="line">git push</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="Git-深入閱讀"><a href="#Git-深入閱讀" class="headerlink" title="Git 深入閱讀"></a>Git 深入閱讀</h2><p><a href="https://git-scm.com/book/zh/v2">https://git-scm.com/book/zh/v2</a></p>
-<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>我的學歷並非 CS 出生的，對電腦和程式一竅不通，一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。現在回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛，也很感謝當時的同事都願意教我。<br>在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。同事也有推薦幾個好用的輔助工具，<em>Git Bash</em> (Windows 友善的命令行工具) 和<br><em>Fork</em>（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）</p>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。現在回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛，也很感謝當時的同事都願意教我。<br>在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。同事也有推薦幾個好用的輔助工具，<em>Git Bash</em> (Windows 友善的命令行工具) 和<br><em>Fork</em>（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）</p>
 ]]></content>
       <categories>
         <category>開發相關</category>
       </categories>
       <tags>
         <tag>Git</tag>
-        <tag>GitHub</tag>
-        <tag>GitLab</tag>
       </tags>
   </entry>
   <entry>
@@ -118,8 +94,172 @@
         <category>開發相關</category>
       </categories>
       <tags>
+        <tag>Pyenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spark</title>
+    <url>/2021/12/20/about_spark/</url>
+    <content><![CDATA[<h2 id="Spark-簡介"><a href="#Spark-簡介" class="headerlink" title="Spark 簡介"></a>Spark 簡介</h2><p>使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。<br>與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。</p>
+<p>另外還有：</p>
+<ul>
+<li>Spark SQL</li>
+<li>Spark Streaming</li>
+<li>Spark Mlib</li>
+</ul>
+<p>由於目前工作所需的是 python，所以使用 pyspark 來協助我開發。<br>在這邊推薦這個網站<div class="img-item" data-src="https://sparkbyexamples.com/" data-sub-html=".caption"><img src="https://sparkbyexamples.com/" alt="Apache Spark Tutorial with Example"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">Apache Spark Tutorial with Example</span></div></div><br>對我來說要上手一個工具最快的方法就是從 example 中學習，這樣也比較會有記憶點，<br>邊做邊學也許會有不同的發想。當初接到的第一個任務就是針對 Spark 效能做調整。</p>
+<h2 id="spark-config-的設定方法"><a href="#spark-config-的設定方法" class="headerlink" title="spark config 的設定方法"></a>spark config 的設定方法</h2><ol>
+<li><p>全域設定，在 $SPARK_HOME&#x2F;conf&#x2F;spark-defaults.conf 設定</p>
+</li>
+<li><p>在 spark session create 的時候設定</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">spark = SparkSession.builder \</span><br><span class="line">    .config(<span class="string">&quot;spark.sql.sources.partitionOverwriteMode&quot;</span>, <span class="string">&quot;dynamic&quot;</span>) \</span><br><span class="line">    .getOrCreate()</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在 spark submit 的時候設定</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --spark.driver.memory 4G \</span><br><span class="line">  --spark.executor.memory 20G</span><br><span class="line"></span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --conf spark.driver.memory=4G \</span><br><span class="line">  --conf spark.executor.memory=20G</span><br></pre></td></tr></table></figure>
+
+<h2 id="Spark-效能調較"><a href="#Spark-效能調較" class="headerlink" title="Spark 效能調較"></a>Spark 效能調較</h2><p>Spark 有很多參數可以調較，而且也能夠針對機器的規格以及使用情境做不同的調整。舉例來說，如果同時有多個使用者要一起用 spark，<br>每一個 task 所開放的最大 cpu cores 或是 memory 就不能設定到幾乎跟原始設備一樣的規格，就會有人需要排隊等待，<br>反之，若是使用人數不多而且每一次 task 跑的數據量較大的話，就需要將設定規格開高一點。<br>由於 Spark 底層是由 Java 所實現的，因此有很多參數是對 JVM 進行調整，但是對一個剛開始碰 Spark 且只用過 python 的人來說（我）還是先從基礎的功能開始。<br>Spark 的資料夾中有，spark config 的檔案，不同的 spark mode (ex: Standalone, Cluster, Client)，要設定 config 檔案也不同。</p>
+<p>此次分享在 Spark Mesos 的模式下所做的調整，主要是對一個 task 在進行的時候所能使用的最大資源。</p>
+<ul>
+<li>spark.cores.max：給定 spark 可用的核心數量</li>
+<li>spark.driver.cores：driver 啟動時，可使用的核心數量</li>
+<li>spark.driver.memory：driver 啟動時，可使用的記憶體大小（m, g）</li>
+<li>spark.executor.cores： 一個 executor 可使用的核心數量</li>
+<li>spark.executor.memory：一個 executor 可使用的記憶體大小（m, g）</li>
+<li>spark.rpc.message.maxSize：node 與 node 之間能傳輸的最大資料量（m）</li>
+</ul>
+<p>在機器規格固定之下，我只調整以上的 6 個參數，可將原本需要 13 分鐘的演算時間，變成只要 5 分鐘即可跑完。</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>從 13 分鐘變成 5 分鐘這件事情，我後來發現其實之前遇到的問題是因為那個程式都把 spark data frame 轉成 pandas data frame 去操作，沒有使用到分散式資源，全部集中在 driver memeory 中，因此其實只要把與 driver 相關的資源調大就好 XDD。</p>
+<h2 id="Spark-MongoDB"><a href="#Spark-MongoDB" class="headerlink" title="Spark + MongoDB"></a>Spark + MongoDB</h2><p>to be contiune。。。。</p>
+<!-- 
+https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
+
+
+<p>參考資料：</p>
+<ul>
+<li><a href="https://kknews.cc/zh-tw/tech/99xy258.html">https://kknews.cc/zh-tw/tech/99xy258.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
         <tag>Python</tag>
-        <tag>Virtualenv</tag>
+        <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Install Airflow</title>
+    <url>/2025/05/18/install_airflow/</url>
+    <content><![CDATA[<h2 id="離線安裝"><a href="#離線安裝" class="headerlink" title="離線安裝"></a>離線安裝</h2><ol>
+<li><p>在可以連到外網的機器上 download airflow 相關套件</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># download apache-airflow to airflow-offline folder</span></span><br><span class="line">pip download apache-airflow==2.9.1 -d airflow-offline</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將剛剛下載的套件傳送到要離線安裝的機器上</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># offline install packages,</span></span><br><span class="line"><span class="comment"># --find-links 跟 pip 說套件資源從 airflow-offline folder 來 </span></span><br><span class="line">pip install --no-index --find-links=airflow-offline apache-airflow</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>檢查 airflow 是否有安裝順利</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">airflow --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立使用者</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">airflow <span class="built_in">users</span> create --username admin --password your_password --firstname your_first_name --lastname your_last_name --role Admin --email your_email@some.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢查是否有建立成功</span></span><br><span class="line">airflow <span class="built_in">users</span> list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手動起 airflow</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># background 起 webserver</span></span><br><span class="line">airflow webserver -D</span><br><span class="line"></span><br><span class="line"><span class="comment"># background 起 scheduler</span></span><br><span class="line">airflow scheduler -D</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="airflow-dag-參數設定"><a href="#airflow-dag-參數設定" class="headerlink" title="airflow dag 參數設定"></a>airflow dag 參數設定</h2><ul>
+<li><p>catchup: 是否需要重複回填資料，假設 schedule 開始日是 2022-01-01 每天做一次，但任務是 2022-02-01才開始，如果 catchup &#x3D; True 排程就會從 2022-01-01 開始把這中間漏掉的日子都做完。</p>
+</li>
+<li><p>max_active_runs: 這個 dag 最多可以有多少個排程同時執行。</p>
+</li>
+</ul>
+<h2 id="airflow-常用指令"><a href="#airflow-常用指令" class="headerlink" title="airflow 常用指令"></a>airflow 常用指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># backfill ，補跑這個區間的排程，時間要看 airflow config 定義的時區</span></span><br><span class="line">airflow dags backfill -s “2024-12-02T03” -e “2024-12-03T12” dag_id</span><br><span class="line"></span><br><span class="line"><span class="comment"># clear tasks，清除在這個區間的排程</span></span><br><span class="line">airflow tasks clear -s “2024-12-02T03” -e “2024-12-03T12” dag_id</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Airflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Airflow 介紹</title>
+    <url>/2022/05/18/about_airflow/</url>
+    <content><![CDATA[<h2 id="Airflow-介紹"><a href="#Airflow-介紹" class="headerlink" title="Airflow 介紹"></a>Airflow 介紹</h2><p>是一套常用的 ETL 工具，主要在建立有向無環的流程圖（DAG），可以清楚的瞭解整個ETL流程，並且非常容易上手，大多數公司都在使用的。Airflow 最大的優點是有好用的 GUI，GUI 可以查看全部的排程、每個 dag 裡面的 code、儲存常用的 SQL 帳號密碼、ETL 流程圖，一個 DAG 中的所有 task Log 查詢、當次 task 的狀態… 等功能，真的非常的好用且上手。本篇文章主要是記錄自己在使用 Airflow 的經驗，其中也包含 Airflow 的建立、使用、案例分享。</p>
+<h2 id="Airflow-的建立"><a href="#Airflow-的建立" class="headerlink" title="Airflow 的建立"></a>Airflow 的建立</h2><p>Airflow 的建立非常簡單，看了幾篇比較完整的教學文章一步一步跟著做就可以建立起來了，當然更快的做法就是使用別人的 docker image 建立 container，這樣環境就不用重建了，不過缺點就是每當要新增一個 python package 的時候要再建一個新的 image，否則 image restart 時候就會恢復成原本的狀態了。使用 docker 的話還可以建立 celery 跟 worker 來管理任務，這部份還沒研究，後面文章再補出來。本篇 Airflow 使用環境為 puckel&#x2F;airflow image。</p>
+<p>Airflow 建立參考文章<br><a href="https://towardsdatascience.com/getting-started-with-airflow-using-docker-cd8b44dbff98">1</a><br><a href="https://github.com/dalvimanasi/Data-Pipe-lining-Tools/blob/master/Airflow/AirflowDemo/Helloworld.py">2</a></p>
+<h2 id="案例分享"><a href="#案例分享" class="headerlink" title="案例分享"></a>案例分享</h2><p>我目前使用到 airflow 主要是資料種類較多至少有 10 種以上，排程每小時做一次 ETL，但每一個要做的 ETL 大同小異，不外乎就是檢查資料是否有依照正常的格式，<br>資料中有沒有怪怪的雜訊在其中、有沒有依照特定的欄位名稱檔案名稱、有沒有遺失值、Mapping 表格。過程中最大的目標是要去想如何寫 code 讓這一整個流程是順的而且快的，我的做法是把所有重複的 code 模組化，再來就是分析要所有的資料寫在同一個 dag 裡面分成很多個不同的 task 還是要分成 10 個以上的 dag。<br>其中幾個資料要走的流程步驟較多，是要用多個 task 還是要用多個 dag 來製作也是值得好好考慮的點。<br>最後我是依照資料種類分類，屬於同一個資料種類的都放在同一個 dag 中，最大的原因是好管理與維護、同一個資料中的 ETL 進度好掌握，<br>由於每個資料的來源不太一樣，萬一今天有一個資料不是穩定的輸出，就可以即時修改而不影響到他人，缺點就是同時間要管理的 dag 很大量，<br>logo 也很分散，要掌握整體狀況比較不容易。但如果今天資料來源都是同一個，我可能就會合併成一個 dag，對維護的人來說會比較方便。</p>
+<h3 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h3><p>Airflow 還有許多功能我尚未使用到，隱藏帳號密碼資訊、建立不同的使用者，有機會研究完再來分享。</p>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Airflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to use Hexo</title>
+    <url>/2025/05/20/how_to_use_hexo/</url>
+    <content><![CDATA[<h2 id="常用的指令"><a href="#常用的指令" class="headerlink" title="常用的指令"></a>常用的指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Run server at local</span></span><br><span class="line">hexo server</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate static files</span></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deploy to remote sites</span></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="More-info"><a href="#More-info" class="headerlink" title="More info"></a>More info</h2><ul>
+<li><a href="https://hexo.io/docs/server.html">Server</a></li>
+<li><a href="https://hexo.io/docs/generate.html">Generate</a></li>
+<li><a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></li>
+</ul>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>還沒缺 Install Hexo 的流程</p>
+]]></content>
+      <categories>
+        <category>沒什麼特別的</category>
+      </categories>
+      <tags>
+        <tag>Other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github Actions 介紹</title>
+    <url>/2023/09/12/about_github_actions/</url>
+    <content><![CDATA[<h2 id="什麼是-github-actions"><a href="#什麼是-github-actions" class="headerlink" title="什麼是 github actions"></a>什麼是 github actions</h2><p>是 Github 在 2019 年才推出的 CI&#x2F;CD 服務。</p>
+<ul>
+<li><p>CI：Continuous Integration 持續整合</p>
+</li>
+<li><p>CD：Continuous Deployment 持續部署</p>
+</li>
+</ul>
+<p>example：把 restore、build、test、publish、deploy 寫成腳本使其可重複使用。Github 建制一個可以分享 actions 的 <a href="https://github.com/marketplace?type=actions">marketplace</a>，使不會寫的人也能夠使用。</p>
+<h2 id="Python-有哪些-CI-項目"><a href="#Python-有哪些-CI-項目" class="headerlink" title="Python 有哪些 CI 項目"></a>Python 有哪些 CI 項目</h2><ul>
+<li>python 版本測試</li>
+<li>安裝套件</li>
+<li>檢查程式碼規範</li>
+<li>單元測試</li>
+<li>單元測試覆蓋率</li>
+</ul>
+<h2 id="github-workflow-yaml-設定"><a href="#github-workflow-yaml-設定" class="headerlink" title="github workflow yaml 設定"></a>github workflow yaml 設定</h2><p><a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions">github doc</a></p>
+<ul>
+<li><strong>on</strong>：workflow 觸發條件。<br>當 main 這個 branch 有 push 或 pull_request 的動作。</li>
+<li><strong>jobs</strong>：執行工作。</li>
+<li><strong>runs-on</strong>：要運行在哪一個平台上。ex：github 託管 runner 或是自架的環境。</li>
+<li><strong>strategy、matrix</strong>：矩陣策略。ex 在不同版本的 python 環境下執行。</li>
+<li><strong>fail-fast</strong>：在矩陣中的任何作業失敗的情況下，若參數爲 true ，則取消矩陣中所有作業；參數爲 false，則繼續執行剩下的作業。</li>
+<li><strong>steps</strong>：執行步驟。</li>
+<li><strong>name</strong>：步驟名稱。</li>
+<li><strong>uses</strong>：使用相關的 yaml 檔來源。</li>
+<li><strong>with</strong>：相關參數。</li>
+<li><strong>run</strong>：執行 commands。</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Python</span> <span class="string">Unit</span> <span class="string">Test</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">fail-fast:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">python-version:</span> [<span class="string">&quot;3.9&quot;</span>, <span class="string">&quot;3.10&quot;</span>, <span class="string">&quot;3.11&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Python</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.python-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-python@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">python-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.python-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Lint</span> <span class="string">with</span> <span class="string">flake8</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        # stop the build if there are Python syntax errors or undefined names</span></span><br><span class="line"><span class="string">        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics</span></span><br><span class="line"><span class="string">        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide</span></span><br><span class="line"><span class="string">        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Test</span> <span class="string">with</span> <span class="string">pytest</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        pytest</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>可能有一些用字遣詞沒有那麼明確，還請大家見諒～等到以後的我回來處理這些文字問題。還是以紀錄為主，雖然現在這些東西問 chatGPT 就好，但因為有這些筆記才覺得自己有好好的在成長，學到的東西越來越多。</p>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>

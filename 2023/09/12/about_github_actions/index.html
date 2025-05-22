@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="Jupyter Lab 換文字顏色"/>
+    <meta property="og:title" content="Github Actions 介紹"/>
 
 
 <!--Open Graph Description-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>Jupyter Lab 換文字顏色 | Mia 的學習筆記</title>
+<title>Github Actions 介紹 | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <div class="post-heading text-white">
-                    <h1>Jupyter Lab 換文字顏色</h1>
+                    <h1>Github Actions 介紹</h1>
                     
                 </div>
             </div>
@@ -140,7 +140,7 @@
         <i class="far fa-bookmark fa-fw"></i>
         
 
-<a href="/categories/%E6%B2%92%E4%BB%80%E9%BA%BC%E7%89%B9%E5%88%A5%E7%9A%84/">沒什麼特別的</a>
+<a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/">開發相關</a>
 
     
     
@@ -148,7 +148,7 @@
     
         <span class="post-meta-split">&nbsp;|&nbsp;</span>
         <i class="far fa-calendar-check fa-fw"></i>
-        2021-04-12
+        2023-09-12
     
     <!-- word count and read count -->
     
@@ -158,16 +158,37 @@
     
 </span>  
                 
-                <h2 id="Jupyter-Notebook-vs-Jupyter-Lab"><a href="#Jupyter-Notebook-vs-Jupyter-Lab" class="headerlink" title="Jupyter Notebook vs Jupyter Lab ?"></a>Jupyter Notebook vs Jupyter Lab ?</h2><p>身為一個資料科學家常常在使用 Jupyter Notebook，在發現 Jupyter Lab 之後，二話不說直接轉跳過去，<br>Jupyter Lab 和 Jupyter Notebook 應該是好兄弟吧（我是這樣覺得），<br>Jupyter Lab 有很多附加功能，可拖拉 kernel 的位置、可以同時看很多個檔案、可直接查看 csv 檔案…等，<br>非常推薦使用 Jupyter Notebook 的人轉換成 Jupyter Lab。</p>
-<h2 id="Jupyter-Lab-更換-code-文字顏色顏色"><a href="#Jupyter-Lab-更換-code-文字顏色顏色" class="headerlink" title="Jupyter Lab 更換 code 文字顏色顏色"></a>Jupyter Lab 更換 code 文字顏色顏色</h2><p>對一個眼睛不好但必須常常盯著電腦的人來說，白色主題實在是太殘酷了。<br>Jupyter Lab 就有提供兩種最常見的主題顏色(黑&#x2F;白)，<br>但是它的黑色主題配色本人實在不喜歡，所以我搜尋了如何轉換字的顏色的方法。</p>
+                <h2 id="什麼是-github-actions"><a href="#什麼是-github-actions" class="headerlink" title="什麼是 github actions"></a>什麼是 github actions</h2><p>是 Github 在 2019 年才推出的 CI&#x2F;CD 服務。</p>
 <ul>
-<li><p>首先是尋找該路徑下的 index.css 的檔案。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/anaconda3/envs/best/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css</span><br></pre></td></tr></table></figure>
+<li><p>CI：Continuous Integration 持續整合</p>
 </li>
-<li><p>主要 code 顏色從 line 322 開始，色碼使用為 hex color。<br>可直接搜尋 hex color，Google 會有調色盤輸入色碼可以直接看到相對應的顏色，<br>或是直接點選喜歡的顏色會跳出色碼。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Code mirror specific styles */</span><br><span class="line"></span><br><span class="line">  --jp-mirror-editor-keyword-color: var(--md-green-500);</span><br><span class="line">  --jp-mirror-editor-atom-color: var(--md-blue-300);</span><br><span class="line">  --jp-mirror-editor-number-color: var(--md-green-400);</span><br><span class="line">  --jp-mirror-editor-def-color: var(--md-blue-600);</span><br><span class="line">  --jp-mirror-editor-variable-color: var(--md-grey-300);</span><br><span class="line">  --jp-mirror-editor-variable-2-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-variable-3-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-punctuation-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-property-color: var(--md-blue-400);</span><br><span class="line">  --jp-mirror-editor-operator-color: <span class="comment">#aa22ff; # 運算符號的顏色</span></span><br><span class="line">  --jp-mirror-editor-comment-color: <span class="comment">#408080;</span></span><br><span class="line">  --jp-mirror-editor-string-color: <span class="comment">#ba2121; # String 的顏色</span></span><br><span class="line">  --jp-mirror-editor-string-2-color: var(--md-purple-300);</span><br><span class="line">  --jp-mirror-editor-meta-color: <span class="comment">#aa22ff;</span></span><br><span class="line">  --jp-mirror-editor-qualifier-color: <span class="comment">#555;</span></span><br><span class="line">  --jp-mirror-editor-builtin-color: var(--md-green-600);</span><br><span class="line">  --jp-mirror-editor-bracket-color: <span class="comment">#997;</span></span><br><span class="line">  --jp-mirror-editor-tag-color: var(--md-green-700);</span><br><span class="line">  --jp-mirror-editor-attribute-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-header-color: var(--md-blue-500);</span><br><span class="line">  --jp-mirror-editor-quote-color: var(--md-green-300);</span><br><span class="line">  --jp-mirror-editor-link-color: var(--md-blue-700);</span><br><span class="line">  --jp-mirror-editor-error-color: <span class="comment">#f00;</span></span><br><span class="line">  --jp-mirror-editor-hr-color: <span class="comment">#999;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>CD：Continuous Deployment 持續部署</p>
+</li>
 </ul>
-<p>參考資料：<a target="_blank" rel="noopener" href="https://github.com/jupyterlab/jupyterlab/issues/8158">https://github.com/jupyterlab/jupyterlab/issues/8158</a></p>
+<p>example：把 restore、build、test、publish、deploy 寫成腳本使其可重複使用。Github 建制一個可以分享 actions 的 <a target="_blank" rel="noopener" href="https://github.com/marketplace?type=actions">marketplace</a>，使不會寫的人也能夠使用。</p>
+<h2 id="Python-有哪些-CI-項目"><a href="#Python-有哪些-CI-項目" class="headerlink" title="Python 有哪些 CI 項目"></a>Python 有哪些 CI 項目</h2><ul>
+<li>python 版本測試</li>
+<li>安裝套件</li>
+<li>檢查程式碼規範</li>
+<li>單元測試</li>
+<li>單元測試覆蓋率</li>
+</ul>
+<h2 id="github-workflow-yaml-設定"><a href="#github-workflow-yaml-設定" class="headerlink" title="github workflow yaml 設定"></a>github workflow yaml 設定</h2><p><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions">github doc</a></p>
+<ul>
+<li><strong>on</strong>：workflow 觸發條件。<br>當 main 這個 branch 有 push 或 pull_request 的動作。</li>
+<li><strong>jobs</strong>：執行工作。</li>
+<li><strong>runs-on</strong>：要運行在哪一個平台上。ex：github 託管 runner 或是自架的環境。</li>
+<li><strong>strategy、matrix</strong>：矩陣策略。ex 在不同版本的 python 環境下執行。</li>
+<li><strong>fail-fast</strong>：在矩陣中的任何作業失敗的情況下，若參數爲 true ，則取消矩陣中所有作業；參數爲 false，則繼續執行剩下的作業。</li>
+<li><strong>steps</strong>：執行步驟。</li>
+<li><strong>name</strong>：步驟名稱。</li>
+<li><strong>uses</strong>：使用相關的 yaml 檔來源。</li>
+<li><strong>with</strong>：相關參數。</li>
+<li><strong>run</strong>：執行 commands。</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Python</span> <span class="string">Unit</span> <span class="string">Test</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">fail-fast:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">python-version:</span> [<span class="string">&quot;3.9&quot;</span>, <span class="string">&quot;3.10&quot;</span>, <span class="string">&quot;3.11&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Python</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.python-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-python@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">python-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.python-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Lint</span> <span class="string">with</span> <span class="string">flake8</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        # stop the build if there are Python syntax errors or undefined names</span></span><br><span class="line"><span class="string">        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics</span></span><br><span class="line"><span class="string">        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide</span></span><br><span class="line"><span class="string">        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Test</span> <span class="string">with</span> <span class="string">pytest</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        pytest</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>可能有一些用字遣詞沒有那麼明確，還請大家見諒～等到以後的我回來處理這些文字問題。還是以紀錄為主，雖然現在這些東西問 chatGPT 就好，但因為有這些筆記才覺得自己有好好的在成長，學到的東西越來越多。</p>
 
             </div>
 
@@ -180,7 +201,7 @@
             
             
         
-            <a href="/tags/Other/">#Other</a>
+            <a href="/tags/Git/">#Git</a>
         
     </div>
 
@@ -188,10 +209,10 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
         <ul class="pagination d-block text-center">
             
-                <li class="previous page-item d-inline"><a href="/2021/12/20/about_spark/" class="page-link float-left">&larr;  下一頁</a></li>
+                <li class="previous page-item d-inline"><a href="/2025/02/24/github_actions_deploy_to_vm/" class="page-link float-left">&larr;  下一頁</a></li>
             
             
-                <li class="next page-item d-inline"><a href="/2021/04/12/learn_git_beginer/" class="page-link float-right">上一頁  &rarr;</a></li>
+                <li class="next page-item d-inline"><a href="/2022/05/18/about_airflow/" class="page-link float-right">上一頁  &rarr;</a></li>
             
         </ul>
     </div>
