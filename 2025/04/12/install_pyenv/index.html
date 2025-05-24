@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="離線安裝 pyenv"/>
+    <meta property="og:title" content="安裝 pyenv"/>
 
 
 <!--Open Graph Description-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>離線安裝 pyenv | Mia 的學習筆記</title>
+<title>安裝 pyenv | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <div class="post-heading text-white">
-                    <h1>離線安裝 pyenv</h1>
+                    <h1>安裝 pyenv</h1>
                     
                 </div>
             </div>
@@ -158,7 +158,99 @@
     
 </span>  
                 
-                
+                <h2 id="虛擬環境目的"><a href="#虛擬環境目的" class="headerlink" title="虛擬環境目的"></a>虛擬環境目的</h2><ul>
+<li>by 專案&#x2F;環境做套件相依性的管理</li>
+<li>python 版本更新</li>
+<li>與系統 python 完全隔離</li>
+</ul>
+<h2 id="虛擬環境工具的比較"><a href="#虛擬環境工具的比較" class="headerlink" title="虛擬環境工具的比較"></a>虛擬環境工具的比較</h2><p>不同的工具有不同的使用場景。只有找到最適合自己的那個，才是好工具。<br>比如說提供新手開發使用 anaconda 最入門好上手。但如果是比較資深的工程師需要自己架環境且需要一直更新 python 版本使用 pyenv + virtualenv 就是一個方便快速的工具。<br>今天我想要 release </p>
+<p>由 chatGPT 歸納與整理</p>
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>工具名稱</th>
+<th>內建&#x2F;需安裝</th>
+<th>依賴管理</th>
+<th>環境隔離</th>
+<th>支援 Python 版本</th>
+<th>主要用途</th>
+<th>優點</th>
+<th>缺點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>venv</td>
+<td>內建 (Python 3.3+)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、輕量級專案</td>
+<td>內建於 Python，無需額外安裝，輕量、易用</td>
+<td>無法管理 Python 版本</td>
+</tr>
+<tr>
+<td>virtualenv</td>
+<td>需安裝 (pip install virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、與老舊 Python 版本兼容</td>
+<td>比 venv 更快，支援舊版 Python</td>
+<td>額外安裝，與 venv 類似，功能略多但差異不大</td>
+</tr>
+<tr>
+<td>conda</td>
+<td>需安裝 (Anaconda &#x2F; Miniconda)</td>
+<td>conda (獨立於 pip)</td>
+<td>是</td>
+<td>可同時管理 Python 版本</td>
+<td>資料科學、機器學習、大型專案</td>
+<td>可管理 Python 版本 &amp; 套件，適合科學計算，支援非 Python 套件</td>
+<td>佔用空間較大，套件安裝可能較慢</td>
+</tr>
+<tr>
+<td>pyenv-virtualenv</td>
+<td>需安裝 (pyenv + pyenv-virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>可獨立管理 Python 版本</td>
+<td>需要同時管理 Python 版本與虛擬環境</td>
+<td>與 pyenv 整合，可同時管理不同版本的 Python 和虛擬環境</td>
+<td>設定較複雜，適合進階用戶</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>需安裝 (pipx install uv)</td>
+<td>uv (獨立於 pip，速度快)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>依賴管理、加速 pip</td>
+<td>極快，比 pip、pip-tools 更快，支持 requirements.txt</td>
+<td>仍在發展中，缺少部分高級功能</td>
+</tr>
+<tr>
+<td>poetry</td>
+<td>需安裝 (pipx install poetry)</td>
+<td>poetry (內建 lock 機制)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>現代 Python 專案管理</td>
+<td>內建 lock file、自動管理 pyproject.toml，簡化 package 管理</td>
+<td>速度比 uv 慢，與某些 Python 套件相容性可能有問題</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
             </div>
 
             <!-- Post information -->

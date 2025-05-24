@@ -19,7 +19,7 @@
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="Spark"/>
+    <meta property="og:title" content="Github Actions 介紹"/>
 
 
 <!--Open Graph Description-->
@@ -51,7 +51,7 @@
 
 <!-- Title -->
 
-<title>Spark | Mia 的學習筆記</title>
+<title>Github Actions 介紹 | Mia 的學習筆記</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <div class="post-heading text-white">
-                    <h1>Spark</h1>
+                    <h1>Github Actions 介紹</h1>
                     
                 </div>
             </div>
@@ -148,7 +148,7 @@
     
         <span class="post-meta-split">&nbsp;|&nbsp;</span>
         <i class="far fa-calendar-check fa-fw"></i>
-        2021-12-20
+        2023-09-12
     
     <!-- word count and read count -->
     
@@ -158,49 +158,14 @@
     
 </span>  
                 
-                <h2 id="Spark-簡介"><a href="#Spark-簡介" class="headerlink" title="Spark 簡介"></a>Spark 簡介</h2><p>使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。<br>與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。</p>
-<p>另外還有：</p>
-<ul>
-<li>Spark SQL</li>
-<li>Spark Streaming</li>
-<li>Spark Mlib</li>
+                <h2 id="Screen-常用指令"><a href="#Screen-常用指令" class="headerlink" title="Screen 常用指令"></a>Screen 常用指令</h2><h3 id="快捷鍵"><a href="#快捷鍵" class="headerlink" title="快捷鍵"></a>快捷鍵</h3><ul>
+<li>保留目前執行，並退出 screen：先按 ctrl + A，再按 ctrl + D</li>
 </ul>
-<p>由於目前工作所需的是 python，所以使用 pyspark 來協助我開發。<br>在這邊推薦這個網站<div class="img-item" data-src="https://sparkbyexamples.com/" data-sub-html=".caption"><img src="https://sparkbyexamples.com/" alt="Apache Spark Tutorial with Example"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">Apache Spark Tutorial with Example</span></div></div><br>對我來說要上手一個工具最快的方法就是從 example 中學習，這樣也比較會有記憶點，<br>邊做邊學也許會有不同的發想。當初接到的第一個任務就是針對 Spark 效能做調整。</p>
-<h2 id="spark-config-的設定方法"><a href="#spark-config-的設定方法" class="headerlink" title="spark config 的設定方法"></a>spark config 的設定方法</h2><ol>
-<li><p>全域設定，在 $SPARK_HOME&#x2F;conf&#x2F;spark-defaults.conf 設定</p>
-</li>
-<li><p>在 spark session create 的時候設定</p>
-</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spark = SparkSession.builder \</span><br><span class="line">    .config(<span class="string">&quot;spark.sql.sources.partitionOverwriteMode&quot;</span>, <span class="string">&quot;dynamic&quot;</span>) \</span><br><span class="line">    .getOrCreate()</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># start new screen</span></span><br><span class="line">screen</span><br><span class="line"></span><br><span class="line"><span class="comment"># show screen list</span></span><br><span class="line">screen -<span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># read specify screen</span></span><br><span class="line">screen -r screen_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete specify screen</span></span><br><span class="line">screen -S screen_name -X quit.</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>在 spark submit 的時候設定</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --spark.driver.memory 4G \</span><br><span class="line">  --spark.executor.memory 20G</span><br><span class="line"></span><br><span class="line">./bin/spark-submit \</span><br><span class="line">  --class &lt;main-class&gt;</span><br><span class="line">  --master &lt;master-url&gt; \</span><br><span class="line">  --deploy-mode &lt;deploy-mode&gt; \</span><br><span class="line">  --conf spark.driver.memory=4G \</span><br><span class="line">  --conf spark.executor.memory=20G</span><br></pre></td></tr></table></figure>
+<h2 id="Vim-常用指令"><a href="#Vim-常用指令" class="headerlink" title="Vim 常用指令"></a>Vim 常用指令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copy/Cut (將 y 換成 d 即爲剪下)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 複製當前游標所在的行，包括換行符。 </span></span><br><span class="line">yy</span><br><span class="line"><span class="comment">## 從游標所在的位置開始複製所有的內容，直到行尾。 </span></span><br><span class="line">y$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Paste</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 將文字貼上在游標之後</span></span><br><span class="line">p </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Move</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳至行尾</span></span><br><span class="line">:$</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳至行頭</span></span><br><span class="line">:0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳到文件結尾</span></span><br><span class="line">:G</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳到文件最開頭</span></span><br><span class="line">:1G</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Find</span></span><br><span class="line">:/find_string</span><br><span class="line"></span><br><span class="line"><span class="comment">## start find</span></span><br><span class="line"><span class="built_in">type</span> enter</span><br><span class="line"></span><br><span class="line"><span class="comment">## find next</span></span><br><span class="line"><span class="built_in">type</span> n</span><br><span class="line"></span><br><span class="line"><span class="comment">## find previous</span></span><br><span class="line"><span class="built_in">type</span> N</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Quit the file</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 離開檔案</span></span><br><span class="line">:q</span><br><span class="line"></span><br><span class="line"><span class="comment">## Quit and save change</span></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line"><span class="comment">## Force Quit the file</span></span><br><span class="line">:q!</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空所有內容</span></span><br><span class="line">ggdG</span><br></pre></td></tr></table></figure>
 
-<h2 id="Spark-效能調較"><a href="#Spark-效能調較" class="headerlink" title="Spark 效能調較"></a>Spark 效能調較</h2><p>Spark 有很多參數可以調較，而且也能夠針對機器的規格以及使用情境做不同的調整。舉例來說，如果同時有多個使用者要一起用 spark，<br>每一個 task 所開放的最大 cpu cores 或是 memory 就不能設定到幾乎跟原始設備一樣的規格，就會有人需要排隊等待，<br>反之，若是使用人數不多而且每一次 task 跑的數據量較大的話，就需要將設定規格開高一點。<br>由於 Spark 底層是由 Java 所實現的，因此有很多參數是對 JVM 進行調整，但是對一個剛開始碰 Spark 且只用過 python 的人來說（我）還是先從基礎的功能開始。<br>Spark 的資料夾中有，spark config 的檔案，不同的 spark mode (ex: Standalone, Cluster, Client)，要設定 config 檔案也不同。</p>
-<p>此次分享在 Spark Mesos 的模式下所做的調整，主要是對一個 task 在進行的時候所能使用的最大資源。</p>
-<ul>
-<li>spark.cores.max：給定 spark 可用的核心數量 </li>
-<li>spark.driver.cores：driver 啟動時，可使用的核心數量</li>
-<li>spark.driver.memory：driver 啟動時，可使用的記憶體大小（m, g）</li>
-<li>spark.executor.cores： 一個 executor 可使用的核心數量</li>
-<li>spark.executor.memory：一個 executor 可使用的記憶體大小（m, g）</li>
-<li>spark.rpc.message.maxSize：node 與 node 之間能傳輸的最大資料量（m）</li>
-</ul>
-<p>在機器規格固定之下，我只調整以上的 6 個參數，可將原本需要 13 分鐘的演算時間，變成只要 5 分鐘即可跑完。</p>
-<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>從 13 分鐘變成 5 分鐘這件事情，我後來發現其實之前遇到的問題是因為那個程式都把 spark data frame 轉成 pandas data frame 去操作，沒有使用到分散式資源，全部集中在 driver memeory 中，因此其實只要把與 driver 相關的資源調大就好 XDD。</p>
-<h2 id="Spark-MongoDB"><a href="#Spark-MongoDB" class="headerlink" title="Spark + MongoDB"></a>Spark + MongoDB</h2><p>to be contiune。。。。</p>
-<!-- 
-https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
-
-
-<p>參考資料：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://kknews.cc/zh-tw/tech/99xy258.html">https://kknews.cc/zh-tw/tech/99xy258.html</a></li>
-</ul>
-
+<h2 id="Command-常用指令"><a href="#Command-常用指令" class="headerlink" title="Command 常用指令"></a>Command 常用指令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
             </div>
 
             <!-- Post information -->
@@ -212,7 +177,7 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
             
             
         
-            <a href="/tags/Python/">#Python</a> <a href="/tags/Spark/">#Spark</a>
+            <a href="/tags/Git/">#Git</a>
         
     </div>
 
@@ -220,10 +185,10 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
         <ul class="pagination d-block text-center">
             
-                <li class="previous page-item d-inline"><a href="/2022/05/18/about_airflow/" class="page-link float-left">&larr;  下一頁</a></li>
+                <li class="previous page-item d-inline"><a href="/2023/09/12/about_github_actions/" class="page-link float-left">&larr;  下一頁</a></li>
             
             
-                <li class="next page-item d-inline"><a href="/2021/04/12/jupyter_lab/" class="page-link float-right">上一頁  &rarr;</a></li>
+                <li class="next page-item d-inline"><a href="/2022/05/18/about_airflow/" class="page-link float-right">上一頁  &rarr;</a></li>
             
         </ul>
     </div>

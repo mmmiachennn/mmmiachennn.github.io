@@ -87,17 +87,6 @@
       </tags>
   </entry>
   <entry>
-    <title>離線安裝 pyenv</title>
-    <url>/2025/04/12/pyenv_offline_install/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>開發相關</category>
-      </categories>
-      <tags>
-        <tag>Pyenv</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spark</title>
     <url>/2021/12/20/about_spark/</url>
     <content><![CDATA[<h2 id="Spark-簡介"><a href="#Spark-簡介" class="headerlink" title="Spark 簡介"></a>Spark 簡介</h2><p>使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。<br>與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。</p>
@@ -124,7 +113,7 @@
 <h2 id="Spark-效能調較"><a href="#Spark-效能調較" class="headerlink" title="Spark 效能調較"></a>Spark 效能調較</h2><p>Spark 有很多參數可以調較，而且也能夠針對機器的規格以及使用情境做不同的調整。舉例來說，如果同時有多個使用者要一起用 spark，<br>每一個 task 所開放的最大 cpu cores 或是 memory 就不能設定到幾乎跟原始設備一樣的規格，就會有人需要排隊等待，<br>反之，若是使用人數不多而且每一次 task 跑的數據量較大的話，就需要將設定規格開高一點。<br>由於 Spark 底層是由 Java 所實現的，因此有很多參數是對 JVM 進行調整，但是對一個剛開始碰 Spark 且只用過 python 的人來說（我）還是先從基礎的功能開始。<br>Spark 的資料夾中有，spark config 的檔案，不同的 spark mode (ex: Standalone, Cluster, Client)，要設定 config 檔案也不同。</p>
 <p>此次分享在 Spark Mesos 的模式下所做的調整，主要是對一個 task 在進行的時候所能使用的最大資源。</p>
 <ul>
-<li>spark.cores.max：給定 spark 可用的核心數量</li>
+<li>spark.cores.max：給定 spark 可用的核心數量 </li>
 <li>spark.driver.cores：driver 啟動時，可使用的核心數量</li>
 <li>spark.driver.memory：driver 啟動時，可使用的記憶體大小（m, g）</li>
 <li>spark.executor.cores： 一個 executor 可使用的核心數量</li>
@@ -260,6 +249,231 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github Actions 介紹</title>
+    <url>/2023/09/12/about_screen_vim/</url>
+    <content><![CDATA[<h2 id="Screen-常用指令"><a href="#Screen-常用指令" class="headerlink" title="Screen 常用指令"></a>Screen 常用指令</h2><h3 id="快捷鍵"><a href="#快捷鍵" class="headerlink" title="快捷鍵"></a>快捷鍵</h3><ul>
+<li>保留目前執行，並退出 screen：先按 ctrl + A，再按 ctrl + D</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># start new screen</span></span><br><span class="line">screen</span><br><span class="line"></span><br><span class="line"><span class="comment"># show screen list</span></span><br><span class="line">screen -<span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># read specify screen</span></span><br><span class="line">screen -r screen_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete specify screen</span></span><br><span class="line">screen -S screen_name -X quit.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim-常用指令"><a href="#Vim-常用指令" class="headerlink" title="Vim 常用指令"></a>Vim 常用指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Copy/Cut (將 y 換成 d 即爲剪下)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 複製當前游標所在的行，包括換行符。 </span></span><br><span class="line">yy</span><br><span class="line"><span class="comment">## 從游標所在的位置開始複製所有的內容，直到行尾。 </span></span><br><span class="line">y$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Paste</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 將文字貼上在游標之後</span></span><br><span class="line">p </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Move</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳至行尾</span></span><br><span class="line">:$</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳至行頭</span></span><br><span class="line">:0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳到文件結尾</span></span><br><span class="line">:G</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳到文件最開頭</span></span><br><span class="line">:1G</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Find</span></span><br><span class="line">:/find_string</span><br><span class="line"></span><br><span class="line"><span class="comment">## start find</span></span><br><span class="line"><span class="built_in">type</span> enter</span><br><span class="line"></span><br><span class="line"><span class="comment">## find next</span></span><br><span class="line"><span class="built_in">type</span> n</span><br><span class="line"></span><br><span class="line"><span class="comment">## find previous</span></span><br><span class="line"><span class="built_in">type</span> N</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Quit the file</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 離開檔案</span></span><br><span class="line">:q</span><br><span class="line"></span><br><span class="line"><span class="comment">## Quit and save change</span></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line"><span class="comment">## Force Quit the file</span></span><br><span class="line">:q!</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空所有內容</span></span><br><span class="line">ggdG</span><br></pre></td></tr></table></figure>
+
+<h2 id="Command-常用指令"><a href="#Command-常用指令" class="headerlink" title="Command 常用指令"></a>Command 常用指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Virtual Environment</title>
+    <url>/2025/02/24/about_virtual_env/</url>
+    <content><![CDATA[<h2 id="虛擬環境目的"><a href="#虛擬環境目的" class="headerlink" title="虛擬環境目的"></a>虛擬環境目的</h2><ul>
+<li>根據不同的專案需求安裝不同版本的 python 或是 packages</li>
+<li>當需要更新 python 的時候隔離環境，不影響其他專案</li>
+<li>與系統 python 完全隔離</li>
+</ul>
+<h2 id="虛擬環境工具的比較"><a href="#虛擬環境工具的比較" class="headerlink" title="虛擬環境工具的比較"></a>虛擬環境工具的比較</h2><p>不同的工具有不同的使用場景。只有找到最適合自己的那個，才是好工具。比如說提供 Data Analysis 或 Data Scientist ，只需要基本的 package 隔離，就可以使用 anaconda，最入門好上手。但如果是 Data Engineer 偏工程類的，就可以考慮使用 pyenv + virtualenv，版本控制的彈性比較大。</p>
+<p>以下由 chatGPT 比較各種虛擬環境管理工具：</p>
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>工具名稱</th>
+<th>內建&#x2F;需安裝</th>
+<th>依賴管理</th>
+<th>環境隔離</th>
+<th>支援 Python 版本</th>
+<th>主要用途</th>
+<th>優點</th>
+<th>缺點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>venv</td>
+<td>內建 (Python 3.3+)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、輕量級專案</td>
+<td>內建於 Python，無需額外安裝，輕量、易用</td>
+<td>無法管理 Python 版本</td>
+</tr>
+<tr>
+<td>virtualenv</td>
+<td>需安裝 (pip install virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、與老舊 Python 版本兼容</td>
+<td>比 venv 更快，支援舊版 Python</td>
+<td>額外安裝，與 venv 類似，功能略多但差異不大</td>
+</tr>
+<tr>
+<td>conda</td>
+<td>需安裝 (Anaconda &#x2F; Miniconda)</td>
+<td>conda (獨立於 pip)</td>
+<td>是</td>
+<td>可同時管理 Python 版本</td>
+<td>資料科學、機器學習、大型專案</td>
+<td>可管理 Python 版本 &amp; 套件，適合科學計算，支援非 Python 套件</td>
+<td>佔用空間較大，套件安裝可能較慢</td>
+</tr>
+<tr>
+<td>pyenv-virtualenv</td>
+<td>需安裝 (pyenv + pyenv-virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>可獨立管理 Python 版本</td>
+<td>需要同時管理 Python 版本與虛擬環境</td>
+<td>與 pyenv 整合，可同時管理不同版本的 Python 和虛擬環境</td>
+<td>設定較複雜，適合進階用戶</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>需安裝 (pipx install uv)</td>
+<td>uv (獨立於 pip，速度快)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>依賴管理、加速 pip</td>
+<td>極快，比 pip、pip-tools 更快，支持 requirements.txt</td>
+<td>仍在發展中，缺少部分高級功能</td>
+</tr>
+<tr>
+<td>poetry</td>
+<td>需安裝 (pipx install poetry)</td>
+<td>poetry (內建 lock 機制)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>現代 Python 專案管理</td>
+<td>內建 lock file、自動管理 pyproject.toml，簡化 package 管理</td>
+<td>速度比 uv 慢，與某些 Python 套件相容性可能有問題</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="題外話"><a href="#題外話" class="headerlink" title="題外話"></a>題外話</h2><p>chatGPT 真的好好用，馬上請他整理好資料就可以提案跟主管報告，請大家一定要會使用 AI 工具，整個做事效率會提供蠻多的。</p>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安裝 pyenv</title>
+    <url>/2025/04/12/install_pyenv/</url>
+    <content><![CDATA[<h2 id="虛擬環境目的"><a href="#虛擬環境目的" class="headerlink" title="虛擬環境目的"></a>虛擬環境目的</h2><ul>
+<li>by 專案&#x2F;環境做套件相依性的管理</li>
+<li>python 版本更新</li>
+<li>與系統 python 完全隔離</li>
+</ul>
+<h2 id="虛擬環境工具的比較"><a href="#虛擬環境工具的比較" class="headerlink" title="虛擬環境工具的比較"></a>虛擬環境工具的比較</h2><p>不同的工具有不同的使用場景。只有找到最適合自己的那個，才是好工具。<br>比如說提供新手開發使用 anaconda 最入門好上手。但如果是比較資深的工程師需要自己架環境且需要一直更新 python 版本使用 pyenv + virtualenv 就是一個方便快速的工具。<br>今天我想要 release </p>
+<p>由 chatGPT 歸納與整理</p>
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>工具名稱</th>
+<th>內建&#x2F;需安裝</th>
+<th>依賴管理</th>
+<th>環境隔離</th>
+<th>支援 Python 版本</th>
+<th>主要用途</th>
+<th>優點</th>
+<th>缺點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>venv</td>
+<td>內建 (Python 3.3+)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、輕量級專案</td>
+<td>內建於 Python，無需額外安裝，輕量、易用</td>
+<td>無法管理 Python 版本</td>
+</tr>
+<tr>
+<td>virtualenv</td>
+<td>需安裝 (pip install virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>一般開發、與老舊 Python 版本兼容</td>
+<td>比 venv 更快，支援舊版 Python</td>
+<td>額外安裝，與 venv 類似，功能略多但差異不大</td>
+</tr>
+<tr>
+<td>conda</td>
+<td>需安裝 (Anaconda &#x2F; Miniconda)</td>
+<td>conda (獨立於 pip)</td>
+<td>是</td>
+<td>可同時管理 Python 版本</td>
+<td>資料科學、機器學習、大型專案</td>
+<td>可管理 Python 版本 &amp; 套件，適合科學計算，支援非 Python 套件</td>
+<td>佔用空間較大，套件安裝可能較慢</td>
+</tr>
+<tr>
+<td>pyenv-virtualenv</td>
+<td>需安裝 (pyenv + pyenv-virtualenv)</td>
+<td>pip</td>
+<td>是</td>
+<td>可獨立管理 Python 版本</td>
+<td>需要同時管理 Python 版本與虛擬環境</td>
+<td>與 pyenv 整合，可同時管理不同版本的 Python 和虛擬環境</td>
+<td>設定較複雜，適合進階用戶</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>需安裝 (pipx install uv)</td>
+<td>uv (獨立於 pip，速度快)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>依賴管理、加速 pip</td>
+<td>極快，比 pip、pip-tools 更快，支持 requirements.txt</td>
+<td>仍在發展中，缺少部分高級功能</td>
+</tr>
+<tr>
+<td>poetry</td>
+<td>需安裝 (pipx install poetry)</td>
+<td>poetry (內建 lock 機制)</td>
+<td>是</td>
+<td>只使用系統安裝的 Python</td>
+<td>現代 Python 專案管理</td>
+<td>內建 lock file、自動管理 pyproject.toml，簡化 package 管理</td>
+<td>速度比 uv 慢，與某些 Python 套件相容性可能有問題</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>開發相關</category>
+      </categories>
+      <tags>
+        <tag>Pyenv</tag>
       </tags>
   </entry>
 </search>
