@@ -22,7 +22,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Github Actions Deploy To VM</title>
+    <title>Github Actions 部署至 GCP VM</title>
     <url>/2025/02/24/github_actions_deploy_to_vm/</url>
     <content><![CDATA[<h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><p>git push -&gt; merge to main branch -&gt; trigger github actions script -&gt; rsync repo GCS -&gt; VM</p>
 <h2 id="VM-的準備"><a href="#VM-的準備" class="headerlink" title="VM 的準備"></a>VM 的準備</h2><ul>
@@ -87,7 +87,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Spark</title>
+    <title>Spark 介紹</title>
     <url>/2021/12/20/about_spark/</url>
     <content><![CDATA[<h2 id="Spark-簡介"><a href="#Spark-簡介" class="headerlink" title="Spark 簡介"></a>Spark 簡介</h2><p>使用於大規模數據的處理引擎，可用 scala, jave, python, R 來撰寫。<br>與 MapReduce不同的地方在於，Spark 可以直接在內存中暫存數據，比 MapReduce 把數據寫回磁碟的方式快 100 倍。</p>
 <p>另外還有：</p>
@@ -252,7 +252,7 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
       </tags>
   </entry>
   <entry>
-    <title>Command 常用指令</title>
+    <title>Screen Vim 常用指令</title>
     <url>/2024/10/11/about_screen_vim/</url>
     <content><![CDATA[<h2 id="Screen-常用指令"><a href="#Screen-常用指令" class="headerlink" title="Screen 常用指令"></a>Screen 常用指令</h2><h3 id="快捷鍵"><a href="#快捷鍵" class="headerlink" title="快捷鍵"></a>快捷鍵</h3><ul>
 <li>保留目前執行，並退出 screen：先按 ctrl + A，再按 ctrl + D</li>
@@ -374,7 +374,7 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
       </tags>
   </entry>
   <entry>
-    <title>安裝 pyenv</title>
+    <title>Install pyenv</title>
     <url>/2025/04/12/install_pyenv/</url>
     <content><![CDATA[<h2 id="虛擬環境目的"><a href="#虛擬環境目的" class="headerlink" title="虛擬環境目的"></a>虛擬環境目的</h2><ul>
 <li>by 專案&#x2F;環境做套件相依性的管理</li>
