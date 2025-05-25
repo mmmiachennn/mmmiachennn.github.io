@@ -252,8 +252,8 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
       </tags>
   </entry>
   <entry>
-    <title>Github Actions 介紹</title>
-    <url>/2023/09/12/about_screen_vim/</url>
+    <title>Command 常用指令</title>
+    <url>/2024/10/11/about_screen_vim/</url>
     <content><![CDATA[<h2 id="Screen-常用指令"><a href="#Screen-常用指令" class="headerlink" title="Screen 常用指令"></a>Screen 常用指令</h2><h3 id="快捷鍵"><a href="#快捷鍵" class="headerlink" title="快捷鍵"></a>快捷鍵</h3><ul>
 <li>保留目前執行，並退出 screen：先按 ctrl + A，再按 ctrl + D</li>
 </ul>
@@ -266,7 +266,7 @@ https://docs.mongodb.com/spark-connector/current/python/write-to-mongodb/ -->
         <category>開發相關</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>command</tag>
       </tags>
   </entry>
   <entry>
