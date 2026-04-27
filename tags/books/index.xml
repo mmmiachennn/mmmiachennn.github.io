@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Books on Mia Hugo Project</title>
+        <link>http://localhost:1313/tags/books/</link>
+        <description>Recent content in Books on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/books/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>高效偷懶</title>
+            <link>http://localhost:1313/posts/inbox/windows-%E5%9D%91/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/posts/inbox/windows-%E5%9D%91/</guid>
+            <description>&lt;p&gt;使用 Git Bash 建立 softlink，失敗&#xA; ln -s /d/website_hugo/static/images/ .&lt;/p&gt;&#xA;&lt;p&gt;PowerShell 使用 cmd 的指令&#xA;cmd /c mklink /D &amp;ldquo;images&amp;rdquo; &amp;ldquo;D:\website_hugo\static\images&amp;rdquo;&lt;/p&gt;&#xA;</description>
+        </item></channel>
+</rss>

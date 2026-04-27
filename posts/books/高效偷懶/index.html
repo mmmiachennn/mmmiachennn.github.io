@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="世界一流工程師爲何與衆不同？&ndash;高生產力的祕密 在解決問題時，不應該直接採取行動、提交各種查詢、反覆試錯，而是應該先查看日誌，推測可能會發生的問題，然後根據推測來提交查詢，來證明自己的假設 -&gt; 可以排除隨機嘗試而造成的時間損失，從而獲得壓倒性的生產力。\n不要急著動手，首先建立假設、選定方法，再採取行動\n在寫程式碼之前，先寫一份小文件：不需要寫太多，幾頁 word 就夠了。寫程式碼之前，先寫設計文件。寫完程式碼再補寫文件太無聊了，不是嗎？ -&gt;可以幫助自己整理思緒，發現可能被遺漏的觀點；在思考的過程中寫下來，就會自動成爲「設計文件」，之後只要分享即可，就不需要再寫無聊的文件。\nsummary 書本：先思考後動手。 我的：對應到我的工作流程： design(think)：包含釐清目標、初步構思與規劃架構。 -&gt; 建立假資料（釐清邏輯）：寫出核心邏輯並驗證核心邏輯是否正確。 -&gt; 將核心邏輯組成大架構：考慮可讀性、效能、驗證流程。 -&gt; review：回頭思考是否哪裏不足或是將來遇到的問題有什麼。 過程中，遇到問題卡住，想超過 3 次沒有結論，就要馬上找人幫忙。\nredesign Scope：描述本設計文件的範圍。 Background：描述提出此提案的背景。 Problem Statement：寫下想解決的問題。 Proposal：以邏輯思維寫下如何設計，以及選擇這個方案的理由，篇幅應簡潔，大約2-10頁左右。使用線上共享的 word 文檔，因此任何人都能編輯和評論。 美國的工作思維模式 儘早失敗儘早修正\n只做 20% 具有 80% 價值的工作：美國與亞洲文化的差異，亞洲文化要做所有的工作，永遠有做不完的代辦清單；美國只做高價值的事情，不需要完成所有工作。\n接受不確定性，才能靈活應對\n製作價值流程圖：現場人員+經理+高階管理階層（所有人），將現階段的工作流程可視化，並將每個流程所花費的時間繪製成圖。大多數情況下，製作價值流程圖可以在大約4小時內，找出縮短前置時間的可能性。\n一般情況下，上司都喜歡簡潔的報告，更喜歡聽到能縮短前置時間。example：想要導入 devops開發方法，目前專案的前置作業時間是X個月，預計導入後可以縮短1週，能否嘗試看看？爲了導入 devops，報告方法也需要調整，瑕疵將詳細介紹。\n用可輕鬆達成的期限來規劃工作。在國外，這種緊急要求會被視爲缺乏管理能力。處理大量事務並不等於生產效率高，而是要培養專注於創造價值的心態。 練習拒絕。明知不可能的請求只會讓大家疲憊不堪，完全無法改善團隊和組織業務。 學習其他文化的觀點 例行會議上，大家關心的是，實際執行之後如何？有沒有需要改善的地方，或是有最好的做法？\n對於程式設計師來說，閱讀程式碼的準確訂和速度是最重要的能力。與其盲目地努力，不如有效地思考該如何減輕大腦的負擔。\n當你覺得某件工作對自己來說太困難時，通常是因爲錯誤使用大腦。 應該停止任何自己感到困難的努力。 做不適合自己程度的工作，不會進步。最重要的是清楚判斷現在的自己無法解決哪些問題\n讓大腦游刃有餘的資訊整理與記憶術 無論多忙，一次只做一件工作 在做一件事時，不要做其他任何事情，全神貫注。 如果必須終端某項任務，應記錄並整理好資料，以便下次再次開始執行時能順利進入狀況。 There is no magic. It&rsquo;s ok to book your time. 每天確保有四個小時是專屬於自己的，剩下的時間再用於其他事情。\n想要改變自己，應該從居住地、人際關係、時間分配來改變。\n不需花時間將自己做過的事情，用言語清楚表達。 要做到你電腦掛鉤說明程式碼，就必須整理和掌握結構，並存入大腦的記憶中。\n書寫能夠大幅提升理解力 康乃爾筆記法：以筆記欄、整理欄、摘要欄的形式記錄工作，在當天結束時整理內容，並以能否口頭向他人解釋作爲記憶檢查點。 養成定期復習的習慣\n">
+<title>高效偷懶</title>
+
+
+<link rel="canonical" href="http://localhost:1313/posts/books/%E9%AB%98%E6%95%88%E5%81%B7%E6%87%B6/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="高效偷懶">
+<meta property='og:description' content="世界一流工程師爲何與衆不同？&ndash;高生產力的祕密 在解決問題時，不應該直接採取行動、提交各種查詢、反覆試錯，而是應該先查看日誌，推測可能會發生的問題，然後根據推測來提交查詢，來證明自己的假設 -&gt; 可以排除隨機嘗試而造成的時間損失，從而獲得壓倒性的生產力。\n不要急著動手，首先建立假設、選定方法，再採取行動\n在寫程式碼之前，先寫一份小文件：不需要寫太多，幾頁 word 就夠了。寫程式碼之前，先寫設計文件。寫完程式碼再補寫文件太無聊了，不是嗎？ -&gt;可以幫助自己整理思緒，發現可能被遺漏的觀點；在思考的過程中寫下來，就會自動成爲「設計文件」，之後只要分享即可，就不需要再寫無聊的文件。\nsummary 書本：先思考後動手。 我的：對應到我的工作流程： design(think)：包含釐清目標、初步構思與規劃架構。 -&gt; 建立假資料（釐清邏輯）：寫出核心邏輯並驗證核心邏輯是否正確。 -&gt; 將核心邏輯組成大架構：考慮可讀性、效能、驗證流程。 -&gt; review：回頭思考是否哪裏不足或是將來遇到的問題有什麼。 過程中，遇到問題卡住，想超過 3 次沒有結論，就要馬上找人幫忙。\nredesign Scope：描述本設計文件的範圍。 Background：描述提出此提案的背景。 Problem Statement：寫下想解決的問題。 Proposal：以邏輯思維寫下如何設計，以及選擇這個方案的理由，篇幅應簡潔，大約2-10頁左右。使用線上共享的 word 文檔，因此任何人都能編輯和評論。 美國的工作思維模式 儘早失敗儘早修正\n只做 20% 具有 80% 價值的工作：美國與亞洲文化的差異，亞洲文化要做所有的工作，永遠有做不完的代辦清單；美國只做高價值的事情，不需要完成所有工作。\n接受不確定性，才能靈活應對\n製作價值流程圖：現場人員+經理+高階管理階層（所有人），將現階段的工作流程可視化，並將每個流程所花費的時間繪製成圖。大多數情況下，製作價值流程圖可以在大約4小時內，找出縮短前置時間的可能性。\n一般情況下，上司都喜歡簡潔的報告，更喜歡聽到能縮短前置時間。example：想要導入 devops開發方法，目前專案的前置作業時間是X個月，預計導入後可以縮短1週，能否嘗試看看？爲了導入 devops，報告方法也需要調整，瑕疵將詳細介紹。\n用可輕鬆達成的期限來規劃工作。在國外，這種緊急要求會被視爲缺乏管理能力。處理大量事務並不等於生產效率高，而是要培養專注於創造價值的心態。 練習拒絕。明知不可能的請求只會讓大家疲憊不堪，完全無法改善團隊和組織業務。 學習其他文化的觀點 例行會議上，大家關心的是，實際執行之後如何？有沒有需要改善的地方，或是有最好的做法？\n對於程式設計師來說，閱讀程式碼的準確訂和速度是最重要的能力。與其盲目地努力，不如有效地思考該如何減輕大腦的負擔。\n當你覺得某件工作對自己來說太困難時，通常是因爲錯誤使用大腦。 應該停止任何自己感到困難的努力。 做不適合自己程度的工作，不會進步。最重要的是清楚判斷現在的自己無法解決哪些問題\n讓大腦游刃有餘的資訊整理與記憶術 無論多忙，一次只做一件工作 在做一件事時，不要做其他任何事情，全神貫注。 如果必須終端某項任務，應記錄並整理好資料，以便下次再次開始執行時能順利進入狀況。 There is no magic. It&rsquo;s ok to book your time. 每天確保有四個小時是專屬於自己的，剩下的時間再用於其他事情。\n想要改變自己，應該從居住地、人際關係、時間分配來改變。\n不需花時間將自己做過的事情，用言語清楚表達。 要做到你電腦掛鉤說明程式碼，就必須整理和掌握結構，並存入大腦的記憶中。\n書寫能夠大幅提升理解力 康乃爾筆記法：以筆記欄、整理欄、摘要欄的形式記錄工作，在當天結束時整理內容，並以能否口頭向他人解釋作爲記憶檢查點。 養成定期復習的習慣\n">
+<meta property='og:url' content='http://localhost:1313/posts/books/%E9%AB%98%E6%95%88%E5%81%B7%E6%87%B6/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='book' /><meta property='article:tag' content='seedling' /><meta property='article:published_time' content='2026-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="高效偷懶">
+<meta name="twitter:description" content="世界一流工程師爲何與衆不同？&ndash;高生產力的祕密 在解決問題時，不應該直接採取行動、提交各種查詢、反覆試錯，而是應該先查看日誌，推測可能會發生的問題，然後根據推測來提交查詢，來證明自己的假設 -&gt; 可以排除隨機嘗試而造成的時間損失，從而獲得壓倒性的生產力。\n不要急著動手，首先建立假設、選定方法，再採取行動\n在寫程式碼之前，先寫一份小文件：不需要寫太多，幾頁 word 就夠了。寫程式碼之前，先寫設計文件。寫完程式碼再補寫文件太無聊了，不是嗎？ -&gt;可以幫助自己整理思緒，發現可能被遺漏的觀點；在思考的過程中寫下來，就會自動成爲「設計文件」，之後只要分享即可，就不需要再寫無聊的文件。\nsummary 書本：先思考後動手。 我的：對應到我的工作流程： design(think)：包含釐清目標、初步構思與規劃架構。 -&gt; 建立假資料（釐清邏輯）：寫出核心邏輯並驗證核心邏輯是否正確。 -&gt; 將核心邏輯組成大架構：考慮可讀性、效能、驗證流程。 -&gt; review：回頭思考是否哪裏不足或是將來遇到的問題有什麼。 過程中，遇到問題卡住，想超過 3 次沒有結論，就要馬上找人幫忙。\nredesign Scope：描述本設計文件的範圍。 Background：描述提出此提案的背景。 Problem Statement：寫下想解決的問題。 Proposal：以邏輯思維寫下如何設計，以及選擇這個方案的理由，篇幅應簡潔，大約2-10頁左右。使用線上共享的 word 文檔，因此任何人都能編輯和評論。 美國的工作思維模式 儘早失敗儘早修正\n只做 20% 具有 80% 價值的工作：美國與亞洲文化的差異，亞洲文化要做所有的工作，永遠有做不完的代辦清單；美國只做高價值的事情，不需要完成所有工作。\n接受不確定性，才能靈活應對\n製作價值流程圖：現場人員+經理+高階管理階層（所有人），將現階段的工作流程可視化，並將每個流程所花費的時間繪製成圖。大多數情況下，製作價值流程圖可以在大約4小時內，找出縮短前置時間的可能性。\n一般情況下，上司都喜歡簡潔的報告，更喜歡聽到能縮短前置時間。example：想要導入 devops開發方法，目前專案的前置作業時間是X個月，預計導入後可以縮短1週，能否嘗試看看？爲了導入 devops，報告方法也需要調整，瑕疵將詳細介紹。\n用可輕鬆達成的期限來規劃工作。在國外，這種緊急要求會被視爲缺乏管理能力。處理大量事務並不等於生產效率高，而是要培養專注於創造價值的心態。 練習拒絕。明知不可能的請求只會讓大家疲憊不堪，完全無法改善團隊和組織業務。 學習其他文化的觀點 例行會議上，大家關心的是，實際執行之後如何？有沒有需要改善的地方，或是有最好的做法？\n對於程式設計師來說，閱讀程式碼的準確訂和速度是最重要的能力。與其盲目地努力，不如有效地思考該如何減輕大腦的負擔。\n當你覺得某件工作對自己來說太困難時，通常是因爲錯誤使用大腦。 應該停止任何自己感到困難的努力。 做不適合自己程度的工作，不會進步。最重要的是清楚判斷現在的自己無法解決哪些問題\n讓大腦游刃有餘的資訊整理與記憶術 無論多忙，一次只做一件工作 在做一件事時，不要做其他任何事情，全神貫注。 如果必須終端某項任務，應記錄並整理好資料，以便下次再次開始執行時能順利進入狀況。 There is no magic. It&rsquo;s ok to book your time. 每天確保有四個小時是專屬於自己的，剩下的時間再用於其他事情。\n想要改變自己，應該從居住地、人際關係、時間分配來改變。\n不需花時間將自己做過的事情，用言語清楚表達。 要做到你電腦掛鉤說明程式碼，就必須整理和掌握結構，並存入大腦的記憶中。\n書寫能夠大幅提升理解力 康乃爾筆記法：以筆記欄、整理欄、摘要欄的形式記錄工作，在當天結束時整理內容，並以能否口頭向他人解釋作爲記憶檢查點。 養成定期復習的習慣\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#世界一流工程師爲何與衆不同高生產力的祕密">世界一流工程師爲何與衆不同？&ndash;高生產力的祕密</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#redesign">redesign</a></li>
+    <li><a href="#美國的工作思維模式">美國的工作思維模式</a></li>
+    <li><a href="#讓大腦游刃有餘的資訊整理與記憶術">讓大腦游刃有餘的資訊整理與記憶術</a></li>
+    <li><a href="#溝通的奧祕">溝通的奧祕</a></li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/books/" style="background-color: hsl(41, 60%, 84%); color: hsl(41, 60%, 15%);">
+                Books
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/books/%E9%AB%98%E6%95%88%E5%81%B7%E6%87%B6/">高效偷懶</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-04-21T00:00:00Z'>Tuesday, April 21, 2026</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        1 minute read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#世界一流工程師爲何與衆不同高生產力的祕密">世界一流工程師爲何與衆不同？&ndash;高生產力的祕密</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#redesign">redesign</a></li>
+    <li><a href="#美國的工作思維模式">美國的工作思維模式</a></li>
+    <li><a href="#讓大腦游刃有餘的資訊整理與記憶術">讓大腦游刃有餘的資訊整理與記憶術</a></li>
+    <li><a href="#溝通的奧祕">溝通的奧祕</a></li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="世界一流工程師爲何與衆不同高生產力的祕密">世界一流工程師爲何與衆不同？&ndash;高生產力的祕密
+</h2><p>在解決問題時，不應該直接採取行動、提交各種查詢、反覆試錯，而是應該先查看日誌，推測可能會發生的問題，然後根據推測來提交查詢，來證明自己的假設
+-&gt; 可以排除隨機嘗試而造成的時間損失，從而獲得壓倒性的生產力。</p>
+<p>不要急著動手，首先建立假設、選定方法，再採取行動</p>
+<p>在寫程式碼之前，先寫一份小文件：不需要寫太多，幾頁 word 就夠了。寫程式碼之前，先寫設計文件。寫完程式碼再補寫文件太無聊了，不是嗎？
+-&gt;可以幫助自己整理思緒，發現可能被遺漏的觀點；在思考的過程中寫下來，就會自動成爲「設計文件」，之後只要分享即可，就不需要再寫無聊的文件。</p>
+<h4 id="summary">summary
+</h4><p>書本：先思考後動手。
+我的：對應到我的工作流程： design(think)：包含釐清目標、初步構思與規劃架構。 -&gt; 建立假資料（釐清邏輯）：寫出核心邏輯並驗證核心邏輯是否正確。 -&gt; 將核心邏輯組成大架構：考慮可讀性、效能、驗證流程。 -&gt; review：回頭思考是否哪裏不足或是將來遇到的問題有什麼。
+過程中，遇到問題卡住，想超過 3 次沒有結論，就要馬上找人幫忙。</p>
+<h2 id="redesign">redesign
+</h2><ul>
+<li>Scope：描述本設計文件的範圍。</li>
+<li>Background：描述提出此提案的背景。</li>
+<li>Problem Statement：寫下想解決的問題。</li>
+<li>Proposal：以邏輯思維寫下如何設計，以及選擇這個方案的理由，篇幅應簡潔，大約2-10頁左右。使用線上共享的 word 文檔，因此任何人都能編輯和評論。</li>
+</ul>
+<h2 id="美國的工作思維模式">美國的工作思維模式
+</h2><p>儘早失敗儘早修正</p>
+<p>只做 20% 具有 80% 價值的工作：美國與亞洲文化的差異，亞洲文化要做所有的工作，永遠有做不完的代辦清單；美國只做高價值的事情，不需要完成所有工作。</p>
+<p>接受不確定性，才能靈活應對</p>
+<p>製作價值流程圖：現場人員+經理+高階管理階層（所有人），將現階段的工作流程可視化，並將每個流程所花費的時間繪製成圖。大多數情況下，製作價值流程圖可以在大約4小時內，找出縮短前置時間的可能性。</p>
+<p>一般情況下，上司都喜歡簡潔的報告，更喜歡聽到能縮短前置時間。example：想要導入 devops開發方法，目前專案的前置作業時間是X個月，預計導入後可以縮短1週，能否嘗試看看？爲了導入 devops，報告方法也需要調整，瑕疵將詳細介紹。</p>
+<ol>
+<li>用可輕鬆達成的期限來規劃工作。在國外，這種緊急要求會被視爲缺乏管理能力。處理大量事務並不等於生產效率高，而是要培養專注於創造價值的心態。</li>
+<li>練習拒絕。明知不可能的請求只會讓大家疲憊不堪，完全無法改善團隊和組織業務。</li>
+<li>學習其他文化的觀點</li>
+</ol>
+<p>例行會議上，大家關心的是，實際執行之後如何？有沒有需要改善的地方，或是有最好的做法？</p>
+<p>對於程式設計師來說，閱讀程式碼的準確訂和速度是最重要的能力。與其盲目地努力，不如有效地思考該如何減輕大腦的負擔。</p>
+<p>當你覺得某件工作對自己來說太困難時，通常是因爲錯誤使用大腦。
+應該停止任何自己感到困難的努力。
+做不適合自己程度的工作，不會進步。最重要的是清楚判斷現在的自己無法解決哪些問題</p>
+<h2 id="讓大腦游刃有餘的資訊整理與記憶術">讓大腦游刃有餘的資訊整理與記憶術
+</h2><p>無論多忙，一次只做一件工作
+在做一件事時，不要做其他任何事情，全神貫注。
+如果必須終端某項任務，應記錄並整理好資料，以便下次再次開始執行時能順利進入狀況。
+There is no magic. It&rsquo;s ok to book your time.
+每天確保有四個小時是專屬於自己的，剩下的時間再用於其他事情。</p>
+<p>想要改變自己，應該從居住地、人際關係、時間分配來改變。</p>
+<p>不需花時間將自己做過的事情，用言語清楚表達。
+要做到你電腦掛鉤說明程式碼，就必須整理和掌握結構，並存入大腦的記憶中。</p>
+<p>書寫能夠大幅提升理解力
+康乃爾筆記法：以筆記欄、整理欄、摘要欄的形式記錄工作，在當天結束時整理內容，並以能否口頭向他人解釋作爲記憶檢查點。
+養成定期復習的習慣</p>
+<p>只在腦中整理思緒，不要寫下來：</p>
+<ul>
+<li>不要在會議中當場記錄討論事項。</li>
+<li>聽他人說話時，想想自己未來要向他人說明，在聽的同時在腦中組織整理內容。</li>
+<li>不要先寫書文章再思考，而是在腦中思考後，整理好思緒再寫文章。</li>
+</ul>
+<p>減輕大腦負擔：理解、記憶、重複</p>
+<h2 id="溝通的奧祕">溝通的奧祕
+</h2><p>引導聽衆深入理解核心內容、高度精簡、減少資訊量的演示，很難用美式的即興發揮來達成。
+提前準備是好的，但果實變成習慣，則會降低生產效率。應該儘可能當場解決問題，不過，將優先順序高的案件帶回家去仔細推敲，絕對不是壞事。</p>
+<p>提高對他人所需資訊的敏銳度：平時就以向他人傳達資訊爲前提做好準備，就能直接減少被詢問時的工作量。</p>
+<p>用讀者的角度編寫筆記：寫程式時，應該有意識地以讓程式碼的讀者能夠無疑問的方式來書寫。
+在動手撰寫程式碼之前，就應該意識到哪些地方不對勁，馬上找機會進行線下溝通。</p>
+<p>如何彌補遠端工作線上交流的不足之處？經常使用 Quick Call （快速通話）。如果無法立即進行快速通話，可以請求對方安排會議。但是必需確認問題是否是對方能輕鬆解決的範圍。如果問題對對方而言需要花費大量精力，應先自行查詢。大多數快速通話都不會話太長的時間，感覺會像是在辦公室裡問同事：你可以幫我看一下這個部分嗎？，大概幾分鐘就能結束。</p>
+<p>在國際團隊中，每個人都很習慣依賴他人、被依賴，以及拒絕。
+從一開始就從專家獲得背景資訊，就能大幅縮短完成工作的時間。</p>
+<p>討論的意義不在於誰對誰錯，而是讓自己加深思考，對初學者來說十分容易執行。關鍵在於，徹底拋開任何如果做了會很丟臉的想法。
+認同對方的不同意。
+即使觀點衝突也不否定：只要遵循不否定對方、不否定對方的想法，以及根據自己的想法發表意見，就能在不傷害彼此心理的情況下，提高討論的效率。</p>
+<p>參與討論的心態：即便出錯也不需要覺得丟臉、初學者更要毫不由於地參與討論、理解對方，並尊重意見、提出意見以我的想法是爲開頭、不忘記感謝對方、享受討論的人就是勝者。</p>
+<p>冥想：</p>
+<ul>
+<li>每天空出五到十分鐘，建議設定好鬧鐘。</li>
+<li>盡量不要思考，專注於從鼻子吸氣時感受到的那股清涼的感覺，再慢慢地用嘴巴吐氣。</li>
+<li>若是腦中依然浮現雜念，就誠實面對自己心中還在思考這些事，並重新集中精神，用鼻子呼吸。
+刻意安排原理電腦螢幕的時間</li>
+</ul>
+<p>男性更年期：
+症狀整天都覺得懶洋洋的，沒有力氣。解決方向有兩個，一是運動，二是增加睾固酮。增加睾固酮，可以由肌力訓練開始。
+作者是每週進行三次肌力訓練，首先做十分鐘的有氧踏步來暖身，接著再分三個部位鍛鍊：胸部和三頭肌；背部和二頭肌；腿部和肩部。每天十分鐘高強度間歇訓練。每天做三十分鐘有氧運動。
+建議大家每天花三十 分鐘投資在自己的身體上。</p>
+<p>飲食方面，最好多是肉類、洋蔥、加熱的大蒜有助於提升睾固酮的食物。推薦富含動物性蛋白質的牛肉、豬肉、肌肉、乳製品、蛋類，以及富含鋅的牡蠣和肝臟，其中雞肝和豬肝含有大量維生素A，與身體製造睾固酮密切相關。
+補充睾固酮可以環節抑鬱、煩躁、失眠等男性更年期症狀，也有助於提高專注力和記憶力。</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/book/">Book</a>
+        
+            <a href="/tags/seedling/">Seedling</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.e22c6acba772b54437962647ea242d5718d512810172147dbbf3eab3ae1415fd.js" defer></script>
+
+
+    </body>
+</html>

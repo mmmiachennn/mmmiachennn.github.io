@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Java 初學者\nvoid function 沒有 return 的時候的對回傳值的定義 public class ch07_1 {\rpublic static void main(String[] args)\r{\rstar(); //呼叫star函數\rSystem.out.println(&#34;使用函數印星星&#34;);\rstar(); //呼叫star函數\r}\rpublic static void star() //star函數\r{\rfor(int i=0; i&lt;20; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\r}\rpublic class ch07_2 {\rpublic static void main(String[] args)\r{\rint i;\ri=star(9);\rSystem.out.println(i+&#34;個星星，使用函數印出&#34;);\r}\rpublic static int star(int n) //注意資料型態\r{\rfor(int i=0; i&lt;2*n; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\rreturn 2*n;\r} 函數多載 多載 （overloading）\n">
+<title>ClickHouse</title>
+
+
+<link rel="canonical" href="https://mmmiachennn.github.io/posts/java/java-beginner/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="ClickHouse">
+<meta property='og:description' content="Java 初學者\nvoid function 沒有 return 的時候的對回傳值的定義 public class ch07_1 {\rpublic static void main(String[] args)\r{\rstar(); //呼叫star函數\rSystem.out.println(&#34;使用函數印星星&#34;);\rstar(); //呼叫star函數\r}\rpublic static void star() //star函數\r{\rfor(int i=0; i&lt;20; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\r}\rpublic class ch07_2 {\rpublic static void main(String[] args)\r{\rint i;\ri=star(9);\rSystem.out.println(i+&#34;個星星，使用函數印出&#34;);\r}\rpublic static int star(int n) //注意資料型態\r{\rfor(int i=0; i&lt;2*n; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\rreturn 2*n;\r} 函數多載 多載 （overloading）\n">
+<meta property='og:url' content='https://mmmiachennn.github.io/posts/java/java-beginner/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='OLAP' /><meta property='article:published_time' content='2025-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="ClickHouse">
+<meta name="twitter:description" content="Java 初學者\nvoid function 沒有 return 的時候的對回傳值的定義 public class ch07_1 {\rpublic static void main(String[] args)\r{\rstar(); //呼叫star函數\rSystem.out.println(&#34;使用函數印星星&#34;);\rstar(); //呼叫star函數\r}\rpublic static void star() //star函數\r{\rfor(int i=0; i&lt;20; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\r}\rpublic class ch07_2 {\rpublic static void main(String[] args)\r{\rint i;\ri=star(9);\rSystem.out.println(i+&#34;個星星，使用函數印出&#34;);\r}\rpublic static int star(int n) //注意資料型態\r{\rfor(int i=0; i&lt;2*n; i++)\rSystem.out.print(&#34;*&#34;);\rSystem.out.print(&#34;\\n&#34;);\rreturn 2*n;\r} 函數多載 多載 （overloading）\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#void-function-沒有-return-的時候的對回傳值的定義">void function 沒有 return 的時候的對回傳值的定義</a></li>
+    <li><a href="#函數多載">函數多載</a></li>
+    <li><a href="#使用類別">使用類別</a></li>
+    <li><a href="#public-與-private-的分別">public 與 private 的分別</a></li>
+    <li><a href="#private-與-protected-的分別">private 與 protected 的分別</a></li>
+    <li><a href="#類別變數">類別變數</a></li>
+    <li><a href="#類別函數">類別函數</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#繼承-extends">繼承 extends</a></li>
+    <li><a href="#類別繼承中的建構元呼叫">類別繼承中的建構元呼叫</a></li>
+    <li><a href="#overriding">Overriding</a></li>
+    <li><a href="#終止繼承">終止繼承</a></li>
+    <li><a href="#抽象類別">抽象類別</a></li>
+    <li><a href="#interface">interface</a></li>
+    <li><a href="#一般-class-的多重繼承">一般 class 的多重繼承</a></li>
+    <li><a href="#interface-class-的多重繼承">interface class 的多重繼承</a></li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/develop/" style="background-color: hsl(274, 60%, 84%); color: hsl(274, 60%, 15%);">
+                Develop
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/java/java-beginner/">ClickHouse</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-04-21T00:00:00Z'>Monday, April 21, 2025</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        4 minutes read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#void-function-沒有-return-的時候的對回傳值的定義">void function 沒有 return 的時候的對回傳值的定義</a></li>
+    <li><a href="#函數多載">函數多載</a></li>
+    <li><a href="#使用類別">使用類別</a></li>
+    <li><a href="#public-與-private-的分別">public 與 private 的分別</a></li>
+    <li><a href="#private-與-protected-的分別">private 與 protected 的分別</a></li>
+    <li><a href="#類別變數">類別變數</a></li>
+    <li><a href="#類別函數">類別函數</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#繼承-extends">繼承 extends</a></li>
+    <li><a href="#類別繼承中的建構元呼叫">類別繼承中的建構元呼叫</a></li>
+    <li><a href="#overriding">Overriding</a></li>
+    <li><a href="#終止繼承">終止繼承</a></li>
+    <li><a href="#抽象類別">抽象類別</a></li>
+    <li><a href="#interface">interface</a></li>
+    <li><a href="#一般-class-的多重繼承">一般 class 的多重繼承</a></li>
+    <li><a href="#interface-class-的多重繼承">interface class 的多重繼承</a></li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>Java 初學者</p>
+<h2 id="void-function-沒有-return-的時候的對回傳值的定義">void function 沒有 return 的時候的對回傳值的定義
+</h2><pre tabindex="0"><code>public class ch07_1 {
+
+	public static void main(String[] args)
+	{
+		star();    //呼叫star函數
+		System.out.println(&#34;使用函數印星星&#34;);
+		star();    //呼叫star函數
+
+	}
+
+	public static void star()  //star函數
+	{
+		for(int i=0; i&lt;20; i++)
+			System.out.print(&#34;*&#34;);
+		System.out.print(&#34;\n&#34;);
+	}
+    
+public class ch07_2 {
+
+	public static void main(String[] args)
+	{
+		int i;
+		i=star(9);
+		System.out.println(i+&#34;個星星，使用函數印出&#34;);
+	}
+
+	public static int star(int n)  //注意資料型態
+	{
+		for(int i=0; i&lt;2*n; i++)
+			System.out.print(&#34;*&#34;);
+		System.out.print(&#34;\n&#34;);
+		return 2*n;
+	}
+</code></pre><h2 id="函數多載">函數多載
+</h2><p>多載 （overloading）</p>
+<ol>
+<li>引數形態不同，引數個數相同
+因此當在主程式呼叫函數時，將會執行相對應之型態的函數；show(a) ; a 為整數型態 int ，因此將會對應到引數為整數型態的函數.</li>
+</ol>
+<pre tabindex="0"><code>public class ch07_9 {
+
+	public static void main(String[] args) {
+		int a=2, b[]={1,2,3};
+		float c=3;
+		double d=3.14;
+		show(a);
+		show(b);
+		show(c);
+		show(d);
+
+	}
+	public static void show(int i){
+		System.out.println(&#34;值(a)＝&#34;+i);
+	}
+	public static void show(int arr[]){
+		System.out.print(&#34;值(b)=&#34;);
+		for(int i=0;i&lt;arr.length;i++)
+		System.out.print(arr[i]+&#34; &#34;);
+	}
+	public static void show(float i){
+		System.out.println(&#34;\n值(c)＝&#34;+i);
+	}
+	public static void show(double i){
+		System.out.println(&#34;值(d)＝&#34;+i);
+	}
+
+}
+</code></pre><ol start="2">
+<li>函數名稱相同，引數個數不同
+透過引數個數的不同，對應到應該呼叫的函數</li>
+</ol>
+<pre tabindex="0"><code>public class ch07_9_2 {
+
+	public static void main(String[] args) {
+		show();
+		show(3);
+		show(&#39;A&#39;,5);
+
+	}
+	public static void show(){
+		System.out.println(&#34;no&#34;);
+	}
+	public static void show(int n){
+		for(int i=0;i&lt;n;i++)
+			System.out.print(&#34;*&#34;);
+		System.out.println(&#34;&#34;);
+	}
+	public static void show(char ch,int n){
+		for(int i=0;i&lt;n;i++)
+			System.out.print(ch);
+	}
+
+}
+</code></pre><p>Another Example： （不同面向的）
+<a class="link" href="https://java.4-x.tw/java-08/java-08-7"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-08/java-08-7</a>
+p.s. 不能引數的個數與型態相同，只有函數成員的回傳型態不同。
+Another Example：相當於 python class 的 init
+<a class="link" href="https://java.4-x.tw/java-09/java-09-2"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-09/java-09-2</a></p>
+<h2 id="使用類別">使用類別
+</h2><pre tabindex="0"><code>class CRectangle {  //定義矩形類別
+	//資料成員
+	int width;  //寬
+	int height; //長
+}
+// 實體化 class 並定義 book
+// 方法1
+CRectangle book;
+book= new CRectangle();
+// 方法2
+CRectangle book=new CRectangle();
+</code></pre><h2 id="public-與-private-的分別">public 與 private 的分別
+</h2><ol>
+<li>若冠上 public 公有的成員，可以被其他程式自由的存取</li>
+<li>若冠上 private 私有的成員，除了 package 其他程式無法存取外，自身的程式也無法存取；運作的範圍只在該類別當中</li>
+<li>若省略公有與私有 ( public &amp; private) 都不使用，那麼成員只會在同一 package 存取使用</li>
+</ol>
+<h2 id="private-與-protected-的分別">private 與 protected 的分別
+</h2><p>private 子類別無法直接讀取，protected 可以
+protected 的優點：</p>
+<ul>
+<li>父類別與子類別皆能使用</li>
+<li>除了父、子類別之外就無法存取</li>
+<li>不像 private 無法直接繼承只子類別或需透過公開函數來繼承</li>
+<li>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>利用繼承，父類別中的 protected 可直接繼承至子類別</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table></div>
+</li>
+</ul>
+<h2 id="類別變數">類別變數
+</h2><p>count 因爲被宣告爲類別變數，所以是所有物件大家共享，radius 爲實例變數，會依類別的設定不同而改變。</p>
+<pre tabindex="0"><code>class CCircle
+{
+   private static int count=0;         //宣告為類別變數
+   private static double pi=3.14;      //宣告為類別變數
+   private double radius;
+
+   public CCircle()        // 建構元 沒有引數
+   {
+      this(1.0);           // 呼叫一個引數的建構元 並給值
+   }
+   public CCircle(double r)   // 建構元 一個引數
+   {
+      radius=r;
+      count ++;               // 呼叫到此建構元就加一
+   }
+   public void show()
+   {
+      System.out.println(&#34;area=&#34;+pi*radius*radius);
+   }
+   public void show_count()   // 用來顯示建立物件的個數
+   {
+      System.out.println(count+&#34; 個物件被建立&#34;);
+   }
+}
+public class instance_vs_class_02
+{
+   public static void main(String args[])
+   {
+      CCircle cir1=new CCircle();      //呼叫沒有引數的建構元
+      cir1.show_count();     // 呼叫顯示個數的函數 Ans 1 個物件被建立
+      CCircle cir2=new CCircle(2.0);   //呼叫一個引數的建構元
+      CCircle cir3=new CCircle(4.3);   //呼叫一個引數的建構元
+      //以下使用物件呼叫顯示個數的函數
+      cir1.show_count(); //Ans 3 個物件被建立
+      cir2.show_count(); //Ans 3 個物件被建立
+      cir3.show_count(); //Ans 3 個物件被建立
+   }
+}
+</code></pre><h2 id="類別函數">類別函數
+</h2><h2 id="summary">Summary
+</h2><p>實例變數：獨立，存在於不同記憶體
+實例函數：必須透過物件來呼叫
+類別變數：物件共享，佔用在同一個記憶體
+類別函數：可以直接呼叫 （類似 python @staticmethod）</p>
+<p>變數或函數加上 static 就可以定義爲類別變數或類別函數</p>
+<h2 id="繼承-extends">繼承 extends
+</h2><p><a class="link" href="https://java.4-x.tw/java-11/java-11-1"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-11/java-11-1</a></p>
+<ul>
+<li>private 成員，必續透過父類別的函數才可以做存取。</li>
+</ul>
+<pre tabindex="0"><code>class 父類別
+{
+  ...
+} 
+
+class 子類別 extends 父類別
+{
+ ...
+}
+</code></pre><p>example:
+<a class="link" href="https://java.4-x.tw/java-11/java-11-2"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-11/java-11-2</a>
+呼叫子類別中的建構元；但在程式執行的結果卻發現 父類別的建構元會被先執行後，才輪到子類別的建構元。</p>
+<pre tabindex="0"><code>class CCircle        // 父類別 CCircle
+{
+   private static double pi=3.14;
+   private double radius;
+
+   public CCircle()     // CCircle建構元
+   {
+      System.out.println(&#34;CCircle() 被呼叫 &#34;);
+   }
+   public void setRadius(double r)
+   {
+      radius=r;
+      System.out.println(&#34;radius=&#34;+radius);
+   }
+   public void show()
+   {
+      System.out.println(&#34;area=&#34;+pi*radius*radius);
+   }
+}
+class CCoin extends CCircle      // 繼承父類別CCircle 的子類別CCoin
+{
+   private int value;            // 子類別資料成員
+
+   public CCoin()          // 子類別建構元
+   {
+      System.out.println(&#34;CCoin() 被呼叫 &#34;);
+   }
+   public void setValue(int t)         // 子類別函數
+   {
+      value=t;
+      System.out.println(&#34;value=&#34;+value);
+   }
+}
+public class class02
+{
+   public static void main(String args[])
+   {
+      CCoin coin=new CCoin(); // 建立 coin 物件
+      coin.setRadius(2.0);    // 呼叫父類別中的函數
+      coin.show();         // 呼叫父類別中的函數
+      coin.setValue(5);       // 呼叫子類別中的函數
+   }
+}
+</code></pre><h2 id="類別繼承中的建構元呼叫">類別繼承中的建構元呼叫
+</h2><p><a class="link" href="https://java.4-x.tw/java-11/java-11-3"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-11/java-11-3</a></p>
+<h2 id="overriding">Overriding
+</h2><p><a class="link" href="https://java.4-x.tw/java-11/java-overriding"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-11/java-overriding</a>
+多載 overloading：名稱相同，透過不同引數、型態，來呼叫相對應的函數。
+改寫 overriding：於子類別中，定義與父類別均相同的函數（名稱相同，引數個數相同）。
+覆寫父類別的 fucntion</p>
+<h2 id="終止繼承">終止繼承
+</h2><p>final,不能繼承 class 或是不能改寫父類別的 function
+example：</p>
+<pre tabindex="0"><code>final class Car{
+...
+}
+
+class Caaa{
+  protected final int num=10;
+  protected final void show()
+  {
+    System.out.println(&#34;Caaa_num=&#34;+num);
+  }
+}
+</code></pre><h2 id="抽象類別">抽象類別
+</h2><p>abstract</p>
+<ul>
+<li>抽象類別不能用來建立物件</li>
+<li>抽象函數不定義其處理方式</li>
+</ul>
+<pre tabindex="0"><code>abstract class CShape               // 定義抽象類別 CShape
+{
+   protected String color;
+   public void setColor(String str)    // 一般的函數
+   {
+      color=str;
+   }
+   public abstract void show(); // 只定義函數名稱的 抽象函數
+}
+
+class CRectangle extends CShape    // 子類別 矩形 CRectangle
+{
+   protected int width,height;
+   public CRectangle(int w,int h)
+   {
+      width=w;
+      height=h;
+   }
+   public void show()      // 定義繼承而來的抽象函數 show() 的處理方式
+   {
+      System.out.print(&#34;color=&#34;+color+&#34;,  &#34;);
+      System.out.println(&#34;area=&#34;+width*height);
+   }
+}
+</code></pre><p>p.s. 抽象函數 只能宣告為 公有public 或 保護protected，
+因為子類別必須取用，所以不能宣告成 私有private！</p>
+<h2 id="interface">interface
+</h2><ul>
+<li>interface 中的資料成員必須設定初值</li>
+<li>interface 沒有一般函數，只有抽象函數</li>
+</ul>
+<pre tabindex="0"><code>interface 介面名稱
+{
+  final 資料型態 成員名稱=常數;
+
+  public abstract 傳回值資料型態 函數名稱(引數...);
+  //抽象函數並無定義處理方式
+}
+</code></pre><p>因為介面只有抽象函數，abstract 的關鍵字可以省略；
+而資料成員部分：因為此值不會被更改，final 也是可以省略的。
+抽象函數的修飾子也只能使用公有 public (或不宣告)，
+為了都能取用到，所以不能宣告 私有private或保護 protected 。</p>
+<pre tabindex="0"><code>\\ 介面實作
+class 類別名稱 implements 介面名稱
+{
+   ...
+}
+</code></pre><h2 id="一般-class-的多重繼承">一般 class 的多重繼承
+</h2><p><a class="link" href="https://java.4-x.tw/java-13/java-13-3"  target="_blank" rel="noopener"
+    >https://java.4-x.tw/java-13/java-13-3</a>
+只有 interface 的 class 可以，一般的 class 不行</p>
+<pre tabindex="0"><code>class 類別名稱 implements 介面1名稱,介面2名稱,介面3名稱...
+{
+   ...
+}
+</code></pre><h2 id="interface-class-的多重繼承">interface class 的多重繼承
+</h2><pre tabindex="0"><code>interface 子介面名稱 extends 父介面1名稱,父介面2名稱,...
+{
+  ...
+}
+</code></pre>
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/olap/">OLAP</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.acaf849f2b273f6a8368a58b001f336738d0c948d92e79b116467d0c7515f932.js" defer></script>
+
+
+    </body>
+</html>

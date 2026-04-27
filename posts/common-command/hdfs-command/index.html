@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="參考網站 https://ithelp.ithome.com.tw/m/articles/10191116\nfolder 處理 ## list\rhadoop fs -ls hdfs_path\r# 參數說明：\r# -C: 只顯示資料夾與檔案的路徑，略過其它資訊。\r# -d: 目錄被列為純文件，只顯示該路徑的資訊。\r# -h: 將檔案大小加上單位，便於閱讀（例如，2310會顯示2.3k）。\r# -R: 列出路徑內所有子目錄及檔案。\r# -t: 按照編輯時間排序（最近的排第一個）。\r# -S: 按檔案大小排序。\r# -r: 顛倒排列順序。（例如，搭配-t使用就會將距離最遠的時間排第一個）\r# -u: 使用訪問時間顯示和排序（預設是使用編輯時間）。\r## create new folder\rhadoop fs -mkdir hdfs_path\r# 參數說明：\r# -p: 類似Unix上 mkdir -p的用法，會將&lt;paths&gt;所有的路徑資料夾全部新增出來。 local 至 hdfs hadoop fs -put local_path hdfs_path\r# 參數說明：\r# -p : 保留檔案的瀏覽、修改時間、擁有者和權限。\r# -f : 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -l : 強制將檔案的儲存副本(replication)變成1。表示該檔案在HDFS上只有一份replication，非必要請勿使用，會失去HDFS的可靠(reliable)特點。\r# -d : 不建立副檔名為._COPYING_的暫時(temporary)文件。儲存檔案至HDFS過程中會先建立一個副檔名為._COPYING_的暫存檔，當儲存完畢後再刪除，若使用這參數將會跳過這步驟。 hdfs 至 local hadoop fs -get hdfs_path local_path\r# 參數說明：\r# -p: 保留檔案的瀏覽和修改時間，擁有者和權限。 （假設權限可以跨越檔案系統複製）\r# -f: 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -ignorecrc: 略過CRC驗證。\r# -crc: 在檔案下載時寫入CRC認證。 hdfs fsck (file system check) 檢查檔案系統的健康狀況、尋找遺失的數據塊 blocks 以及修復損壞的檔案\n">
+<title>HDFS Command</title>
+
+
+<link rel="canonical" href="http://localhost:1313/posts/common-command/hdfs-command/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="HDFS Command">
+<meta property='og:description' content="參考網站 https://ithelp.ithome.com.tw/m/articles/10191116\nfolder 處理 ## list\rhadoop fs -ls hdfs_path\r# 參數說明：\r# -C: 只顯示資料夾與檔案的路徑，略過其它資訊。\r# -d: 目錄被列為純文件，只顯示該路徑的資訊。\r# -h: 將檔案大小加上單位，便於閱讀（例如，2310會顯示2.3k）。\r# -R: 列出路徑內所有子目錄及檔案。\r# -t: 按照編輯時間排序（最近的排第一個）。\r# -S: 按檔案大小排序。\r# -r: 顛倒排列順序。（例如，搭配-t使用就會將距離最遠的時間排第一個）\r# -u: 使用訪問時間顯示和排序（預設是使用編輯時間）。\r## create new folder\rhadoop fs -mkdir hdfs_path\r# 參數說明：\r# -p: 類似Unix上 mkdir -p的用法，會將&lt;paths&gt;所有的路徑資料夾全部新增出來。 local 至 hdfs hadoop fs -put local_path hdfs_path\r# 參數說明：\r# -p : 保留檔案的瀏覽、修改時間、擁有者和權限。\r# -f : 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -l : 強制將檔案的儲存副本(replication)變成1。表示該檔案在HDFS上只有一份replication，非必要請勿使用，會失去HDFS的可靠(reliable)特點。\r# -d : 不建立副檔名為._COPYING_的暫時(temporary)文件。儲存檔案至HDFS過程中會先建立一個副檔名為._COPYING_的暫存檔，當儲存完畢後再刪除，若使用這參數將會跳過這步驟。 hdfs 至 local hadoop fs -get hdfs_path local_path\r# 參數說明：\r# -p: 保留檔案的瀏覽和修改時間，擁有者和權限。 （假設權限可以跨越檔案系統複製）\r# -f: 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -ignorecrc: 略過CRC驗證。\r# -crc: 在檔案下載時寫入CRC認證。 hdfs fsck (file system check) 檢查檔案系統的健康狀況、尋找遺失的數據塊 blocks 以及修復損壞的檔案\n">
+<meta property='og:url' content='http://localhost:1313/posts/common-command/hdfs-command/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='hadoop' /><meta property='article:published_time' content='2026-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="HDFS Command">
+<meta name="twitter:description" content="參考網站 https://ithelp.ithome.com.tw/m/articles/10191116\nfolder 處理 ## list\rhadoop fs -ls hdfs_path\r# 參數說明：\r# -C: 只顯示資料夾與檔案的路徑，略過其它資訊。\r# -d: 目錄被列為純文件，只顯示該路徑的資訊。\r# -h: 將檔案大小加上單位，便於閱讀（例如，2310會顯示2.3k）。\r# -R: 列出路徑內所有子目錄及檔案。\r# -t: 按照編輯時間排序（最近的排第一個）。\r# -S: 按檔案大小排序。\r# -r: 顛倒排列順序。（例如，搭配-t使用就會將距離最遠的時間排第一個）\r# -u: 使用訪問時間顯示和排序（預設是使用編輯時間）。\r## create new folder\rhadoop fs -mkdir hdfs_path\r# 參數說明：\r# -p: 類似Unix上 mkdir -p的用法，會將&lt;paths&gt;所有的路徑資料夾全部新增出來。 local 至 hdfs hadoop fs -put local_path hdfs_path\r# 參數說明：\r# -p : 保留檔案的瀏覽、修改時間、擁有者和權限。\r# -f : 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -l : 強制將檔案的儲存副本(replication)變成1。表示該檔案在HDFS上只有一份replication，非必要請勿使用，會失去HDFS的可靠(reliable)特點。\r# -d : 不建立副檔名為._COPYING_的暫時(temporary)文件。儲存檔案至HDFS過程中會先建立一個副檔名為._COPYING_的暫存檔，當儲存完畢後再刪除，若使用這參數將會跳過這步驟。 hdfs 至 local hadoop fs -get hdfs_path local_path\r# 參數說明：\r# -p: 保留檔案的瀏覽和修改時間，擁有者和權限。 （假設權限可以跨越檔案系統複製）\r# -f: 如果儲存的路徑已經存在相同檔名，就複寫該檔案。\r# -ignorecrc: 略過CRC驗證。\r# -crc: 在檔案下載時寫入CRC認證。 hdfs fsck (file system check) 檢查檔案系統的健康狀況、尋找遺失的數據塊 blocks 以及修復損壞的檔案\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#參考網站">參考網站</a></li>
+    <li><a href="#folder-處理">folder 處理</a></li>
+    <li><a href="#local-至-hdfs">local 至 hdfs</a></li>
+    <li><a href="#hdfs-至-local">hdfs 至 local</a></li>
+    <li><a href="#hdfs-fsck-file-system-check">hdfs fsck (file system check)</a></li>
+    <li><a href="#hdfs-safemode">hdfs Safemode</a></li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/common-command/" style="background-color: hsl(5, 60%, 84%); color: hsl(5, 60%, 15%);">
+                Common Command
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/common-command/hdfs-command/">HDFS Command</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-04-21T00:00:00Z'>Tuesday, April 21, 2026</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        1 minute read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#參考網站">參考網站</a></li>
+    <li><a href="#folder-處理">folder 處理</a></li>
+    <li><a href="#local-至-hdfs">local 至 hdfs</a></li>
+    <li><a href="#hdfs-至-local">hdfs 至 local</a></li>
+    <li><a href="#hdfs-fsck-file-system-check">hdfs fsck (file system check)</a></li>
+    <li><a href="#hdfs-safemode">hdfs Safemode</a></li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="參考網站">參考網站
+</h2><p><a class="link" href="https://ithelp.ithome.com.tw/m/articles/10191116"  target="_blank" rel="noopener"
+    >https://ithelp.ithome.com.tw/m/articles/10191116</a></p>
+<h2 id="folder-處理">folder 處理
+</h2><pre tabindex="0"><code>## list
+
+hadoop fs -ls hdfs_path
+
+# 參數說明：
+#  -C: 只顯示資料夾與檔案的路徑，略過其它資訊。
+#  -d: 目錄被列為純文件，只顯示該路徑的資訊。
+#  -h: 將檔案大小加上單位，便於閱讀（例如，2310會顯示2.3k）。
+#  -R: 列出路徑內所有子目錄及檔案。
+#  -t: 按照編輯時間排序（最近的排第一個）。
+#  -S: 按檔案大小排序。
+#  -r: 顛倒排列順序。（例如，搭配-t使用就會將距離最遠的時間排第一個）
+#  -u: 使用訪問時間顯示和排序（預設是使用編輯時間）。
+
+## create new folder
+
+hadoop fs -mkdir hdfs_path
+
+# 參數說明：
+#  -p: 類似Unix上 mkdir -p的用法，會將&lt;paths&gt;所有的路徑資料夾全部新增出來。
+</code></pre><h2 id="local-至-hdfs">local 至 hdfs
+</h2><pre tabindex="0"><code>hadoop fs -put local_path hdfs_path
+
+# 參數說明：
+#  -p : 保留檔案的瀏覽、修改時間、擁有者和權限。
+#  -f : 如果儲存的路徑已經存在相同檔名，就複寫該檔案。
+#  -l : 強制將檔案的儲存副本(replication)變成1。表示該檔案在HDFS上只有一份replication，非必要請勿使用，會失去HDFS的可靠(reliable)特點。
+#  -d : 不建立副檔名為._COPYING_的暫時(temporary)文件。儲存檔案至HDFS過程中會先建立一個副檔名為._COPYING_的暫存檔，當儲存完畢後再刪除，若使用這參數將會跳過這步驟。
+</code></pre><h2 id="hdfs-至-local">hdfs 至 local
+</h2><pre tabindex="0"><code>hadoop fs -get hdfs_path local_path
+
+# 參數說明：
+#  -p: 保留檔案的瀏覽和修改時間，擁有者和權限。 （假設權限可以跨越檔案系統複製）
+#  -f: 如果儲存的路徑已經存在相同檔名，就複寫該檔案。
+#  -ignorecrc: 略過CRC驗證。
+#  -crc: 在檔案下載時寫入CRC認證。
+</code></pre><h2 id="hdfs-fsck-file-system-check">hdfs fsck (file system check)
+</h2><p>檢查檔案系統的健康狀況、尋找遺失的數據塊 blocks 以及修復損壞的檔案</p>
+<ul>
+<li>
+<p>hadoop fsck / -files -blocks: list all the blocks corresponding to each file in the hdfs?</p>
+</li>
+<li>
+<p>hdfs dfsadmin -printTopology：查看集群節點的機架分配情況</p>
+</li>
+</ul>
+<h2 id="hdfs-safemode">hdfs Safemode
+</h2><p>唯讀保護狀態。檔案系統不允許進行任何修改，只能讀取。常見有兩種場景會進入 safemode:
+1.正常啓動的過程。
+2.異常保護，namenode 發現資料塊的副本數量不足，爲了防止數據損壞擴大，會自動進入安全模式。</p>
+<pre tabindex="0"><code># 查看狀態
+hadoop dfsadmin –safemode get
+
+# 進入安全模式
+hdfs dfsadmin -safemode enter
+
+# 強制離開（危險）
+hdfs dfsadmin -safemode leave
+</code></pre>
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hadoop/">Hadoop</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">Related content</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/common-command/hive-command/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hive Command</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.e22c6acba772b54437962647ea242d5718d512810172147dbbf3eab3ae1415fd.js" defer></script>
+
+
+    </body>
+</html>

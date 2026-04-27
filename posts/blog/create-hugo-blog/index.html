@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+<title>Create Hugo Blog</title>
+
+
+<link rel="canonical" href="https://mmmiachennn.github.io/posts/blog/create-hugo-blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="Create Hugo Blog">
+<meta property='og:description' content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+<meta property='og:url' content='https://mmmiachennn.github.io/posts/blog/create-hugo-blog/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='note' /><meta property='article:published_time' content='2026-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Create Hugo Blog">
+<meta name="twitter:description" content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#爲什麼要寫-blog">爲什麼要寫 blog</a></li>
+    <li><a href="#爲什麼選擇用-hugo">爲什麼選擇用 Hugo</a></li>
+    <li><a href="#windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？</a></li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/blog/" style="background-color: hsl(289, 60%, 84%); color: hsl(289, 60%, 15%);">
+                Blog
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/blog/create-hugo-blog/">Create Hugo Blog</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-04-21T00:00:00Z'>Tuesday, April 21, 2026</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        1 minute read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#爲什麼要寫-blog">爲什麼要寫 blog</a></li>
+    <li><a href="#爲什麼選擇用-hugo">爲什麼選擇用 Hugo</a></li>
+    <li><a href="#windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？</a></li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="爲什麼要寫-blog">爲什麼要寫 blog
+</h2><p>這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。</p>
+<h2 id="爲什麼選擇用-hugo">爲什麼選擇用 Hugo
+</h2><p>當初選擇使用 Hugo 有幾個原因：</p>
+<ol>
+<li>同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。</li>
+<li>像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。</li>
+<li>可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。</li>
+</ol>
+<hr>
+<p>以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。</p>
+<h2 id="windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？
+</h2><p>要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。
+（有關 Chocolately，目前還沒有深入研究，也許之後文章更新？）
+安裝 Chocolately 的方法參考此<a class="link" href="https://www.liquidweb.com/kb/how-to-install-chocolatey-on-windows/"  target="_blank" rel="noopener"
+    >網站</a> 。</p>
+<p>安裝 Hugo 的方法參考此篇<a class="link" href="https://blog.yowko.com/windows-10-hugo/"  target="_blank" rel="noopener"
+    >文章</a> ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。
+如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/note/">Note</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">Related content</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/blog/how-to-use-hugo-theme/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to use Hugo themeg</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/blog/how-to-write-blog/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to write blog</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/my-first-post/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">My First MD</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.acaf849f2b273f6a8368a58b001f336738d0c948d92e79b116467d0c7515f932.js" defer></script>
+
+
+    </body>
+</html>
