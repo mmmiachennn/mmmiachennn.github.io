@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Blog on Mia Hugo Project</title>
-        <link>http://localhost:1313/categories/blog/</link>
+        <link>https://mmmiachennn.github.io/categories/blog/</link>
         <description>Recent content in Blog on Mia Hugo Project</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://mmmiachennn.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>Create Hugo Blog</title>
-            <link>http://localhost:1313/posts/blog/create-hugo-blog/</link>
+            <link>https://mmmiachennn.github.io/posts/blog/create-hugo-blog/</link>
             <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
-            <guid>http://localhost:1313/posts/blog/create-hugo-blog/</guid>
+            <guid>https://mmmiachennn.github.io/posts/blog/create-hugo-blog/</guid>
             <description>&lt;h2 id=&#34;爲什麼要寫-blog&#34;&gt;爲什麼要寫 blog&#xA;&lt;/h2&gt;&lt;p&gt;這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&amp;hellip;等。&lt;/p&gt;&#xA;&lt;h2 id=&#34;爲什麼選擇用-hugo&#34;&gt;爲什麼選擇用 Hugo&#xA;&lt;/h2&gt;&lt;p&gt;當初選擇使用 Hugo 有幾個原因：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。&lt;/li&gt;&#xA;&lt;li&gt;像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。&lt;/li&gt;&#xA;&lt;li&gt;可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。&lt;/p&gt;&#xA;&lt;h2 id=&#34;windows-怎麼建立-hugo&#34;&gt;Windows 怎麼建立 Hugo？&#xA;&lt;/h2&gt;&lt;p&gt;要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。&#xA;（有關 Chocolately，目前還沒有深入研究，也許之後文章更新？）&#xA;安裝 Chocolately 的方法參考此&lt;a class=&#34;link&#34; href=&#34;https://www.liquidweb.com/kb/how-to-install-chocolatey-on-windows/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;網站&lt;/a&gt; 。&lt;/p&gt;&#xA;&lt;p&gt;安裝 Hugo 的方法參考此篇&lt;a class=&#34;link&#34; href=&#34;https://blog.yowko.com/windows-10-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;文章&lt;/a&gt; ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。&#xA;如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。&lt;/p&gt;&#xA;</description>
         </item><item>
             <title>How to use Hugo themeg</title>
-            <link>http://localhost:1313/posts/blog/how-to-use-hugo-theme/</link>
+            <link>https://mmmiachennn.github.io/posts/blog/how-to-use-hugo-theme/</link>
             <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
-            <guid>http://localhost:1313/posts/blog/how-to-use-hugo-theme/</guid>
+            <guid>https://mmmiachennn.github.io/posts/blog/how-to-use-hugo-theme/</guid>
             <description>&lt;h2 id=&#34;如何套用-hugo-theme&#34;&gt;如何套用 Hugo Theme？&#xA;&lt;/h2&gt;&lt;p&gt;to be contiune。。。。&lt;/p&gt;&#xA;</description>
         </item><item>
             <title>How to write blog</title>
-            <link>http://localhost:1313/posts/blog/how-to-write-blog/</link>
+            <link>https://mmmiachennn.github.io/posts/blog/how-to-write-blog/</link>
             <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
-            <guid>http://localhost:1313/posts/blog/how-to-write-blog/</guid>
+            <guid>https://mmmiachennn.github.io/posts/blog/how-to-write-blog/</guid>
             <description>&lt;h2 id=&#34;目的&#34;&gt;目的&#xA;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;推廣知識&lt;/li&gt;&#xA;&lt;li&gt;白話、淺顯易懂&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;核心定位與目標：&#xA;&lt;ol&gt;&#xA;&lt;li&gt;寫作目的：記錄學習筆記&lt;/li&gt;&#xA;&lt;li&gt;讀者畫像：(想像不出來)&lt;/li&gt;&#xA;&lt;li&gt;讀者痛點：應該要能夠看得懂文章內容&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;內容架構規範：&#xA;&lt;ol&gt;&#xA;&lt;li&gt;標題：必須包含核心關鍵字&lt;/li&gt;&#xA;&lt;li&gt;前沿：用2-3句話勾勒出文章背景，明確指出讀者讀完後能獲得什麼（WIIFM: What&amp;rsquo;s in it for me）&lt;/li&gt;&#xA;&lt;li&gt;正文：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;使用 H2、H3 標題進行段落切割。&lt;/li&gt;&#xA;&lt;li&gt;每一個段落不超過4行文字，避免視覺疲勞。&lt;/li&gt;&#xA;&lt;li&gt;適時加入圖片、表格或程式碼區塊。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;結論與行動呼籲：簡短總結全文重點。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;</description>
         </item><item>
             <title>My First MD</title>
-            <link>http://localhost:1313/posts/my-first-post/</link>
+            <link>https://mmmiachennn.github.io/posts/my-first-post/</link>
             <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
-            <guid>http://localhost:1313/posts/my-first-post/</guid>
+            <guid>https://mmmiachennn.github.io/posts/my-first-post/</guid>
             <description>&lt;p&gt;This &lt;strong&gt;blod&lt;/strong&gt;&lt;/p&gt;&#xA;</description>
         </item></channel>
 </rss>
