@@ -1,0 +1,52 @@
+---
+title: Git For Beginner
+tags:
+  - Git
+categories:
+  - Develop
+date: 2026-04-21
+draft: true
+---
+Git 對身為開發的人們來說是必備技能之一，因此本人初出茅廬的時候就受到 Git 的洗禮。這個網站[*連猴子都能懂的 Git 入門指南*](https://backlog.com/git-tutorial/tw/intro/intro1_1.html)被我當作字典一樣瘋狂翻閱，大推推到爆。
+
+以下是我想記錄 Git、Github、Gitlab 有什麼差異的初步介紹。
+
+
+---
+## Git 
+Git 是一種開源的分布式版本控制系統，詳細介紹在 https://zh.wikipedia.org/wiki/Git。
+
+
+#### 基本觀念
+- Local（本地）和 Remote（遠端）
+- working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）
+![github](/img/git_img.png)
+---
+## GitLab 和 GitHub 的差異
+### GitHub
+GitHub 是第一個供 Git 進行版本控制系統的軟體開發專案，使用的是基於 Web 的程式碼託管服務，是目前全球最大的開源社交程式設計及程式碼託管網站。GitHub 於 2008 年 4 月 10 日正式上線，除了基本的服務以外，還提供了訂閱、討論組、文字渲染、線上檔案編輯器、協作圖譜（報表）、程式碼片段分享（Gist）等功能。
+
+### GitLab
+GitLab是一個用於倉庫管理系統的開源項目，使用Git作為代碼管理工具，
+並在此基礎上搭建起來的 Web 服務。
+
+
+## Git, GitHub, GitLab
+- Git 是一種版本控制系統，是一種工具，用於代碼的存儲和版本控制。
+- GitHub 是一個基於 Git 實現的在線代碼倉庫，是目前全球最大的代碼托管平台，可以幫助工程師之間互相交流和學習。
+- GitLab 是一個基於 Git 實現的在線代碼倉庫軟件，你可以用 GitLab 自己搭建一個類似于 GitHub 一樣的倉庫，但是 GitLab 有完善的管理界面和權限控制，一般用在企業、學校等内部網路搭建 Git 私服。
+- GitHub 和GitLab 兩個都是基於 Web 的 Git 遠程倉庫，它們都提供了分享開源項目的平台，為開發團隊提供了存儲、分享、發布和合作開發項目的中心化雲存儲的場所。
+
+
+---
+##### 題外話
+本人為統計科系出生，對電腦和程式管理一竅不通，就像開頭所說一踏入職場立馬被 Git 轟炸，永遠記得我第一天上班用 Git 用了一整個下午，才把公司的 repository clone 下來。
+現在事後回想起來其實覺得這是個很好的經驗，很多東西要自己操作一次才會記得才會知道在幹嘛，
+在我上班約一年之後，換我教別人怎麼用 Git 了，那個感覺真的很好。
+同事也有推薦幾個好用的輔助工具，*Git Bush* （提供Git terminal 以及 GUI 操作介面）和 
+*Fork*（有視覺化的 branch commit 圖像，清楚看到遠端與本地端的分支差異，更好管理每個分支的狀況）
+
+---
+參考來源：
+- https://codertw.com/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7/27757/
+- https://blog.csdn.net/ThinkWon/article/details/101470086
