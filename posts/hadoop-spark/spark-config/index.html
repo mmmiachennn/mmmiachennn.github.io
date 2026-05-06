@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="https://www.gushiciku.cn/pl/giTE/zh-tw\nconfig 設定方法 全域設定，在 $SPARK_HOME/conf/spark-defaults.conf 設定\n在 spark session create 的時候設定\nspark = SparkSession.builder \\ .config(&#34;spark.sql.sources.partitionOverwriteMode&#34;, &#34;dynamic&#34;) \\ .getOrCreate() 在 spark submit 的時候設定 ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --spark.driver.memory 4G --spark.executor.memory 20G ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --conf spark.driver.memory=4G --conf spark.executor.memory=20G 常用 config # ignore info spark.sparkContext.setLogLevel(&#39;ERROR&#39;) DataFrame 參數名稱 定義 spark.sql.adaptive.enabled 自動調整 shuffle partition spark.sql.shuffle.partitions 設定切割資料個數（應該要根據資料的大小而做調整，不應該寫死）(num executors * num cores) p.s. dataframe 做 aggregate、join 的時候切割資料的數量 spark.sql.auto.repartition 自動調整 shuffle partition spark.default.parallelism RDD 平行化處理，對 dataframe 沒有效 Execution Behavior 參數名稱 定義 spark.default.parallelism RDD 分割最大數量，當用戶未設置時，cluster 自行決定 shuffle 過程中的任務數量 spark.executor.cores Mesos 的粗粒度模式下，worker節點的所有可用的 core spark.executor.instances spark app 執行的 executor 數量,目前沒有變化 Dynamic Allocation 參數名稱 定義 spark.dynamicAllcation.enabled 動態配置資源 spark.shuffle.service.enabled spark.dynamicAllcation.enabled 開啟時，要同時開啟這個參數。 spark.dynamicAllocation.minExecutors 動態配置資源時，最低限度的 executors 數量 spark.dynamicAllocation.maxExecutors 動態配置資源時，最高限度的 executors 數量 Scheduling 參數名稱 定義 spark.cores.max 一個 APP 所能使用的 core 數量，根據使用者人數來做調整，設定越大，一個task所能使用的資源越多，同時使用的人數就會較少。APP 可以使用的最大 CPU 數量 spark.speculation True，如果有一個或多人物在某一階段運行緩慢，他們將重新啟動。 spark.speculation.interval 多久時間去檢查一次任務 Networking 參數名稱 定義 spark.rpc.message.maxSize executor 和 driver 之間溝通設定最大溝通資料量 ">
+<title>Spark Config</title>
+
+
+<link rel="canonical" href="http://localhost:1313/posts/hadoop-spark/spark-config/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="Spark Config">
+<meta property='og:description' content="https://www.gushiciku.cn/pl/giTE/zh-tw\nconfig 設定方法 全域設定，在 $SPARK_HOME/conf/spark-defaults.conf 設定\n在 spark session create 的時候設定\nspark = SparkSession.builder \\ .config(&#34;spark.sql.sources.partitionOverwriteMode&#34;, &#34;dynamic&#34;) \\ .getOrCreate() 在 spark submit 的時候設定 ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --spark.driver.memory 4G --spark.executor.memory 20G ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --conf spark.driver.memory=4G --conf spark.executor.memory=20G 常用 config # ignore info spark.sparkContext.setLogLevel(&#39;ERROR&#39;) DataFrame 參數名稱 定義 spark.sql.adaptive.enabled 自動調整 shuffle partition spark.sql.shuffle.partitions 設定切割資料個數（應該要根據資料的大小而做調整，不應該寫死）(num executors * num cores) p.s. dataframe 做 aggregate、join 的時候切割資料的數量 spark.sql.auto.repartition 自動調整 shuffle partition spark.default.parallelism RDD 平行化處理，對 dataframe 沒有效 Execution Behavior 參數名稱 定義 spark.default.parallelism RDD 分割最大數量，當用戶未設置時，cluster 自行決定 shuffle 過程中的任務數量 spark.executor.cores Mesos 的粗粒度模式下，worker節點的所有可用的 core spark.executor.instances spark app 執行的 executor 數量,目前沒有變化 Dynamic Allocation 參數名稱 定義 spark.dynamicAllcation.enabled 動態配置資源 spark.shuffle.service.enabled spark.dynamicAllcation.enabled 開啟時，要同時開啟這個參數。 spark.dynamicAllocation.minExecutors 動態配置資源時，最低限度的 executors 數量 spark.dynamicAllocation.maxExecutors 動態配置資源時，最高限度的 executors 數量 Scheduling 參數名稱 定義 spark.cores.max 一個 APP 所能使用的 core 數量，根據使用者人數來做調整，設定越大，一個task所能使用的資源越多，同時使用的人數就會較少。APP 可以使用的最大 CPU 數量 spark.speculation True，如果有一個或多人物在某一階段運行緩慢，他們將重新啟動。 spark.speculation.interval 多久時間去檢查一次任務 Networking 參數名稱 定義 spark.rpc.message.maxSize executor 和 driver 之間溝通設定最大溝通資料量 ">
+<meta property='og:url' content='http://localhost:1313/posts/hadoop-spark/spark-config/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='spark' /><meta property='article:published_time' content='2025-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Spark Config">
+<meta name="twitter:description" content="https://www.gushiciku.cn/pl/giTE/zh-tw\nconfig 設定方法 全域設定，在 $SPARK_HOME/conf/spark-defaults.conf 設定\n在 spark session create 的時候設定\nspark = SparkSession.builder \\ .config(&#34;spark.sql.sources.partitionOverwriteMode&#34;, &#34;dynamic&#34;) \\ .getOrCreate() 在 spark submit 的時候設定 ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --spark.driver.memory 4G --spark.executor.memory 20G ./bin/spark-submit \\ --class &lt;main-class&gt; --master &lt;master-url&gt; \\ --deploy-mode &lt;deploy-mode&gt; \\ --conf spark.driver.memory=4G --conf spark.executor.memory=20G 常用 config # ignore info spark.sparkContext.setLogLevel(&#39;ERROR&#39;) DataFrame 參數名稱 定義 spark.sql.adaptive.enabled 自動調整 shuffle partition spark.sql.shuffle.partitions 設定切割資料個數（應該要根據資料的大小而做調整，不應該寫死）(num executors * num cores) p.s. dataframe 做 aggregate、join 的時候切割資料的數量 spark.sql.auto.repartition 自動調整 shuffle partition spark.default.parallelism RDD 平行化處理，對 dataframe 沒有效 Execution Behavior 參數名稱 定義 spark.default.parallelism RDD 分割最大數量，當用戶未設置時，cluster 自行決定 shuffle 過程中的任務數量 spark.executor.cores Mesos 的粗粒度模式下，worker節點的所有可用的 core spark.executor.instances spark app 執行的 executor 數量,目前沒有變化 Dynamic Allocation 參數名稱 定義 spark.dynamicAllcation.enabled 動態配置資源 spark.shuffle.service.enabled spark.dynamicAllcation.enabled 開啟時，要同時開啟這個參數。 spark.dynamicAllocation.minExecutors 動態配置資源時，最低限度的 executors 數量 spark.dynamicAllocation.maxExecutors 動態配置資源時，最高限度的 executors 數量 Scheduling 參數名稱 定義 spark.cores.max 一個 APP 所能使用的 core 數量，根據使用者人數來做調整，設定越大，一個task所能使用的資源越多，同時使用的人數就會較少。APP 可以使用的最大 CPU 數量 spark.speculation True，如果有一個或多人物在某一階段運行緩慢，他們將重新啟動。 spark.speculation.interval 多久時間去檢查一次任務 Networking 參數名稱 定義 spark.rpc.message.maxSize executor 和 driver 之間溝通設定最大溝通資料量 ">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#config-設定方法">config 設定方法</a></li>
+    <li><a href="#常用-config">常用 config</a>
+      <ul>
+        <li><a href="#dataframe">DataFrame</a></li>
+        <li><a href="#execution-behavior">Execution Behavior</a></li>
+        <li><a href="#dynamic-allocation">Dynamic Allocation</a></li>
+        <li><a href="#scheduling">Scheduling</a></li>
+        <li><a href="#networking">Networking</a></li>
+      </ul>
+    </li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/hadoop-spark/" style="background-color: hsl(21, 60%, 84%); color: hsl(21, 60%, 15%);">
+                Hadoop Spark
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/hadoop-spark/spark-config/">Spark Config</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-04-21T00:00:00Z'>Monday, April 21, 2025</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        1 minute read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#config-設定方法">config 設定方法</a></li>
+    <li><a href="#常用-config">常用 config</a>
+      <ul>
+        <li><a href="#dataframe">DataFrame</a></li>
+        <li><a href="#execution-behavior">Execution Behavior</a></li>
+        <li><a href="#dynamic-allocation">Dynamic Allocation</a></li>
+        <li><a href="#scheduling">Scheduling</a></li>
+        <li><a href="#networking">Networking</a></li>
+      </ul>
+    </li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p><a class="link" href="https://www.gushiciku.cn/pl/giTE/zh-tw"  target="_blank" rel="noopener"
+    >https://www.gushiciku.cn/pl/giTE/zh-tw</a></p>
+<h2 id="config-設定方法">config 設定方法
+</h2><ol>
+<li>
+<p>全域設定，在 $SPARK_HOME/conf/spark-defaults.conf 設定</p>
+</li>
+<li>
+<p>在 spark session create 的時候設定</p>
+</li>
+</ol>
+<pre tabindex="0"><code>spark = SparkSession.builder \
+    .config(&#34;spark.sql.sources.partitionOverwriteMode&#34;, &#34;dynamic&#34;) \
+    .getOrCreate()
+</code></pre><ol start="3">
+<li>在 spark submit 的時候設定</li>
+</ol>
+<pre tabindex="0"><code>./bin/spark-submit \
+  --class &lt;main-class&gt;
+  --master &lt;master-url&gt; \
+  --deploy-mode &lt;deploy-mode&gt; \
+  --spark.driver.memory 4G
+  --spark.executor.memory 20G
+
+./bin/spark-submit \
+  --class &lt;main-class&gt;
+  --master &lt;master-url&gt; \
+  --deploy-mode &lt;deploy-mode&gt; \
+  --conf spark.driver.memory=4G
+  --conf spark.executor.memory=20G
+</code></pre><h2 id="常用-config">常用 config
+</h2><pre tabindex="0"><code># ignore info
+spark.sparkContext.setLogLevel(&#39;ERROR&#39;)
+</code></pre><h3 id="dataframe">DataFrame
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>參數名稱</th>
+          <th>定義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>spark.sql.adaptive.enabled</td>
+          <td>自動調整 shuffle partition</td>
+      </tr>
+      <tr>
+          <td>spark.sql.shuffle.partitions</td>
+          <td>設定切割資料個數（應該要根據資料的大小而做調整，不應該寫死）(num executors * num cores) p.s. dataframe 做 aggregate、join 的時候切割資料的數量</td>
+      </tr>
+      <tr>
+          <td>spark.sql.auto.repartition</td>
+          <td>自動調整 shuffle partition</td>
+      </tr>
+      <tr>
+          <td>spark.default.parallelism</td>
+          <td>RDD 平行化處理，對 dataframe 沒有效</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="execution-behavior">Execution Behavior
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>參數名稱</th>
+          <th>定義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>spark.default.parallelism</td>
+          <td>RDD 分割最大數量，當用戶未設置時，cluster 自行決定 shuffle 過程中的任務數量</td>
+      </tr>
+      <tr>
+          <td>spark.executor.cores</td>
+          <td>Mesos 的粗粒度模式下，worker節點的所有可用的 core</td>
+      </tr>
+      <tr>
+          <td>spark.executor.instances</td>
+          <td>spark app 執行的 executor 數量,目前沒有變化</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="dynamic-allocation">Dynamic Allocation
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>參數名稱</th>
+          <th>定義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>spark.dynamicAllcation.enabled</td>
+          <td>動態配置資源</td>
+      </tr>
+      <tr>
+          <td>spark.shuffle.service.enabled</td>
+          <td>spark.dynamicAllcation.enabled 開啟時，要同時開啟這個參數。</td>
+      </tr>
+      <tr>
+          <td>spark.dynamicAllocation.minExecutors</td>
+          <td>動態配置資源時，最低限度的 executors 數量</td>
+      </tr>
+      <tr>
+          <td>spark.dynamicAllocation.maxExecutors</td>
+          <td>動態配置資源時，最高限度的 executors 數量</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="scheduling">Scheduling
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>參數名稱</th>
+          <th>定義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>spark.cores.max</td>
+          <td>一個 APP 所能使用的 core 數量，根據使用者人數來做調整，設定越大，一個task所能使用的資源越多，同時使用的人數就會較少。APP 可以使用的最大 CPU 數量</td>
+      </tr>
+      <tr>
+          <td>spark.speculation</td>
+          <td>True，如果有一個或多人物在某一階段運行緩慢，他們將重新啟動。</td>
+      </tr>
+      <tr>
+          <td>spark.speculation.interval</td>
+          <td>多久時間去檢查一次任務</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="networking">Networking
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>參數名稱</th>
+          <th>定義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>spark.rpc.message.maxSize</td>
+          <td>executor 和 driver 之間溝通設定最大溝通資料量</td>
+      </tr>
+  </tbody>
+</table></div>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/spark/">Spark</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">Related content</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/hadoop-spark/spark-compression/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Spark Compression</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/hadoop-spark/spark-debug/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Spark Debug</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.e22c6acba772b54437962647ea242d5718d512810172147dbbf3eab3ae1415fd.js" defer></script>
+
+
+    </body>
+</html>

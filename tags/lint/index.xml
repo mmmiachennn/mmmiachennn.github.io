@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Lint on Mia Hugo Project</title>
+        <link>http://localhost:1313/tags/lint/</link>
+        <description>Recent content in Lint on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 21 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lint/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Format Check</title>
+            <link>http://localhost:1313/posts/python/format-check/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/posts/python/format-check/</guid>
+            <description>&lt;h1 id=&#34;python-format-check-blaskruff&#34;&gt;Python format check (Blask,Ruff)&#xA;&lt;/h1&gt;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;特性&lt;/th&gt;&#xA;          &lt;th&gt;Ruff&lt;/th&gt;&#xA;          &lt;th&gt;Black&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;主要功能&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Linter 和 Formatter&lt;/strong&gt;（All-in-one 工具）&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Formatter&lt;/strong&gt;（專注於程式碼格式化）&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;速度&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;極快&lt;/strong&gt;（用 Rust 編寫）&lt;/td&gt;&#xA;          &lt;td&gt;相對較慢（用 Python 編寫）&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;配置性&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;較高&lt;/strong&gt;：提供更多的配置選項，可以啟用/禁用特定的 Lint 規則。格式化風格與 Black 兼容，但在某些細節上可能有更多控制。&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;極低&lt;/strong&gt;：幾乎沒有配置選項，風格規則固定。&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;目標&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;取代多個現有的 Linter 和 Formatter，提供更快速、更全面的程式碼檢查和格式化方案。&lt;/td&gt;&#xA;          &lt;td&gt;提供一個堅定的、統一的程式碼格式化風格，減少風格爭議。&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;語言&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Rust&lt;/td&gt;&#xA;          &lt;td&gt;Python&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;採用程度&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;新興但快速發展，越來越多的專案開始採用。&lt;/td&gt;&#xA;          &lt;td&gt;廣泛採用，是事實上的 Python 程式碼格式化標準之一。&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;功能範圍&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;除了格式化，還包含非常快速且全面的 Linting 功能（風格、錯誤、安全等）。&lt;/td&gt;&#xA;          &lt;td&gt;主要專注於程式碼的格式化。&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;</description>
+        </item></channel>
+</rss>

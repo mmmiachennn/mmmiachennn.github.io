@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Redis on Mia Hugo Project</title>
+        <link>http://mmmiachennn.github.io/tags/redis/</link>
+        <description>Recent content in Redis on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://mmmiachennn.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Screen Command</title>
+            <link>http://mmmiachennn.github.io/posts/common-command/redis-command/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/posts/common-command/redis-command/</guid>
+            <description>&lt;ul&gt;&#xA;&lt;li&gt;進 redis：&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; redis-cli -h node01&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;尋找符合特定 pattern 的 key：&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; scan 53411840 match *ABC* count 200&#xA;1) &amp;#34;15499264&amp;#34;&#xA;2) 1) &amp;#34;[\&amp;#34;mm_20250715\&amp;#34;,\&amp;#34;gc\&amp;#34;,\&amp;#34;ABC-12345\&amp;#34;]&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;查詢 redis 中有多少 key 值：&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; DBSIZE&#xA;(integer) 53,493,153&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;查詢特定的 key&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; lrange &amp;#39;key&amp;#39; 0 -1&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;針對特定的 key 進行 value 的修改&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; lpush &amp;#39;key&amp;#39; &amp;#39;value&amp;#39;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+        </item></channel>
+</rss>

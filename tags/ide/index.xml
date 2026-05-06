@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ide on Mia Hugo Project</title>
+        <link>http://localhost:1313/tags/ide/</link>
+        <description>Recent content in Ide on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 21 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ide/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>IDE</title>
+            <link>http://localhost:1313/posts/python/ide/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/posts/python/ide/</guid>
+            <description>&lt;h2 id=&#34;pycharm&#34;&gt;Pycharm&#xA;&lt;/h2&gt;&lt;p&gt;在 Linux 環境執行&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd to pycharm/bin&#xA;sh pycharm.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ubuntu 下顯示中文&#xA;&lt;a class=&#34;link&#34; href=&#34;https://cdmana.com/2022/02/202202161357032613.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;https://cdmana.com/2022/02/202202161357032613.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;vscode&#34;&gt;VSCode&#xA;&lt;/h2&gt;&lt;h3 id=&#34;settingsjson&#34;&gt;settings.json&#xA;&lt;/h3&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    &amp;#34;workbench.colorTheme&amp;#34;: &amp;#34;PyCharm Dark+ Theme&amp;#34;,&#xA;    &amp;#34;files.autoSave&amp;#34;: &amp;#34;afterDelay&amp;#34;,&#xA;    &amp;#34;editor.fontSize&amp;#34;: 16,&#xA;    &amp;#34;workbench.editor.autoLockGroups&amp;#34;: {&#xA;        &amp;#34;jupyter-notebook&amp;#34;: true&#xA;    },&#xA;    &amp;#34;flake8.args&amp;#34;: [&#xA;        &amp;#34;--max-line-length=119&amp;#34;,&#xA;        &amp;#34;--ignore=E402,F841,F401,E302,E305,W503&amp;#34;&#xA;    ],&#xA;    &amp;#34;python.analysis.autoFormatStrings&amp;#34;: true,&#xA;    &amp;#34;python.analysis.inlayHints.callArgumentNames&amp;#34;: &amp;#34;partial&amp;#34;,&#xA;    &amp;#34;python.analysis.typeCheckingMode&amp;#34;: &amp;#34;basic&amp;#34;,&#xA;    &amp;#34;python.analysis.inlayHints.functionReturnTypes&amp;#34;: true,&#xA;    &amp;#34;python.analysis.inlayHints.variableTypes&amp;#34;: true,&#xA;    &amp;#34;terminal.integrated.fontSize&amp;#34;: 14,&#xA;    &amp;#34;editor.minimap.enabled&amp;#34;: false,&#xA;    &amp;#34;python.languageServer&amp;#34;: &amp;#34;Pylance&amp;#34;,&#xA;    &amp;#34;explorer.confirmDelete&amp;#34;: false,&#xA;    &amp;#34;explorer.confirmDragAndDrop&amp;#34;: false,&#xA;&#x9;&amp;#34;editor.renderWhitespace&amp;#34;: &amp;#34;all&amp;#34;,&#xA;&#x9;&amp;#34;editor.indentSize&amp;#34;: &amp;#34;tabSize&amp;#34;,&#xA;&#x9;&amp;#34;editor.tabSize&amp;#34;: 4,&#xA;&#x9;&amp;#34;workbench.settings.applyToAllProfiles&amp;#34;: [&#xA;&#x9;&#x9;&amp;#34;editor.tabSize&amp;#34;,&#xA;&#x9;&#x9;&amp;#34;editor.insertSpaces&amp;#34;&#xA;    ],&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+        </item></channel>
+</rss>

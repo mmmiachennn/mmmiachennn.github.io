@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pipy on Mia Hugo Project</title>
+        <link>http://localhost:1313/tags/pipy/</link>
+        <description>Recent content in Pipy on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 21 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pipy/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Create Pipy self</title>
+            <link>http://localhost:1313/posts/python/create-pipy-self/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/posts/python/create-pipy-self/</guid>
+            <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/l782060902/article/details/124951775&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;參考&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;下載所需要的 package&#xA;pip download fastapi -d package&#xA;pip download -r requirements.txt -d package&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;啟動服務&#xA;http.server 是 python 自帶模組，可用過 python -m 直接使用&#xA;python -m http.server 80 -d package&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用教程&#xA;pip install fastapi &amp;ndash;no-index -f http://127.0.0.1/&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;2.0 pypiserver&#xA;安裝、啟動服務&#xA;pip install pypiserver&#xA;pypi-server run -p 8080 ./package&lt;/p&gt;&#xA;&lt;p&gt;使用教程&#xA;pip install fastapi -i http://127.0.0.1:8080/simple/ some-package&lt;/p&gt;&#xA;</description>
+        </item></channel>
+</rss>

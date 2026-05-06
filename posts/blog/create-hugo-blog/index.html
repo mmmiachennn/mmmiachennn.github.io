@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 Windows 怎麼建立 Hugo？ 建議用 WSL 來安裝 Hugo，我試過用 chocolately、scoop 安裝，在 local 執行的時候會一直出問題。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。\n以下爲 Hugo 常用指令\n# 檢查 hugo 版本 hugo version # 建立一個新的 hugo 專案 hugo new site {folder name} # 在 local 端執行，隱藏 draft hugo server # 在 local 端執行，並顯示 draft hugo server -D hugo server --buildDrafts # 產生正式發布檔 hugo 如何把 hugo 部署到 github page？ 此篇文章有詳細的步驟教學，請留意 hugo 的 config.toml 已經改爲 hugo.toml 囉~\n">
 <title>Create Hugo Blog</title>
 
 
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="Create Hugo Blog">
-<meta property='og:description' content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+<meta property='og:description' content="爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 Windows 怎麼建立 Hugo？ 建議用 WSL 來安裝 Hugo，我試過用 chocolately、scoop 安裝，在 local 執行的時候會一直出問題。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。\n以下爲 Hugo 常用指令\n# 檢查 hugo 版本 hugo version # 建立一個新的 hugo 專案 hugo new site {folder name} # 在 local 端執行，隱藏 draft hugo server # 在 local 端執行，並顯示 draft hugo server -D hugo server --buildDrafts # 產生正式發布檔 hugo 如何把 hugo 部署到 github page？ 此篇文章有詳細的步驟教學，請留意 hugo 的 config.toml 已經改爲 hugo.toml 囉~\n">
 <meta property='og:url' content='http://mmmiachennn.github.io/posts/blog/create-hugo-blog/'>
 <meta property='og:site_name' content='Mia Hugo Project'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='note' /><meta property='article:published_time' content='2026-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-21T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="Create Hugo Blog">
-<meta name="twitter:description" content="爲什麼要寫 blog 這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。\n爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。 像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。\nWindows 怎麼建立 Hugo？ 要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。 （有關 Chocolately，目前還沒有深入研究，也許之後文章更新？） 安裝 Chocolately 的方法參考此網站 。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。 如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。\n">
+<meta name="twitter:description" content="爲什麼選擇用 Hugo 當初選擇使用 Hugo 有幾個原因：\n像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。 可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。 Windows 怎麼建立 Hugo？ 建議用 WSL 來安裝 Hugo，我試過用 chocolately、scoop 安裝，在 local 執行的時候會一直出問題。\n安裝 Hugo 的方法參考此篇文章 ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。\n以下爲 Hugo 常用指令\n# 檢查 hugo 版本 hugo version # 建立一個新的 hugo 專案 hugo new site {folder name} # 在 local 端執行，隱藏 draft hugo server # 在 local 端執行，並顯示 draft hugo server -D hugo server --buildDrafts # 產生正式發布檔 hugo 如何把 hugo 部署到 github page？ 此篇文章有詳細的步驟教學，請留意 hugo 的 config.toml 已經改爲 hugo.toml 囉~\n">
     </head>
     <body class="
     article-page
@@ -236,9 +236,9 @@
             <nav class="toc-nav" id="TableOfContents">
                 
   <ul>
-    <li><a href="#爲什麼要寫-blog">爲什麼要寫 blog</a></li>
     <li><a href="#爲什麼選擇用-hugo">爲什麼選擇用 Hugo</a></li>
     <li><a href="#windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？</a></li>
+    <li><a href="#如何把-hugo-部署到-github-page">如何把 hugo 部署到 github page？</a></li>
   </ul>
 
             </nav>
@@ -336,9 +336,9 @@
             <nav class="toc-nav">
                 
   <ul>
-    <li><a href="#爲什麼要寫-blog">爲什麼要寫 blog</a></li>
     <li><a href="#爲什麼選擇用-hugo">爲什麼選擇用 Hugo</a></li>
     <li><a href="#windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？</a></li>
+    <li><a href="#如何把-hugo-部署到-github-page">如何把 hugo 部署到 github page？</a></li>
   </ul>
 
             </nav>
@@ -349,26 +349,63 @@
     <section class="article-content">
     
     
-    <h2 id="爲什麼要寫-blog">爲什麼要寫 blog
-</h2><p>這是一個實現自我的小天地，就是想學厲害的同事們寫寫 blog，隨手記錄自己曾經做過的事情，希望這些事情可以通過這種方式記錄到我的腦袋中。製作 blog 的方法有很多種，Medium、Hugo、Hexo、Jekyll&hellip;等。</p>
-<h2 id="爲什麼選擇用-hugo">爲什麼選擇用 Hugo
+    <h2 id="爲什麼選擇用-hugo">爲什麼選擇用 Hugo
 </h2><p>當初選擇使用 Hugo 有幾個原因：</p>
 <ol>
-<li>同事大部分都是用這個，如果有遇到問題會比較容易找到解答（就是一個偷懶的人）。</li>
 <li>像是 Medium 這種有自己的格式的 blog，一旦遇到文章搬家是一件非常困難的事情，Hugo 是以 Markdown 的方式撰寫，Markdown 是通用格式，相較之下能稍微無痛搬家。</li>
 <li>可以找喜歡的主題或是可以自己建立主題，創造專屬風格的 blog。</li>
 </ol>
-<hr>
-<p>以下為我在使用 Hugo 創建 blog 時參考的網站，希望對同樣使用 Windows 的朋友有幫助。此篇文章是懶人包，是我在建立 blog 所參考過的所有網站集合。</p>
 <h2 id="windows-怎麼建立-hugo">Windows 怎麼建立 Hugo？
-</h2><p>要先安裝 Chocolately 有點像是套件管理工具，類似 python 上面常使用的 pip。
-（有關 Chocolately，目前還沒有深入研究，也許之後文章更新？）
-安裝 Chocolately 的方法參考此<a class="link" href="https://www.liquidweb.com/kb/how-to-install-chocolatey-on-windows/"  target="_blank" rel="noopener"
-    >網站</a> 。</p>
+</h2><p>建議用 WSL 來安裝 Hugo，我試過用 chocolately、scoop 安裝，在 local 執行的時候會一直出問題。</p>
 <p>安裝 Hugo 的方法參考此篇<a class="link" href="https://blog.yowko.com/windows-10-hugo/"  target="_blank" rel="noopener"
-    >文章</a> ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。
-如果像我一樣對電腦只知一的讀者們，建議你們要先瞭解 Git 之後再進行，才會知道這些指令的意義。</p>
+    >文章</a> ，所需要的工具為 Git、golang、hugo，按照文章步驟進行就可以做出一個與文章主題一模一樣的 blog 出來。</p>
+<p>以下爲 Hugo 常用指令</p>
+<pre tabindex="0"><code># 檢查 hugo 版本
+hugo version
 
+# 建立一個新的 hugo 專案
+hugo new site {folder name}
+
+# 在 local 端執行，隱藏 draft
+hugo server
+
+# 在 local 端執行，並顯示 draft
+hugo server -D 
+hugo server --buildDrafts
+
+# 產生正式發布檔 
+hugo
+</code></pre><h2 id="如何把-hugo-部署到-github-page">如何把 hugo 部署到 github page？
+</h2><p>此篇<a class="link" href="https://jianzhnie.github.io/post/hugo_site/"  target="_blank" rel="noopener"
+    >文章</a>有詳細的步驟教學，請留意 hugo 的 config.toml 已經改爲 hugo.toml 囉~</p>
+<p>主要步驟：</p>
+<ol>
+<li>建立 github page repo（optional：再建一個 hugo 的 repo）</li>
+<li>hugo theme 可以使用 gitsubmodule 的方式 fork</li>
+<li>修改 hugo.toml 的設定，baseURL、theme&hellip;等</li>
+<li>執行 hugo server，建立或更新 public 資料夾（產生靜態網站）</li>
+<li>將 public push 到 github page repo</li>
+</ol>
+<p>以下爲 git 常用指令</p>
+<pre tabindex="0"><code># folder 初始化 git
+git init
+
+# 建立 remote repo 關係
+git remote add origin https://github.com/../repo
+
+# 檢查 remote 關係
+git remote -v
+
+# 移除 remote repo 關係
+git remote remove origin
+
+# 建立巢狀 repo
+# 在 themes/stack folder 中，建立巢狀 theme_repo（會記錄使用的版次）
+git submodule add https://github.com/.../theme_repo themes/stack
+
+# 同步 themes 的最新修改
+git submodule update --remote
+</code></pre>
 </section>
 
 
@@ -390,48 +427,6 @@
     
 
     
-
-<aside>
-    <h2 class="section-title">Related content</h2>
-    <div class="subsection-list">
-        <div class="article-list--tile">
-            
-                
-<article class="">
-    <a href="/posts/blog/how-to-use-hugo-theme/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">How to use Hugo themeg</h2>
-        </div>
-    </a>
-</article>
-            
-                
-<article class="">
-    <a href="/posts/blog/how-to-write-blog/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">How to write blog</h2>
-        </div>
-    </a>
-</article>
-            
-                
-<article class="">
-    <a href="/posts/my-first-post/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">My First MD</h2>
-        </div>
-    </a>
-</article>
-            
-        </div>
-    </div>
-</aside>
 
      
     

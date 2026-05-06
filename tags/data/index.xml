@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Data on Mia Hugo Project</title>
+        <link>http://mmmiachennn.github.io/tags/data/</link>
+        <description>Recent content in Data on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 05 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://mmmiachennn.github.io/tags/data/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Data Modeling</title>
+            <link>http://mmmiachennn.github.io/posts/data-base/data-modeling/</link>
+            <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/posts/data-base/data-modeling/</guid>
+            <description>&lt;h2 id=&#34;data-modeling&#34;&gt;Data Modeling&#xA;&lt;/h2&gt;&lt;p&gt;資料建模是資料庫中的資料呈現，實務上會在開發的過程中應應不同的需求，建立多個表來管理與維護。資料建模一部分是爲了後續的業務邏輯與分析，重新將原始資料整理過，來進行分類與管理。&lt;/p&gt;&#xA;&lt;h2 id=&#34;start-schema&#34;&gt;Start Schema&#xA;&lt;/h2&gt;&lt;p&gt;由一個事實表(fact)和多個維度表(dimensional)組成。在星型結構中，事實表會連接到多個維度表，因此資料模型看起來像星形。&lt;/p&gt;&#xA;&lt;p&gt;以電商資料爲例，商品銷售資訊，串聯不同的維度表，可以計算不同的指標，比如，當月商品購買人數、當月商品賣出數量、MOM 會員購買金額&amp;hellip;等。&lt;/p&gt;&#xA;&lt;p&gt;商品銷售事實表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;產品 ID、User ID、銷售金額&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;商品維度表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;商品 ID、商品名稱、商品分類 ID&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;會員維度表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;User ID、國家、城市&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;snowflake-schema&#34;&gt;Snowflake Schema&#xA;&lt;/h2&gt;&lt;p&gt;爲 Start Schema 的延伸，某些維度表可能會再產生一個或多個延伸維度表。當這些維度表放在一起形狀像雪花。&lt;/p&gt;&#xA;&lt;p&gt;商品維度表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;商品 ID、商品名稱、商品分類 ID&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;商品分類維度表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;商品分類 ID&lt;/li&gt;&#xA;&lt;li&gt;分類名稱&lt;/li&gt;&#xA;&lt;li&gt;商品標籤&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;galaxy-schema&#34;&gt;Galaxy Schema&#xA;&lt;/h2&gt;&lt;p&gt;結合 Snowflake Schema 與 Star Schema。多事實表的資料模型，也可以稱為 Galaxy Schema。&lt;/p&gt;&#xA;&lt;h2 id=&#34;何爲事實表與維度表&#34;&gt;何爲事實表與維度表&#xA;&lt;/h2&gt;&lt;p&gt;有關於事實表與維度表細節可參考&lt;a class=&#34;link&#34; href=&#34;https://ithelp.ithome.com.tw/articles/10358082&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;文章1&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-tw/power-bi/guidance/star-schema&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;文章2&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+        </item></channel>
+</rss>

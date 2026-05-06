@@ -11,16 +11,46 @@
     <loc>http://mmmiachennn.github.io/categories/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://mmmiachennn.github.io/categories/common-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://mmmiachennn.github.io/posts/blog/create-hugo-blog/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://mmmiachennn.github.io/posts/blog/how-to-use-hugo-theme/</loc>
+    <loc>http://mmmiachennn.github.io/tags/gcp/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://mmmiachennn.github.io/posts/blog/how-to-write-blog/</loc>
+    <loc>http://mmmiachennn.github.io/categories/git/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://mmmiachennn.github.io/posts/my-first-post/</loc>
+    <loc>http://mmmiachennn.github.io/tags/git/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/git-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/git/three-model-for-git/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/git/github-actions-yaml/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/tags/hadoop/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/hdfs-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/hive-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/git/how-to-use-github-cd-to-gcs-to-gce/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/tags/linux/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/linux-command/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://mmmiachennn.github.io/tags/note/</loc>
@@ -29,7 +59,22 @@
     <loc>http://mmmiachennn.github.io/posts/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://mmmiachennn.github.io/tags/redis/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/redis-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/screen-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/shell-script-command/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://mmmiachennn.github.io/tags/</loc>
+    <lastmod>2026-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/common-command/vim-command/</loc>
     <lastmod>2026-04-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://mmmiachennn.github.io/about/</loc>
@@ -38,13 +83,34 @@
     <loc>http://mmmiachennn.github.io/page/</loc>
     <lastmod>2026-01-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://mmmiachennn.github.io/posts/java/java-beginner/</loc>
+    <loc>http://mmmiachennn.github.io/tags/data/</loc>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/categories/data-base/</loc>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/data-base/data-modeling/</loc>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/tags/warehouse/</loc>
+    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/tags/airflow/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://mmmiachennn.github.io/categories/develop/</loc>
+    <loc>http://mmmiachennn.github.io/posts/python/airflow/airflow-command/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/posts/data-base/clickhouse/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://mmmiachennn.github.io/tags/olap/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/categories/python/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://mmmiachennn.github.io/tags/python/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://mmmiachennn.github.io/archives/</loc>

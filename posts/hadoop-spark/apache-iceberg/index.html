@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Iceberg Iceberg 會將資料表視為一系列資料檔案來管理，而非單純管理檔案，因此能提供結構定義演進、時間回溯，以及更有效率的查詢規劃等功能。\n用途 支援結構定義演進：與舊版資料表格式經常難以因應結構定義變更的情況不同，Iceberg 可讓結構定義順暢且安全地演進。您可以新增、刪除或重新命名資料欄，而不會中斷正在進行的查詢，也不需要花費高額費用遷移資料。 提供時間回溯功能：Iceberg 會保留資料表快照記錄，方便使用者查詢特定時間點的資料。這對於稽核、偵錯和重現分析結果非常有幫助。 最佳化查詢效能：Iceberg 的中繼資料管理功能可讓查詢引擎有效率地修剪不必要的資料檔案，大幅加快查詢執行速度，尤其是大型資料集。 協助落實資料治理：資料表版本管理和中繼資料管理等功能，可提供資料變更的清楚稽核追蹤記錄，有助於落實資料治理和法規遵循。 解決問題 缺乏結構定義演進功能：變更資料結構可能會變得複雜且容易出錯。 讀取作業不一致：並行的寫入作業可能會導致查詢讀取舊有和新資料的混合內容。 查詢效能緩慢：沒有中繼資料的情況下，查詢引擎通常必須掃描大量資料。 資料管理不易：沒有可用的時間回溯和版本管理等功能。 元件 iceberg 目錄：這個元件負責管理 Iceberg 資料表的中繼資料指標。這會做為中央註冊表，追蹤每個資料表的中繼資料目前版本。常見的目錄導入方式包括：\nHive Metastore：廣泛使用的中繼資料存放區，經常與以 Hadoop 為基礎的系統搭配使用。 檔案系統目錄：簡單的實作方式，目錄資訊會直接儲存在 data lake 檔案系統中。 雲端原生目錄服務：雲端服務供應商提供的代管服務，可用來儲存及管理中繼資料。 iceberg 中繼資料表：由多層中繼資料檔案組成，用於追蹤資料表的結構和資料。\n資料表中繼資料檔案：這個檔案會指向目前的資訊清單清單，並包含資料表的概要資訊，例如結構定義和分割規格。 資訊清單清單：這個檔案會列出資料表的特定快照中，含有資料檔案中繼資料的資訊清單檔案。 資訊清單檔案：這些檔案包含個別資料檔案的詳細資訊，包括位置、分區值和統計資料。 查詢引擎和處理框架：這些工具可與 Iceberg 資料表互動，讀取及寫入資料。這些引擎會運用 Iceberg 的中繼資料，來最佳化查詢規劃和執行作業。\n運算資源：運算資源是執行查詢引擎和處理框架的底層基礎架構 (例如虛擬機器和容器)。\n如何運作 中繼資料管理：Iceberg 會維護中繼資料檔案，這些檔案會說明資料表的結構定義、分區和資料檔案位置。這些中繼資料檔案通常會與資料一併儲存在 data lake 中。 目錄：Iceberg 會使用目錄，來追蹤每個資料表目前中繼資料的位置。這個目錄可以是 Hive Metastore 等服務、以檔案系統為基礎的實作，或是雲端原生目錄服務。 資料表快照：每次資料表發生變更 (例如新增資料、刪除資料或結構定義演進)，Iceberg 就會建立資料表中繼資料的新快照。這些快照不可變更，且會提供資料表狀態的歷來記錄。 資訊清單清單和資訊清單檔案：每個快照都會指向一個資訊清單清單，而清單則會列出一或多個清單檔案。清單檔案包含個別資料檔案的相關中繼資料，包括位置、分區值和統計資料 (例如資料列計數和值範圍)。 資料檔案：這些是實際的 Parquet、ORC 或 Avro 檔案，用於在 data lake 中儲存資料。Iceberg 的中繼資料會追蹤這些檔案，以及檔案在資料表中的組織方式。 實際應用 data/：儲存實體資料檔案（如 Parquet/Avro/ORC） 的目錄。 特性為 *immutable、append-only，並支援分區 (partition)。 metadata/：儲存 Iceberg 表的 metadata 與版本控管資訊，是整個表格格式的核心元件。 manifest： metadata/ 下的 Avro 檔，用於索引實體資料檔案，記錄資料的 metadata 如分區 (partition)、資料筆數 及 欄位統計值 等資訊。 snapshot： metadata/下用於記錄某一時點 Iceberg 表狀態的檔案。 缺點 在 HDFS 上，架設 Iceberg 與沒有 Iceberg的差異：\n">
+<title>Apache Iceberg</title>
+
+
+<link rel="canonical" href="http://localhost:1313/posts/hadoop-spark/apache-iceberg/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.389e156f5e9bb13df5a924cfa99dfb9c39f3e01e68d9e146cd65bdae963be145.css"><meta property='og:title' content="Apache Iceberg">
+<meta property='og:description' content="Iceberg Iceberg 會將資料表視為一系列資料檔案來管理，而非單純管理檔案，因此能提供結構定義演進、時間回溯，以及更有效率的查詢規劃等功能。\n用途 支援結構定義演進：與舊版資料表格式經常難以因應結構定義變更的情況不同，Iceberg 可讓結構定義順暢且安全地演進。您可以新增、刪除或重新命名資料欄，而不會中斷正在進行的查詢，也不需要花費高額費用遷移資料。 提供時間回溯功能：Iceberg 會保留資料表快照記錄，方便使用者查詢特定時間點的資料。這對於稽核、偵錯和重現分析結果非常有幫助。 最佳化查詢效能：Iceberg 的中繼資料管理功能可讓查詢引擎有效率地修剪不必要的資料檔案，大幅加快查詢執行速度，尤其是大型資料集。 協助落實資料治理：資料表版本管理和中繼資料管理等功能，可提供資料變更的清楚稽核追蹤記錄，有助於落實資料治理和法規遵循。 解決問題 缺乏結構定義演進功能：變更資料結構可能會變得複雜且容易出錯。 讀取作業不一致：並行的寫入作業可能會導致查詢讀取舊有和新資料的混合內容。 查詢效能緩慢：沒有中繼資料的情況下，查詢引擎通常必須掃描大量資料。 資料管理不易：沒有可用的時間回溯和版本管理等功能。 元件 iceberg 目錄：這個元件負責管理 Iceberg 資料表的中繼資料指標。這會做為中央註冊表，追蹤每個資料表的中繼資料目前版本。常見的目錄導入方式包括：\nHive Metastore：廣泛使用的中繼資料存放區，經常與以 Hadoop 為基礎的系統搭配使用。 檔案系統目錄：簡單的實作方式，目錄資訊會直接儲存在 data lake 檔案系統中。 雲端原生目錄服務：雲端服務供應商提供的代管服務，可用來儲存及管理中繼資料。 iceberg 中繼資料表：由多層中繼資料檔案組成，用於追蹤資料表的結構和資料。\n資料表中繼資料檔案：這個檔案會指向目前的資訊清單清單，並包含資料表的概要資訊，例如結構定義和分割規格。 資訊清單清單：這個檔案會列出資料表的特定快照中，含有資料檔案中繼資料的資訊清單檔案。 資訊清單檔案：這些檔案包含個別資料檔案的詳細資訊，包括位置、分區值和統計資料。 查詢引擎和處理框架：這些工具可與 Iceberg 資料表互動，讀取及寫入資料。這些引擎會運用 Iceberg 的中繼資料，來最佳化查詢規劃和執行作業。\n運算資源：運算資源是執行查詢引擎和處理框架的底層基礎架構 (例如虛擬機器和容器)。\n如何運作 中繼資料管理：Iceberg 會維護中繼資料檔案，這些檔案會說明資料表的結構定義、分區和資料檔案位置。這些中繼資料檔案通常會與資料一併儲存在 data lake 中。 目錄：Iceberg 會使用目錄，來追蹤每個資料表目前中繼資料的位置。這個目錄可以是 Hive Metastore 等服務、以檔案系統為基礎的實作，或是雲端原生目錄服務。 資料表快照：每次資料表發生變更 (例如新增資料、刪除資料或結構定義演進)，Iceberg 就會建立資料表中繼資料的新快照。這些快照不可變更，且會提供資料表狀態的歷來記錄。 資訊清單清單和資訊清單檔案：每個快照都會指向一個資訊清單清單，而清單則會列出一或多個清單檔案。清單檔案包含個別資料檔案的相關中繼資料，包括位置、分區值和統計資料 (例如資料列計數和值範圍)。 資料檔案：這些是實際的 Parquet、ORC 或 Avro 檔案，用於在 data lake 中儲存資料。Iceberg 的中繼資料會追蹤這些檔案，以及檔案在資料表中的組織方式。 實際應用 data/：儲存實體資料檔案（如 Parquet/Avro/ORC） 的目錄。 特性為 *immutable、append-only，並支援分區 (partition)。 metadata/：儲存 Iceberg 表的 metadata 與版本控管資訊，是整個表格格式的核心元件。 manifest： metadata/ 下的 Avro 檔，用於索引實體資料檔案，記錄資料的 metadata 如分區 (partition)、資料筆數 及 欄位統計值 等資訊。 snapshot： metadata/下用於記錄某一時點 Iceberg 表狀態的檔案。 缺點 在 HDFS 上，架設 Iceberg 與沒有 Iceberg的差異：\n">
+<meta property='og:url' content='http://localhost:1313/posts/hadoop-spark/apache-iceberg/'>
+<meta property='og:site_name' content='Mia Hugo Project'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='hadoop' /><meta property='article:published_time' content='2025-04-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Apache Iceberg">
+<meta name="twitter:description" content="Iceberg Iceberg 會將資料表視為一系列資料檔案來管理，而非單純管理檔案，因此能提供結構定義演進、時間回溯，以及更有效率的查詢規劃等功能。\n用途 支援結構定義演進：與舊版資料表格式經常難以因應結構定義變更的情況不同，Iceberg 可讓結構定義順暢且安全地演進。您可以新增、刪除或重新命名資料欄，而不會中斷正在進行的查詢，也不需要花費高額費用遷移資料。 提供時間回溯功能：Iceberg 會保留資料表快照記錄，方便使用者查詢特定時間點的資料。這對於稽核、偵錯和重現分析結果非常有幫助。 最佳化查詢效能：Iceberg 的中繼資料管理功能可讓查詢引擎有效率地修剪不必要的資料檔案，大幅加快查詢執行速度，尤其是大型資料集。 協助落實資料治理：資料表版本管理和中繼資料管理等功能，可提供資料變更的清楚稽核追蹤記錄，有助於落實資料治理和法規遵循。 解決問題 缺乏結構定義演進功能：變更資料結構可能會變得複雜且容易出錯。 讀取作業不一致：並行的寫入作業可能會導致查詢讀取舊有和新資料的混合內容。 查詢效能緩慢：沒有中繼資料的情況下，查詢引擎通常必須掃描大量資料。 資料管理不易：沒有可用的時間回溯和版本管理等功能。 元件 iceberg 目錄：這個元件負責管理 Iceberg 資料表的中繼資料指標。這會做為中央註冊表，追蹤每個資料表的中繼資料目前版本。常見的目錄導入方式包括：\nHive Metastore：廣泛使用的中繼資料存放區，經常與以 Hadoop 為基礎的系統搭配使用。 檔案系統目錄：簡單的實作方式，目錄資訊會直接儲存在 data lake 檔案系統中。 雲端原生目錄服務：雲端服務供應商提供的代管服務，可用來儲存及管理中繼資料。 iceberg 中繼資料表：由多層中繼資料檔案組成，用於追蹤資料表的結構和資料。\n資料表中繼資料檔案：這個檔案會指向目前的資訊清單清單，並包含資料表的概要資訊，例如結構定義和分割規格。 資訊清單清單：這個檔案會列出資料表的特定快照中，含有資料檔案中繼資料的資訊清單檔案。 資訊清單檔案：這些檔案包含個別資料檔案的詳細資訊，包括位置、分區值和統計資料。 查詢引擎和處理框架：這些工具可與 Iceberg 資料表互動，讀取及寫入資料。這些引擎會運用 Iceberg 的中繼資料，來最佳化查詢規劃和執行作業。\n運算資源：運算資源是執行查詢引擎和處理框架的底層基礎架構 (例如虛擬機器和容器)。\n如何運作 中繼資料管理：Iceberg 會維護中繼資料檔案，這些檔案會說明資料表的結構定義、分區和資料檔案位置。這些中繼資料檔案通常會與資料一併儲存在 data lake 中。 目錄：Iceberg 會使用目錄，來追蹤每個資料表目前中繼資料的位置。這個目錄可以是 Hive Metastore 等服務、以檔案系統為基礎的實作，或是雲端原生目錄服務。 資料表快照：每次資料表發生變更 (例如新增資料、刪除資料或結構定義演進)，Iceberg 就會建立資料表中繼資料的新快照。這些快照不可變更，且會提供資料表狀態的歷來記錄。 資訊清單清單和資訊清單檔案：每個快照都會指向一個資訊清單清單，而清單則會列出一或多個清單檔案。清單檔案包含個別資料檔案的相關中繼資料，包括位置、分區值和統計資料 (例如資料列計數和值範圍)。 資料檔案：這些是實際的 Parquet、ORC 或 Avro 檔案，用於在 data lake 中儲存資料。Iceberg 的中繼資料會追蹤這些檔案，以及檔案在資料表中的組織方式。 實際應用 data/：儲存實體資料檔案（如 Parquet/Avro/ORC） 的目錄。 特性為 *immutable、append-only，並支援分區 (partition)。 metadata/：儲存 Iceberg 表的 metadata 與版本控管資訊，是整個表格格式的核心元件。 manifest： metadata/ 下的 Avro 檔，用於索引實體資料檔案，記錄資料的 metadata 如分區 (partition)、資料筆數 及 欄位統計值 等資訊。 snapshot： metadata/下用於記錄某一時點 Iceberg 表狀態的檔案。 缺點 在 HDFS 上，架設 Iceberg 與沒有 Iceberg的差異：\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Mia Hugo Project</a></h1>
+            <h2 class="site-description">This is params.[sidebar].</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ul>
+    <li><a href="#用途">用途</a></li>
+    <li><a href="#解決問題">解決問題</a></li>
+    <li><a href="#元件">元件</a></li>
+    <li><a href="#如何運作">如何運作</a></li>
+    <li><a href="#實際應用">實際應用</a>
+      <ul>
+        <li><a href="#缺點">缺點</a></li>
+      </ul>
+    </li>
+  </ul>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/hadoop-spark/" style="background-color: hsl(21, 60%, 84%); color: hsl(21, 60%, 15%);">
+                Hadoop Spark
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/hadoop-spark/apache-iceberg/">Apache Iceberg</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-04-21T00:00:00Z'>Monday, April 21, 2025</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        1 minute read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ul>
+    <li><a href="#用途">用途</a></li>
+    <li><a href="#解決問題">解決問題</a></li>
+    <li><a href="#元件">元件</a></li>
+    <li><a href="#如何運作">如何運作</a></li>
+    <li><a href="#實際應用">實際應用</a>
+      <ul>
+        <li><a href="#缺點">缺點</a></li>
+      </ul>
+    </li>
+  </ul>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h1 id="iceberg">Iceberg
+</h1><p>Iceberg 會將資料表視為一系列資料檔案來管理，而非單純管理檔案，因此能提供結構定義演進、時間回溯，以及更有效率的查詢規劃等功能。</p>
+<h2 id="用途">用途
+</h2><ul>
+<li>支援結構定義演進：與舊版資料表格式經常難以因應結構定義變更的情況不同，Iceberg 可讓結構定義順暢且安全地演進。您可以新增、刪除或重新命名資料欄，而不會中斷正在進行的查詢，也不需要花費高額費用遷移資料。</li>
+<li>提供時間回溯功能：Iceberg 會保留資料表快照記錄，方便使用者查詢特定時間點的資料。這對於稽核、偵錯和重現分析結果非常有幫助。</li>
+<li>最佳化查詢效能：Iceberg 的中繼資料管理功能可讓查詢引擎有效率地修剪不必要的資料檔案，大幅加快查詢執行速度，尤其是大型資料集。</li>
+<li>協助落實資料治理：資料表版本管理和中繼資料管理等功能，可提供資料變更的清楚稽核追蹤記錄，有助於落實資料治理和法規遵循。</li>
+</ul>
+<h2 id="解決問題">解決問題
+</h2><ul>
+<li>缺乏結構定義演進功能：變更資料結構可能會變得複雜且容易出錯。</li>
+<li>讀取作業不一致：並行的寫入作業可能會導致查詢讀取舊有和新資料的混合內容。</li>
+<li>查詢效能緩慢：沒有中繼資料的情況下，查詢引擎通常必須掃描大量資料。</li>
+<li>資料管理不易：沒有可用的時間回溯和版本管理等功能。</li>
+</ul>
+<h2 id="元件">元件
+</h2><ul>
+<li>
+<p>iceberg 目錄：這個元件負責管理 Iceberg 資料表的<strong>中繼資料指標</strong>。這會做為中央註冊表，追蹤每個資料表的中繼資料目前版本。常見的目錄導入方式包括：</p>
+<ol>
+<li>Hive Metastore：廣泛使用的中繼資料存放區，經常與以 Hadoop 為基礎的系統搭配使用。</li>
+<li>檔案系統目錄：簡單的實作方式，目錄資訊會直接儲存在 data lake 檔案系統中。</li>
+<li>雲端原生目錄服務：雲端服務供應商提供的代管服務，可用來儲存及管理中繼資料。</li>
+</ol>
+</li>
+<li>
+<p>iceberg 中繼資料表：由多層中繼資料檔案組成，用於追蹤資料表的結構和資料。</p>
+<ol>
+<li>資料表中繼資料檔案：這個檔案會指向目前的資訊清單清單，並包含資料表的概要資訊，例如結構定義和分割規格。</li>
+<li>資訊清單清單：這個檔案會列出資料表的特定快照中，含有資料檔案中繼資料的資訊清單檔案。</li>
+<li>資訊清單檔案：這些檔案包含個別資料檔案的詳細資訊，包括位置、分區值和統計資料。</li>
+</ol>
+</li>
+<li>
+<p>查詢引擎和處理框架：這些工具可與 Iceberg 資料表互動，讀取及寫入資料。這些引擎會運用 Iceberg 的中繼資料，來最佳化查詢規劃和執行作業。</p>
+</li>
+<li>
+<p>運算資源：運算資源是執行查詢引擎和處理框架的底層基礎架構 (例如虛擬機器和容器)。</p>
+</li>
+</ul>
+<h2 id="如何運作">如何運作
+</h2><ul>
+<li>中繼資料管理：Iceberg 會維護中繼資料檔案，這些檔案會說明資料表的結構定義、分區和資料檔案位置。這些中繼資料檔案通常會與資料一併儲存在 data lake 中。</li>
+<li>目錄：Iceberg 會使用目錄，來追蹤每個資料表目前中繼資料的位置。這個目錄可以是 Hive Metastore 等服務、以檔案系統為基礎的實作，或是雲端原生目錄服務。</li>
+<li>資料表快照：每次資料表發生變更 (例如新增資料、刪除資料或結構定義演進)，Iceberg 就會建立資料表中繼資料的新快照。這些快照不可變更，且會提供資料表狀態的歷來記錄。</li>
+<li>資訊清單清單和資訊清單檔案：每個快照都會指向一個資訊清單清單，而清單則會列出一或多個清單檔案。清單檔案包含個別資料檔案的相關中繼資料，包括位置、分區值和統計資料 (例如資料列計數和值範圍)。</li>
+<li>資料檔案：這些是實際的 Parquet、ORC 或 Avro 檔案，用於在 data lake 中儲存資料。Iceberg 的中繼資料會追蹤這些檔案，以及檔案在資料表中的組織方式。</li>
+</ul>
+<h2 id="實際應用">實際應用
+</h2><ol>
+<li>data/：儲存實體資料檔案（如 Parquet/Avro/ORC） 的目錄。 特性為 *immutable、append-only，並支援分區 (partition)。</li>
+<li>metadata/：儲存 Iceberg 表的 metadata 與版本控管資訊，是整個表格格式的核心元件。</li>
+<li>manifest： metadata/ 下的 Avro 檔，用於索引實體資料檔案，記錄資料的 metadata 如分區 (partition)、資料筆數 及 欄位統計值 等資訊。</li>
+<li>snapshot： metadata/下用於記錄某一時點 Iceberg 表狀態的檔案。</li>
+</ol>
+<h3 id="缺點">缺點
+</h3><p>在 HDFS 上，架設 Iceberg 與沒有 Iceberg的差異：</p>
+<ol>
+<li>
+<p>有 Iceberge 的佔用空間會比較多，因爲 iceberg 有 immutable，有任何修改或是刪除會有新的檔案來記錄這件事情，並且 iceberg 會保留多個快照。（可以設定 expire snapshots、remove orphan files、rewrite data files）</p>
+<ul>
+<li>Expire Snapshots (過期快照)： 定期執行清理指令，刪除過期的快照。一旦快照過期且不再被任何現有快照引用，Iceberg 就會真正從 HDFS 刪除那些物理檔案。</li>
+<li>Remove Orphan Files (移除孤兒檔案)： 清理那些因為程序異常中斷而殘留在 HDFS 上、但不屬於任何快照的無用檔案。</li>
+<li>Rewrite Data Files (檔案合併)： 定期將碎小的檔案或帶有大量 Delete files 的檔案合併成大檔案，這能優化讀取效能並回收空間。</li>
+</ul>
+</li>
+</ol>
+<p>append 的話，不影響空間，在頻繁的執行 update/delete 的時候，空間會迅速增長</p>
+<ol start="2">
+<li>需要建立自動化的維護排程</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hadoop/">Hadoop</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">Related content</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/hadoop-spark/apache-livy/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache Livy</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/gcp/dataproc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dataproc</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/gcp/google-cloud-storage/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Google Cloud Storage</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/hadoop-spark/install-hadoop/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Install Hadoop</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/posts/hadoop-spark/kudu/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Kudu</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Mia Hugo Project
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.e22c6acba772b54437962647ea242d5718d512810172147dbbf3eab3ae1415fd.js" defer></script>
+
+
+    </body>
+</html>

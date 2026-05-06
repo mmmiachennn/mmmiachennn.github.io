@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Design on Mia Hugo Project</title>
+        <link>http://localhost:1313/categories/design/</link>
+        <description>Recent content in Design on Mia Hugo Project</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 21 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/design/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Data Design</title>
+            <link>http://localhost:1313/posts/design/data-design/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/posts/design/data-design/</guid>
+            <description>&lt;h2 id=&#34;數據密集型&#34;&gt;數據密集型&#xA;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;database：儲存資料、可讀取資料&lt;/li&gt;&#xA;&lt;li&gt;caches：運算複雜度高的cache&lt;/li&gt;&#xA;&lt;li&gt;search indexes：關鍵字搜尋&lt;/li&gt;&#xA;&lt;li&gt;stream processing：即時分析&lt;/li&gt;&#xA;&lt;li&gt;batch processing：batch 分析&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;計算密集型&#34;&gt;計算密集型&#xA;&lt;/h2&gt;&lt;h2 id=&#34;可靠性&#34;&gt;可靠性&#xA;&lt;/h2&gt;&lt;p&gt;即使出現錯誤也能繼續正常工作&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;能預料且應對故障的系統稱爲容錯（fault-tolerant）或韌性（resilient）&lt;/li&gt;&#xA;&lt;li&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;lambda-結構&#34;&gt;lambda 結構&#xA;&lt;/h1&gt;&lt;p&gt;1， 流處理器消耗事件並快速生成對視圖的近似更新&#xA;2， 批處理器稍後將使用同一組事件並衍生視圖的更正版本&lt;/p&gt;&#xA;&lt;h1 id=&#34;大架構資訊&#34;&gt;大架構資訊&#xA;&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://akuma1.pixnet.net/blog/post/170528855&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;https://akuma1.pixnet.net/blog/post/170528855&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;define-data&#34;&gt;Define DATA&#xA;&lt;/h1&gt;&lt;p&gt;所有資料只要沒有可以辨別的 id 或 複合 id 一律爲不合格資料&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;無法驗證資料的正確性&lt;/li&gt;&#xA;&lt;li&gt;處理資料也有困難&lt;/li&gt;&#xA;&lt;li&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;</description>
+        </item></channel>
+</rss>

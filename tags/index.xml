@@ -6,16 +6,70 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://mmmiachennn.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Gcp</title>
+            <link>http://mmmiachennn.github.io/tags/gcp/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/gcp/</guid>
+            <description></description>
+        </item><item>
+            <title>Git</title>
+            <link>http://mmmiachennn.github.io/tags/git/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/git/</guid>
+            <description></description>
+        </item><item>
+            <title>Hadoop</title>
+            <link>http://mmmiachennn.github.io/tags/hadoop/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/hadoop/</guid>
+            <description></description>
+        </item><item>
+            <title>Linux</title>
+            <link>http://mmmiachennn.github.io/tags/linux/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/linux/</guid>
+            <description></description>
+        </item><item>
             <title>Note</title>
             <link>http://mmmiachennn.github.io/tags/note/</link>
             <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
             <guid>http://mmmiachennn.github.io/tags/note/</guid>
             <description></description>
         </item><item>
-            <title>OLAP</title>
+            <title>Redis</title>
+            <link>http://mmmiachennn.github.io/tags/redis/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/redis/</guid>
+            <description></description>
+        </item><item>
+            <title>Data</title>
+            <link>http://mmmiachennn.github.io/tags/data/</link>
+            <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/data/</guid>
+            <description></description>
+        </item><item>
+            <title>Warehouse</title>
+            <link>http://mmmiachennn.github.io/tags/warehouse/</link>
+            <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/warehouse/</guid>
+            <description></description>
+        </item><item>
+            <title>Airflow</title>
+            <link>http://mmmiachennn.github.io/tags/airflow/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/airflow/</guid>
+            <description></description>
+        </item><item>
+            <title>Olap</title>
             <link>http://mmmiachennn.github.io/tags/olap/</link>
             <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
             <guid>http://mmmiachennn.github.io/tags/olap/</guid>
+            <description></description>
+        </item><item>
+            <title>Python</title>
+            <link>http://mmmiachennn.github.io/tags/python/</link>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/tags/python/</guid>
             <description></description>
         </item></channel>
 </rss>

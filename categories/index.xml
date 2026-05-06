@@ -12,10 +12,28 @@
             <guid>http://mmmiachennn.github.io/categories/blog/</guid>
             <description></description>
         </item><item>
-            <title>Develop</title>
-            <link>http://mmmiachennn.github.io/categories/develop/</link>
+            <title>Common Command</title>
+            <link>http://mmmiachennn.github.io/categories/common-command/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/categories/common-command/</guid>
+            <description></description>
+        </item><item>
+            <title>Git</title>
+            <link>http://mmmiachennn.github.io/categories/git/</link>
+            <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/categories/git/</guid>
+            <description></description>
+        </item><item>
+            <title>Data Base</title>
+            <link>http://mmmiachennn.github.io/categories/data-base/</link>
+            <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+            <guid>http://mmmiachennn.github.io/categories/data-base/</guid>
+            <description></description>
+        </item><item>
+            <title>Python</title>
+            <link>http://mmmiachennn.github.io/categories/python/</link>
             <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
-            <guid>http://mmmiachennn.github.io/categories/develop/</guid>
+            <guid>http://mmmiachennn.github.io/categories/python/</guid>
             <description></description>
         </item></channel>
 </rss>
